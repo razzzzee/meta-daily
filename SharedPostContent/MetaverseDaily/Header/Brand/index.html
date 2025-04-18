@@ -1,0 +1,28 @@
+<script>
+      var datetime=new Date().getTime();
+      $('#MetaverseDailyTicker').load('/Ticker?'+datetime);
+</script>
+
+
+<span class='global-header-glyph-main'>
+    <a href='/home'>
+        <img src="/static/Image/metaversedaily1.png" style="height: 100px; width: 100px; border-radius: 7%;"/>
+    </a>
+</span>
+<span class="global-header-glyph-mini">
+    <div class="glyph-with-text">
+        <a href='/home'>
+            <img src="/static/Image/metaversedaily.png" style="height: 50px; width: 50px; border-radius: 7%;"/>
+        </a>
+    </div>
+    <div class="glyph-without-text" id="glyph-without-text-id" style="box-shadow:0 4px 2px -2px rgba(0, 0, 0, 0.15);">
+        <div  style="float:left;">
+            <a href='/home'>
+                <img src="/static/Image/metaversedaily.png" style="height: 50px; width: 50px; border-radius: 7%; z-index: 5; margin-top:18px;"/>
+            </a>
+        </div>
+        <div style="margin-top:0px; margin-bottom:0px; padding-right:50px;height:80px; width:100%;">
+            <ul class='marquee' id="MetaverseDailyTicker"></ul>
+        </div>
+    </div>
+</span>

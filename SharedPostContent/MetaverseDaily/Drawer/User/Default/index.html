@@ -1,0 +1,56 @@
+<div style="display:inline;" id="divMemberLogin">
+    <h2 style="color:#E30022; font-size: 45px; font-family: inherit; font-weight: 700; font-style: inherit;">Member Login</h2>
+    <form class='form login-form' method='post' id="MemberLoginForm">
+        <fieldset class='form-bd'>
+            <div data-csrf></div>
+            <div class='field-group'>
+                <label>
+                    Email:
+                </label>
+                <div class='field custom-input '>
+                    <input id='txtMemberEmail' type='email' name='username' required  style="font-size: larger;">
+                </div>
+            </div>
+            <div class='field-group'>
+                <label>
+                    Password:
+                </label>
+                <div class='field custom-input '>
+                    <input id='txtMemberPassword' type='password' name='password' required style="font-size: larger;">
+                </div>
+            </div>
+            <div class='field-group'>
+                <label>
+                    Login As:
+                </label>
+                <div class='field custom-input '>
+                    <select id="pickerLoginAs" style="font-size:Larger; border-color: lightgrey; border-top:none; border-left:none;border-right:none; font-weight: 400; color:#201f20; outline: none;     font-family: inherit;font-weight: 400;font-style: inherit;" required>
+                        <option disabled="disabled" value="" selected>Select Role</option>
+                        <option value="Member">Member</option>
+                        <option value="Partner">Partner</option>
+                        <option value="Merchant">Merchant</option>
+                        <option value="Educator">Educator</option>
+                        <option value="UniversityCouncil">University Council</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <footer class='form-ft' style="margin-top:10px;">
+            <div class='button-group'>
+                <input id="btnMemberLogin" type='submit' class='button form-submit' value='Log in to the new world' style="border-radius:7px;"/>
+                <a href="/signin" class='button variant-cta' value="Login Options" style="border-radius:7px;">Login Options</a>   
+            </div>
+            <div><svg id="MemberLoginLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 512 512"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg></div>
+        
+            <div class="link-group">
+                <a class="form-link" href="/memberaccess" style="font-size:14px;">
+                    Member Access Required? Apply for Membership.
+                </a>
+                <a class="form-link" href='/contact' style="font-size:14px;">
+                    Forgot your password?
+                </a>
+            </div>
+        </footer>
+    </form>
+</div>

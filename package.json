@@ -1,16 +1,37 @@
 {
-  "name": "express-hello-world",
+  "name": "meta daily",
   "version": "1.0.0",
-  "description": "Express Hello World on Render",
+  "description": "meta daily broadcasting",
   "main": "app.js",
-  "repository": "https://github.com/render-examples/express-hello-world",
-  "author": "Render Developers",
+  "repository": "https://github.com/razzzzee/meta-daily.git",
+  "author": "Rahul Yadav - rahulyadav2005@live.com",
   "license": "MIT",
   "private": false,
   "scripts": {
     "start": "node app.js"
   },
+  "author": "Rahul Yadav",
+  "license": "Proprietary",
   "dependencies": {
-    "express": "^5.0.0"
+    "bcrypt": "^5.1.1",
+    "child_process": "^1.0.2",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "csv-stringify": "^6.4.5",
+    "dataframe-js": "^1.4.4",
+    "download": "^3.3.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-useragent": "^1.0.15",
+    "fast-csv": "^5.0.1",
+    "flexsearch": "^0.7.43",
+    "got": "^14.2.1",
+    "handlebars": "^4.7.8",
+    "json-2-csv": "^5.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.8",
+    "path": "^0.12.7",
+    "qr-image": "^3.2.0",
+    "text-to-image": "^5.2.0"
   }
 }
