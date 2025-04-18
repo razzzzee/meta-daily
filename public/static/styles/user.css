@@ -1,0 +1,23 @@
+#avatar {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+}
+
+#drawer-avatar {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+#rail-avatar {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}

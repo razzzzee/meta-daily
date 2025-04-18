@@ -1,0 +1,725 @@
+#HeroContent {
+  animation: fadeIn 9s infinite;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+
+  2% {
+    opacity: 0.3;
+  }
+
+  5% {
+    opacity: 0.5;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.8;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.module-layout.module:hover {
+  transform: scale(1.5);
+}
+
+.module {
+  transition: all .2s ease-in-out;
+}
+
+.listing-layout-item:hover {
+  transform: scale(1.009);
+}
+
+.listing-layout-item {
+  transition: all .2s ease-in-out;
+}
+
+.filter-rail:before,
+.mobile-companion-rail:before,
+.rail-content .rail-meta .icon svg path {
+  fill: #a0a0a0;
+}
+
+.rail:before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  color: #201f20;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 6.25vw;
+  padding-bottom: 82px;
+}
+
+.rail-nav-list li {
+  transition: all .2s ease-in-out;
+  color: #201f20;
+}
+
+.rail-content .rail-meta {
+  color: #a0a0a0;
+}
+
+.rail-content .rail-meta .icon svg path {
+  fill: #a0a0a0;
+}
+
+.rail-nav-list li:hover {
+  transform: scale(1.01);
+}
+
+.rail-nav-list li {
+  transition: all .2s ease-in-out;
+}
+
+.image-block-image {
+  width: 100%;
+  height: 450px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .image-block-image {
+    width: 350px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .image-block-image {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+.updates-list {
+  color: #a0a0a0;
+  margin-left: 0%;
+  float: left;
+  padding-bottom: 20px;
+}
+
+.updates-list-container {
+  width: 100%;
+  padding-top: 0px;
+  margin-left: 0%;
+  margin-right: 10%;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .updates-list {
+    padding-left: inherit;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .updates-list {
+    padding-left: inherit;
+  }
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .updates-list-container {
+    padding: inherit;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .updates-list-container {
+    padding: inherit;
+  }
+}
+
+.variant-x3 .listing-content-width {
+  width: 100%;
+}
+
+.listing-content-width {
+  width: 100%;
+}
+
+.listing-layout .listing-content {
+  width: 65%;
+}
+
+.listing-layout .listing-thumb {
+  width: 14vw;
+  height: 14vw;
+}
+
+@media screen and (max-width:1080px) {
+  .listing-content-width {
+    width: inherit;
+  }
+}
+
+.fillersection {
+  height: 0px;
+  margin-top: -150px;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .fillersection {
+    height: max-content;
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .fillersection {
+    height: max-content;
+    margin-top: 200px;
+  }
+}
+
+.pagination-prev {
+  display: inline;
+  float: left;
+  padding-left: 40px;
+  visibility: visible;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .pagination-prev {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .pagination-prev {
+    padding-left: 10px;
+  }
+}
+
+.pagination-next {
+  display: inline;
+  float: right;
+  padding-right: 40px;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .pagination-next {
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .pagination-next {
+    padding-right: 10px;
+  }
+}
+
+.pagination-next:hover {
+  color: #00aeef;
+}
+
+.pagination-next {
+  transition: all .1s ease-in-out;
+}
+
+.pagination-side-panel-left {
+  position: relative;
+  left: 340%;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+}
+
+.pagination-side-panel-left .pagination-next {
+  font-size: 35px;
+}
+
+.pagination-side-panel-right {
+  position: relative;
+  left: 0%;
+  margin-top: -10px;
+  padding-top: 0px;
+  margin-bottom: 40px;
+}
+
+.pagination-side-panel-right .pagination-next {
+  font-size: 35px;
+}
+
+.pagination .pagination-next:hover {
+  /* to black */
+  /*filter: invert(1);*/
+  /* or to blue */
+  cursor: pointer;
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.pagination-next {
+  /* to black */
+  /*filter: invert(1);*/
+  /* or to blue */
+  z-index: 55;
+}
+
+.logo-image-share:hover {
+  /* to black */
+  /*filter: invert(1);*/
+  /* or to blue */
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.logo-image-like:hover {
+  /* to black */
+  /*filter: invert(1);*/
+  /* or to blue */
+  cursor: pointer;
+  filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);
+}
+
+dialog {
+  padding: 1rem 3rem;
+  background: white;
+  max-width: 550px;
+  padding-top: 2rem;
+  border-radius: 20px;
+  border: 0;
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  -webkit-animation: fadeInDialog 1s ease both;
+  animation: fadeInDialog 1s ease both;
+}
+
+dialog::-webkit-backdrop {
+  -webkit-animation: fadeInDialog 1s ease both;
+  animation: fadeInDialog 1s ease both;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+
+dialog::backdrop {
+  -webkit-animation: fadeInDialog 1s ease both;
+  animation: fadeInDialog 1s ease both;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+
+dialog .x {
+  filter: grayscale(1);
+  border: none;
+  background: none;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  transition: ease filter, transform 0.3s;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+dialog .x:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+dialog h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+dialog p {
+  font-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0.5rem 0;
+}
+
+dialog p a:visited {
+  color: rgb(var(--vs-primary));
+}
+
+button.primary {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #fff !important;
+  background: rgb(var(--vs-primary)/100%);
+  padding: 13px 25px;
+  border-radius: 17px;
+  transition: background-color 0.1s ease;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -10px rgb(var(--vs-primary)/50%);
+}
+
+button.primary:hover {
+  box-shadow: 0 20px 20px -10px rgb(var(--vs-primary)/50%);
+  transform: translateY(-5px);
+}
+
+@-webkit-keyframes fadeInDialog {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDialog {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#SubscribeLoader {
+  animation: spin 1s linear infinite;
+  visibility: hidden;
+}
+
+#SubscribeLoader.display {
+  visibility: visible;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#MemberLoginLoader {
+  animation: spin 1s linear infinite;
+  visibility: hidden;
+}
+
+#MemberLoginLoader.display {
+  visibility: visible;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#ScreenSizeLoader {
+  animation: spin 3s linear infinite;
+  visibility: visible;
+}
+
+#ScreenSizeLoader.display {
+  visibility: visible;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#avatar {
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+  background-image: url('/static/Image/Shared/Help2.png');
+  /* make a square container */
+  width: 40px;
+  height: 40px;
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+  /* center the image vertically and horizontally */
+  background-position: top center;
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+}
+
+.marquee {
+  width: 1080px;
+  overflow: hidden;
+  background: white;
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  height: 80px;
+}
+
+ul.marquee li {
+  display: inline;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+ul.marquee p.ticker-module-title {
+  color: #a0a0a0;
+}
+
+.hero-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 1);
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  height: 80px;
+}
+
+ul.hero-marquee li {
+  display: inline;
+  font-size: 30px;
+  font-weight: 700;
+  opacity: 1;
+}
+
+ul.hero-marquee p.ticker-module-title {
+  color: #d0d0d0;
+}
+
+.btn-floating-hover {
+  transition: all .2s linear;
+  background-color: rgba(0, 0, 0, .9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+}
+
+.btn-floating-hover:hover {
+  transform: scale(1.2);
+}
+
+.btn-floating-hover:hover {
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+}
+
+.chat-button {
+  padding: 20px 15px;
+  background: rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  width: 175px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 999999;
+  transition: all .2s linear;
+}
+
+.ScrollableBody::-webkit-scrollbar {
+  width: 1px;
+}
+
+.ScrollableBody::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.ScrollableBody::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.ScrollableDrawer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ScrollableDrawer::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.ScrollableDrawer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.main-content-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.main-content-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.main-content-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.metaversedaily-raillayout-module-head {
+  border-radius: 10px;
+  width: 97%;
+  background-size: 100%;
+  background-position: 100% 100%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 4px, rgba(17, 17, 26, 0.1) 0px 4px 4px;
+}
+
+.metaversedaily-rail-layout .module {
+  margin: 10px;
+}
+
+.metaversedaily-modulelayout-module-head {
+  border-radius: 10px;
+  width: 100%;
+  background-size: 100%;
+  background-position: 100% 100%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 4px, rgba(17, 17, 26, 0.1) 0px 4px 4px;
+}
+
+.metaversedaily-module-layout .module {
+  margin: 10px;
+  border: 10px solid white;
+}
+
+.metaversedaily-rail-layout .overlay {
+  width: -webkit-fill-available;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* Black see-through */
+  transition: .5s ease;
+  opacity: 1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.metaversedaily-rail-layout .variant-x2 .overlay {
+  padding: 40px;
+}
+
+.metaversedaily-brand {
+  margin-top: 0px;
+}
+
+.metaversedaily-hero-marquee {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  z-index: 99999;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.post-button-group {
+  width: 90%;
+}
+
+@media screen and (max-width:1080px) and (min-width:761px) {
+  .post-button-group {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:760px) {
+  .post-button-group {
+    width: 100%;
+  }
+}
+
+.twitter-tweet {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.instagram-media {
+  margin-left: auto;
+  margin-right: auto;
+}
