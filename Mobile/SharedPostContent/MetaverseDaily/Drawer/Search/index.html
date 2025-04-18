@@ -1,0 +1,31 @@
+<form id='global-search' style="margin-top:-100px;">
+    <fieldset class='field-group'>
+        <label>
+            Find News, Research, Events etc.
+        </label>
+        <fieldset class='field autocomplete variant-search variant-single-value variant-no-prefetch'
+            data-single-value='true' data-endpoint='/searchresult'>
+            <div class='autocomplete-drop-menu '>
+                <i class='search-icon'>
+                    <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
+                        x='0px' y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                        xml:space='preserve'>
+                        <title>Search</title>
+                        <path
+                            d='M3.939,21.06c-0.583-0.583-0.583-1.541,0-2.125l5.104-5.082c-0.667-1.042-1.042-2.291-1.042-3.603 c0-3.729,3.021-6.749,6.748-6.749c3.729,0,6.749,3.02,6.749,6.749c0,3.728-3.021,6.748-6.749,6.748 c-1.312,0-2.562-0.375-3.603-1.042L6.064,21.06C5.48,21.644,4.522,21.644,3.939,21.06z M14.749,14.749 c2.479,0,4.499-2.02,4.499-4.499s-2.021-4.499-4.499-4.499s-4.498,2.021-4.498,4.499S12.27,14.749,14.749,14.749z' />
+                    </svg>
+                </i>
+                <div class='field custom-input' data-ignore='true'>
+                    <input class='autocomplete-control drop-menu-control' type='text' placeholder=''
+                        autocomplete='off' />
+                </div>
+                <ul class='autocomplete-results' style="margin-left:-25px;">
+                    <h2 style="margin-left:20px; font-size:25px; font-weight: 700; margin-top:30px; margin-bottom:10px; color:darkgray;">Top Search Results</h2>
+                    <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container' style="width:100%;"
+                        id="MetaverseDailyTopSearchResults">
+                    </div>
+                </ul>
+            </div>
+        </fieldset>
+    </fieldset>
+</form>

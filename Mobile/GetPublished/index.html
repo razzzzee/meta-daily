@@ -1,0 +1,2811 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-77T4QBSXXP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-77T4QBSXXP');
+    </script>
+
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/authorization.js'></script>
+    <script src="/static/scripts/bundles/mobile/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/preloads.js'></script>
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/postSharedContent.js"></script>
+
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' />
+    <meta name='msapplication-tap-highlight' content='no' />
+    <meta name='description'
+        content='Metaverse Daily is a Broadcasting and Media Publishing as a platform for metaverse explorers.' />
+    <meta name="subject" content="Broadcasting and Media Publishing">
+    <meta name="copyright" content="Metaverse Daily">
+    <meta name="url" content="https://www.metaversedaily.world">
+    <meta name="identifier-URL" content="https://www.metaversedaily.world">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="keywords"
+        content="metaverse, metaverse daily, Get Published, spatial, virtual, virtualreality, augmentreality, vr, ar, events, videos, offers, broadcasting, media, content, publishing, platform, news, art, generative ai, digital art" />
+    <meta property='og:url' content='https://www.metaversedaily.world' />
+    <meta property='og:title' content='Metaverse Daily' />
+    <meta property='og:description'
+        content='Metaverse Daily is a Broadcasting and Media Publishing as a platform for metaverse explorers.' />
+    <meta property='og:image' content='/static/Image/metaversedaily.png' />
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content='Metaverse Daily' />
+    <meta property='og:base_page_key' content='GetPublished' />
+    <meta property='og:base_page_name' content='GetPublished' />
+    <meta property='og:page_key' content='GetPublished' />
+    <meta property='og:page_name' content='GetPublished' />
+    <meta property='og:announcement' content='1' />
+    <meta property='og:show-announcement' content='1' />
+    <meta name='twitter:url' content='https://www.metaversedaily.world' />
+    <meta name='twitter:title' content='Metaverse Daily - Get Published' />
+    <meta name='twitter:description'
+        content='Metaverse Daily is a Broadcasting and Media Publishing as a platform for metaverse explorers.' />
+    <meta name='twitter:image' content='/static/Image/metaversedaily.png' />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@metaverse_daily' />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <title>Metaverse Daily - Get Published</title>
+
+    <link rel='icon' type='image/x-icon' href='/static/Image/metaversedaily.png' />
+    <link rel='stylesheet' type='text/css' href='/static/styles/mobile/app.min.css' />
+    <link rel='stylesheet' type='text/css' href='/static/styles/mobile/shortcuts.css' />
+    <link rel='stylesheet' href='/static/styles/mobile/royal_preloader.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="/static/styles/mobile/butterup.min.css" />
+    <link rel="stylesheet" href="/static/styles/mobile/mainpageaddon.css" />
+    <link rel="stylesheet" href="/static/styles/mobile/jodit.min.css" />
+
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/royal_preloader.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/butterup.min.js"></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/multistepform.js'></script>
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/AppDownload.js"></script>
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/addonmainpage.js"></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/announcement.js'></script>
+
+    <script>
+        mlScripts = [];
+    </script>
+
+
+    <style>
+        html {
+            --black: #000000;
+            --white: #ffffff;
+            --darkest: #101010;
+            --darker: #16171A;
+            --dark: #A3AFBF;
+            --medium: #DFE7EF;
+            --light: #CAD4E1;
+            --lighter: #F5F8FC;
+            --lightest: var(--white);
+            --primary: #7B16FF;
+            --primary-light: #DDD9FF;
+            --primary-trans: rgba(123, 22, 255, 0.4);
+            --yellow: #FDCB6E;
+            --orange: #E17055;
+            --teal: #00CEC9;
+            --bg: var(--darkest);
+            --color: var(--lightest);
+            --surface: var(--darker);
+        }
+
+        .leader-board h1,
+        .leader-board h2,
+        .leader-board h3,
+        .leader-board h4,
+        .leader-board h5,
+        .leader-board h6 {
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-family: "Oswald", system-ui;
+        }
+
+        .leader-board a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 120ms ease-out 0s;
+            display: inline-block;
+            border-radius: 0.4rem;
+        }
+
+        .leader-board a:hover {
+            background: var(--primary-trans);
+            color: var(--primary-light);
+            box-shadow: 0px 0px 0px 0.4rem var(--primary-trans);
+        }
+
+        .leader-board button,
+        textarea,
+        input,
+        select {
+            color: inherit;
+        }
+
+        .leader-board button:active,
+        button:focus,
+        textarea:active,
+        textarea:focus,
+        input:active,
+        input:focus,
+        select:active,
+        select:focus {
+            outline: 0;
+        }
+
+        .leader-board button,
+        select {
+            cursor: pointer;
+        }
+
+        .leader-board.l-wrapper {
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+            padding: 1.6rem 1.6rem 3.2rem;
+        }
+
+        .l-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: 1.6rem;
+            grid-row-gap: 1.6rem;
+            position: relative;
+        }
+
+        @media screen and (max-width: 700px) {
+            .l-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .c-header {
+            padding: 1.6rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.4rem;
+            position: relative;
+        }
+
+        .c-header:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 0.2rem;
+            background: var(--primary-trans);
+        }
+
+        .c-card {
+            border-radius: 0.8rem;
+            background: var(--surface);
+            width: 100%;
+            margin-bottom: 1.6rem;
+            box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+        }
+
+        .c-card__body,
+        .c-card__header {
+            padding: 2.4rem;
+        }
+
+        @media screen and (max-width: 700px) {
+
+            .c-card__body,
+            .c-card__header {
+                padding: 1.2rem;
+            }
+        }
+
+        .c-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-card__header {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-place {
+                transform: translateY(4px);
+            }
+        }
+
+        .c-logo {
+            display: inline-block;
+            width: 100%;
+            max-width: 17.6rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .c-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .c-list__item {
+            padding: 1.6rem 0;
+        }
+
+        .c-list__item .c-flag {
+            margin-top: 0.8rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-list__item .c-flag {
+                margin-top: 0.4rem;
+            }
+        }
+
+        .c-list__item_publication_reward_rally {
+            padding: 1.6rem 0;
+        }
+
+        .c-list__item_publication_reward_rally .c-flag {
+            margin-top: 0.8rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-list__item_publication_reward_rally .c-flag {
+                margin-top: 0.4rem;
+            }
+        }
+
+
+        .c-list__item_participation_reward_rally {
+            padding: 1.6rem 0;
+        }
+
+        .c-list__item_participation_reward_rally .c-flag {
+            margin-top: 0.8rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-list__item_participation_reward_rally .c-flag {
+                margin-top: 0.4rem;
+            }
+        }
+
+        .c-list__grid {
+            display: grid;
+            grid-template-columns: 4.8rem 3fr 1fr;
+            grid-column-gap: 2.4rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-list__grid {
+                grid-template-columns: 3.2rem 3fr 1fr;
+                grid-column-gap: 0.8rem;
+            }
+        }
+
+        .c-media {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .c-media__content {
+            padding-left: 1.6rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-media__content {
+                padding-left: 0.8rem;
+            }
+        }
+
+        .c-media__title {
+            margin-bottom: 0.4rem;
+            color: #ffffff;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-media__title {
+                font-size: 1.4rem;
+            }
+        }
+
+        .c-avatar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4.8rem;
+            height: 4.8rem;
+            box-shadow: inset 0px 0px 0px 1px currentColor;
+            border-radius: 50%;
+            background: var(--lightest);
+            color: var(--dark);
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-avatar {
+                width: 3.2rem;
+                height: 3.2rem;
+            }
+        }
+
+        .c-avatar--lg {
+            width: 9.6rem;
+            height: 9.6rem;
+        }
+
+        .c-button {
+            display: inline-block;
+            background: var(--dark);
+            border: 0;
+            border-radius: 0.4rem;
+            padding: 1.2rem 2rem;
+            transition: all 120ms ease-out 0s;
+        }
+
+        .c-button--block {
+            display: block;
+            width: 100%;
+        }
+
+        .c-button:hover,
+        .c-button:focus {
+            filter: brightness(0.9);
+        }
+
+        .c-button:focus {
+            box-shadow: 0px 0px 0px 0.4rem var(--primary-trans);
+        }
+
+        .c-button:active {
+            box-shadow: 0px 0px 0px 0.4rem var(--primary-trans), inset 0px 0px 0.8rem rgba(0, 0, 0, 0.2);
+            filter: brightness(0.8);
+        }
+
+        .c-select {
+            background: transparent;
+            padding: 1.2rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-size: 1.4rem;
+            border-color: rgba(255, 255, 255, 0.2);
+            transition: all 120ms ease-out 0s;
+        }
+
+        .c-select:hover {
+            background: var(--darkest);
+        }
+
+        .c-flag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            background: var(--lightest);
+            color: var(--dark);
+            border-radius: 0.4rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .c-flag {
+                width: 2.4rem;
+                height: 2.4rem;
+            }
+        }
+
+        .c-button--light {
+            background: var(--lightest);
+        }
+
+        .c-button--primary {
+            background: var(--primary);
+        }
+
+        .c-button--dark {
+            background: var(--darkest);
+        }
+
+        .c-button--transparent {
+            background: transparent;
+        }
+
+        .c-button--medium {
+            background: var(--medium);
+        }
+
+        .c-button--yellow {
+            background: var(--yellow);
+        }
+
+        .c-button--orange {
+            background: var(--orange);
+        }
+
+        .c-button--teal {
+            background: var(--teal);
+        }
+
+        .c-button--light-gradient {
+            background: linear-gradient(to top, var(--light), var(--lightest));
+        }
+
+        .u-text--title {}
+
+        .u-text--left {
+            text-align: left;
+        }
+
+        .u-text--center {
+            text-align: center;
+        }
+
+        .u-text--right {
+            text-align: right;
+        }
+
+        .u-bg--light {
+            background: var(--lightest) !important;
+        }
+
+        .u-text--light {
+            color: var(--lightest) !important;
+        }
+
+        .u-bg--primary {
+            background: var(--primary) !important;
+        }
+
+        .u-text--primary {
+            color: var(--primary) !important;
+        }
+
+        .u-bg--dark {
+            background: var(--darkest) !important;
+        }
+
+        .u-text--dark {
+            color: var(--darkest) !important;
+        }
+
+        .u-bg--transparent {
+            background: transparent !important;
+        }
+
+        .u-text--transparent {
+            color: transparent !important;
+        }
+
+        .u-bg--medium {
+            background: var(--medium) !important;
+        }
+
+        .u-text--medium {
+            color: var(--medium) !important;
+        }
+
+        .u-bg--yellow {
+            background: var(--yellow) !important;
+        }
+
+        .u-text--yellow {
+            color: var(--yellow) !important;
+        }
+
+        .u-bg--orange {
+            background: var(--orange) !important;
+        }
+
+        .u-text--orange {
+            color: var(--orange) !important;
+        }
+
+        .u-bg--teal {
+            background: var(--teal) !important;
+        }
+
+        .u-text--teal {
+            color: var(--teal) !important;
+        }
+
+        .u-bg--light-gradient {
+            background: linear-gradient(to top, var(--light), var(--lightest)) !important;
+        }
+
+        .u-text--light-gradient {
+            color: linear-gradient(to top, var(--light), var(--lightest)) !important;
+        }
+
+        .u-display--flex {
+            display: flex;
+        }
+
+        .u-align--center {
+            align-items: center;
+        }
+
+        .u-justify--center {
+            justify-content: center;
+        }
+
+        .u-align--flex-end {
+            align-items: flex-end;
+        }
+
+        .u-justify--flex-end {
+            justify-content: flex-end;
+        }
+
+        .u-align--flex-start {
+            align-items: flex-start;
+        }
+
+        .u-justify--flex-start {
+            justify-content: flex-start;
+        }
+
+        .u-align--space-between {
+            align-items: space-between;
+        }
+
+        .u-justify--space-between {
+            justify-content: space-between;
+        }
+
+        .u-text--small {
+            font-size: 1.4rem;
+        }
+
+        .u-pl--2 {
+            padding-left: 0.2rem;
+        }
+
+        .u-ml--2 {
+            margin-left: 0.2rem;
+        }
+
+        .u-pr--2 {
+            padding-right: 0.2rem;
+        }
+
+        .u-mr--2 {
+            margin-right: 0.2rem;
+        }
+
+        .u-pb--2 {
+            padding-bottom: 0.2rem;
+        }
+
+        .u-mb--2 {
+            margin-bottom: 0.2rem;
+        }
+
+        .u-pt--2 {
+            padding-top: 0.2rem;
+        }
+
+        .u-mt--2 {
+            margin-top: 0.2rem;
+        }
+
+        .u-pl--4 {
+            padding-left: 0.4rem;
+        }
+
+        .u-ml--4 {
+            margin-left: 0.4rem;
+        }
+
+        .u-pr--4 {
+            padding-right: 0.4rem;
+        }
+
+        .u-mr--4 {
+            margin-right: 0.4rem;
+        }
+
+        .u-pb--4 {
+            padding-bottom: 0.4rem;
+        }
+
+        .u-mb--4 {
+            margin-bottom: 0.4rem;
+        }
+
+        .u-pt--4 {
+            padding-top: 0.4rem;
+        }
+
+        .u-mt--4 {
+            margin-top: 0.4rem;
+        }
+
+        .u-pl--8 {
+            padding-left: 0.8rem;
+        }
+
+        .u-ml--8 {
+            margin-left: 0.8rem;
+        }
+
+        .u-pr--8 {
+            padding-right: 0.8rem;
+        }
+
+        .u-mr--8 {
+            margin-right: 0.8rem;
+        }
+
+        .u-pb--8 {
+            padding-bottom: 0.8rem;
+        }
+
+        .u-mb--8 {
+            margin-bottom: 0.8rem;
+        }
+
+        .u-pt--8 {
+            padding-top: 0.8rem;
+        }
+
+        .u-mt--8 {
+            margin-top: 0.8rem;
+        }
+
+        .u-pl--16 {
+            padding-left: 1.6rem;
+        }
+
+        .u-ml--16 {
+            margin-left: 1.6rem;
+        }
+
+        .u-pr--16 {
+            padding-right: 1.6rem;
+        }
+
+        .u-mr--16 {
+            margin-right: 1.6rem;
+        }
+
+        .u-pb--16 {
+            padding-bottom: 1.6rem;
+        }
+
+        .u-mb--16 {
+            margin-bottom: 1.6rem;
+        }
+
+        .u-pt--16 {
+            padding-top: 1.6rem;
+        }
+
+        .u-mt--16 {
+            margin-top: 1.6rem;
+        }
+
+        .u-pl--24 {
+            padding-left: 2.4rem;
+        }
+
+        .u-ml--24 {
+            margin-left: 2.4rem;
+        }
+
+        .u-pr--24 {
+            padding-right: 2.4rem;
+        }
+
+        .u-mr--24 {
+            margin-right: 2.4rem;
+        }
+
+        .u-pb--24 {
+            padding-bottom: 2.4rem;
+        }
+
+        .u-mb--24 {
+            margin-bottom: 2.4rem;
+        }
+
+        .u-pt--24 {
+            padding-top: 2.4rem;
+        }
+
+        .u-mt--24 {
+            margin-top: 2.4rem;
+        }
+
+        .u-pl--32 {
+            padding-left: 3.2rem;
+        }
+
+        .u-ml--32 {
+            margin-left: 3.2rem;
+        }
+
+        .u-pr--32 {
+            padding-right: 3.2rem;
+        }
+
+        .u-mr--32 {
+            margin-right: 3.2rem;
+        }
+
+        .u-pb--32 {
+            padding-bottom: 3.2rem;
+        }
+
+        .u-mb--32 {
+            margin-bottom: 3.2rem;
+        }
+
+        .u-pt--32 {
+            padding-top: 3.2rem;
+        }
+
+        .u-mt--32 {
+            margin-top: 3.2rem;
+        }
+    </style>
+
+</head>
+
+<body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="royal_preloader"></div>
+    <div class='global-container'>
+        <div class='global-container-membrane'>
+            <header class='global-header '>
+                <div class='glyph global-header-glyph shim-svgs'>
+                    <a href='/home'>
+                        <span class='global-header-glyph-main'>
+                            <img src="/static/Image/metaversedaily.png"
+                                style="height: 100px; width: 100px; border-radius: 7%;" />
+                        </span>
+                        <span class="global-header-glyph-mini">
+                            <div class="glyph-with-text">
+                                <img src="/static/Image/metaversedaily.png"
+                                    style="height: 50px; width: 50px; border-radius: 7%;" />
+                            </div>
+                            <div class="glyph-without-text">
+                                <img src="/static/Image/metaversedaily.png"
+                                    style="height: 50px; width: 50px; border-radius: 7%;" />
+                            </div>
+                        </span>
+                    </a>
+                </div>
+                <nav class='global-header-nav'>
+                    <ul class='global-header-nav-list' id="MetaverseDailyHeaderNavList">
+                    </ul>
+                </nav>
+            </header>
+
+            <div class='global-drawer ScrollableDrawer' tabindex='0'>
+                <section class='global-drawer-pane' data-pane='search' id="MetaverseDailyDrawerSearch">
+                </section>
+                <section class='global-drawer-pane' data-pane='user' id="MetaverseDailyDrawerUser">
+                </section>
+                <section class='global-drawer-pane' data-pane='nav' id="MetaverseDailyDrawerMenu">
+                </section>
+            </div>
+            <div class='global-page '>
+                <div id='MetaverseDailyHeroContent'>
+                </div>
+
+                <div class='rail-layout'>
+                    <div class='mobile-companion-rail'>
+                        <div class='rail-content' id="MetaverseDailyRail">
+                        </div>
+                    </div>
+
+                    <div class='rail-layout-body'>
+                        <div class='stream'>
+                            <div style="margin-top:30px;">
+                                <header class='auxsection-hd' style="margin-top:0px;">
+                                    <span class='updates-list'
+                                        style="margin-left:0px; margin-top:-20px;">Leaderboard</span>
+                                </header>
+                            </div>
+                            <header class='auxsection-hd'>
+                                <div style="float:right; margin-top:-20px;">
+                                    <div class='button-group'>
+                                        <a id="OpenPublishDialogButton" type='submit' class='button variant-secondary'
+                                            value='Write /' style="border-radius:7px; font-size:20px; width:100%;">
+                                            <span style="margin:auto;">
+                                                Write /-</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </header>
+
+                            <div class="leader-board" style="margin-top:80px;">
+                                <div class="l-wrapper">
+                                    <div class="l-grid">
+                                        <div class="l-grid__item l-grid__item--sticky">
+                                            <div class="c-card" style="margin-left:0%;">
+                                                <div class="c-card__body">
+                                                    <div class="u-text--center" id="winner"></div>
+                                                </div>
+                                            </div>
+                                            <div class="c-card" style="margin-left:0%;">
+                                                <div class="c-card__body">
+                                                    <div class="u-text--center" id="publication-winner">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-card" style="margin-left:0%;">
+                                                <div class="c-card__body">
+                                                    <div class="u-text--center" id="participation-winner">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-card" style="margin-left:0%;">
+                                                <div class="c-card__body">
+                                                    <div class="u-text--center" id="community-winner"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="l-grid__item">
+                                            <div class="c-card" style="margin-left:0%;">
+                                                <div class="c-card__body">
+                                                    <ul class="c-list" id="list">
+                                                        <li class="c-list__item">
+                                                            <div class="c-list__grid">
+                                                                <div class="u-text--left u-text--small u-text--medium">
+                                                                    Rank</div>
+                                                                <div class="u-text--left u-text--small u-text--medium">
+                                                                    Player</div>
+                                                                <div class="u-text--right u-text--small u-text--medium">
+                                                                    #Score</div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <style>
+                                .ScrollableGetPublishedHowItWorksForm::-webkit-scrollbar {
+                                    width: 1px;
+                                }
+
+                                .ScrollableGetPublishedHowItWorksForm::-webkit-scrollbar-track {
+                                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                                    border-radius: 10px;
+                                }
+
+                                .ScrollableGetPublishedHowItWorksForm::-webkit-scrollbar-thumb {
+                                    border-radius: 10px;
+                                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+                                }
+
+                                .hexa {
+                                    border: 0px;
+                                    float: left;
+                                    text-align: center;
+                                    height: 35px;
+                                    width: 60px;
+                                    font-size: 22px;
+                                    background: #f0f0f0;
+                                    color: #3c3c3c;
+                                    position: relative;
+                                    margin-top: 15px;
+                                }
+
+                                .hexa:before {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    width: 0;
+                                    height: 0;
+                                    border-bottom: 15px solid #f0f0f0;
+                                    border-left: 30px solid transparent;
+                                    border-right: 30px solid transparent;
+                                    top: -15px;
+                                }
+
+                                .hexa:after {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    width: 0;
+                                    height: 0;
+                                    border-left: 30px solid transparent;
+                                    border-right: 30px solid transparent;
+                                    border-top: 15px solid #f0f0f0;
+                                    bottom: -15px;
+                                }
+
+                                .timeline {
+                                    position: relative;
+                                    padding: 0;
+                                    width: 100%;
+                                    margin-top: 20px;
+                                    list-style-type: none;
+                                }
+
+                                .timeline:before {
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 0;
+                                    content: ' ';
+                                    display: block;
+                                    width: 2px;
+                                    height: 100%;
+                                    margin-left: -1px;
+                                    background: rgb(213, 213, 213);
+                                    background: -moz-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+                                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 1)), color-stop(100%, rgba(125, 185, 232, 1)));
+                                    background: -webkit-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+                                    background: -o-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+                                    background: -ms-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+                                    background: linear-gradient(to bottom, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+                                    z-index: 5;
+                                }
+
+                                .timeline li {
+                                    padding: 2em 0;
+                                }
+
+                                .timeline .hexa {
+                                    width: 16px;
+                                    height: 10px;
+                                    position: absolute;
+                                    background: #00c4f3;
+                                    z-index: 5;
+                                    left: 0;
+                                    right: 0;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    top: -30px;
+                                    margin-top: 0;
+                                }
+
+                                .timeline .hexa:before {
+                                    border-bottom: 4px solid #00c4f3;
+                                    border-left-width: 8px;
+                                    border-right-width: 8px;
+                                    top: -4px;
+                                }
+
+                                .timeline .hexa:after {
+                                    border-left-width: 8px;
+                                    border-right-width: 8px;
+                                    border-top: 4px solid #00c4f3;
+                                    bottom: -4px;
+                                }
+
+                                .direction-l,
+                                .direction-r {
+                                    float: none;
+                                    width: 100%;
+                                    text-align: center;
+                                }
+
+                                .flag-wrapper {
+                                    text-align: center;
+                                    position: relative;
+                                }
+
+                                .flag {
+                                    position: relative;
+                                    display: inline;
+                                    background: rgb(255, 255, 255);
+                                    font-weight: 600;
+                                    z-index: 15;
+                                    padding: 6px 10px;
+                                    text-align: left;
+                                    border-radius: 5px;
+                                }
+
+                                .direction-l .flag:after,
+                                .direction-r .flag:after {
+                                    content: "";
+                                    position: absolute;
+                                    left: 50%;
+                                    top: -15px;
+                                    height: 0;
+                                    width: 0;
+                                    margin-left: -8px;
+                                    border: solid transparent;
+                                    border-bottom-color: rgb(255, 255, 255);
+                                    border-width: 8px;
+                                    pointer-events: none;
+                                }
+
+                                .direction-l .flag {
+                                    -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                    -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                }
+
+                                .direction-r .flag {
+                                    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+                                }
+
+                                .time-wrapper {
+                                    display: block;
+                                    position: relative;
+                                    margin: 4px 0 0 0;
+                                    z-index: 14;
+                                    line-height: 1em;
+                                    vertical-align: middle;
+                                    color: #fff;
+                                }
+
+                                .direction-l .time-wrapper {
+                                    float: none;
+                                }
+
+                                .direction-r .time-wrapper {
+                                    float: none;
+                                }
+
+                                .time {
+                                    background: #00c4f3;
+                                    display: inline-block;
+                                    padding: 8px;
+                                }
+
+                                .desc {
+                                    position: relative;
+                                    margin: 1em 0 0 0;
+                                    padding: 1em;
+                                    background: rgb(254, 254, 254);
+                                    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
+                                    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
+                                    box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
+                                    z-index: 15;
+                                }
+
+                                .direction-l .desc,
+                                .direction-r .desc {
+                                    position: relative;
+                                    margin: 1em 1em 0 1em;
+                                    padding: 1em;
+                                    z-index: 15;
+                                }
+
+                                @media(min-width: 768px) {
+                                    .timeline {
+                                        width: 660px;
+                                        margin: 0 auto;
+                                        margin-top: 20px;
+                                    }
+
+                                    .timeline li:after {
+                                        content: "";
+                                        display: block;
+                                        height: 0;
+                                        clear: both;
+                                        visibility: hidden;
+                                    }
+
+                                    .timeline .hexa {
+                                        left: -28px;
+                                        right: auto;
+                                        top: 8px;
+                                    }
+
+                                    .timeline .direction-l .hexa {
+                                        left: auto;
+                                        right: -28px;
+                                    }
+
+                                    .direction-l {
+                                        position: relative;
+                                        width: 310px;
+                                        float: left;
+                                        text-align: right;
+                                    }
+
+                                    .direction-r {
+                                        position: relative;
+                                        width: 310px;
+                                        float: right;
+                                        text-align: left;
+                                    }
+
+                                    .flag-wrapper {
+                                        display: inline-block;
+                                    }
+
+                                    .flag {
+                                        font-size: 18px;
+                                    }
+
+                                    .direction-l .flag:after {
+                                        left: auto;
+                                        right: -16px;
+                                        top: 50%;
+                                        margin-top: -8px;
+                                        border: solid transparent;
+                                        border-left-color: rgb(254, 254, 254);
+                                        border-width: 8px;
+                                    }
+
+                                    .direction-r .flag:after {
+                                        top: 50%;
+                                        margin-top: -8px;
+                                        border: solid transparent;
+                                        border-right-color: rgb(254, 254, 254);
+                                        border-width: 8px;
+                                        left: -8px;
+                                    }
+
+                                    .time-wrapper {
+                                        display: inline;
+                                        vertical-align: middle;
+                                        margin: 0;
+                                    }
+
+                                    .direction-l .time-wrapper {
+                                        float: left;
+                                    }
+
+                                    .direction-r .time-wrapper {
+                                        float: right;
+                                    }
+
+                                    .time {
+                                        padding: 5px 10px;
+                                    }
+
+                                    .direction-r .desc {
+                                        margin: 1em 0 0 0.75em;
+                                    }
+                                }
+
+                                @media(min-width: 992px) {
+                                    .timeline {
+                                        width: 800px;
+                                        margin: 0 auto;
+                                        margin-top: 20px;
+                                    }
+
+                                    .direction-l {
+                                        position: relative;
+                                        width: 380px;
+                                        float: left;
+                                        text-align: right;
+                                    }
+
+                                    .direction-r {
+                                        position: relative;
+                                        width: 380px;
+                                        float: right;
+                                        text-align: left;
+                                    }
+                                }
+                            </style>
+
+                            <dialog id="GetPublishishedHowItWorksDialog"
+                                style="max-width:100%; height:550px;overflow-y:hidden; overflow-x: hidden; margin-top:50px;">
+                                <div>
+                                    <h2>How it Works</h2>
+                                    <div style="width:110%; margin-top:10px;">
+                                        <div style="float:left; width:100%;">
+                                            <div style="height:500px;  overflow-y:scroll; margin-left:-30px;"
+                                                class="ScrollableGetPublishedHowItWorksForm"
+                                                id="ScrollableGetPublishedHowItWorksForm">
+                                                <div style="margin-top:0px; padding-right:20px; padding-left:40px;">
+                                                    <div class='module-excerpt'>
+                                                        <ul style="list-style-type: disc;">
+                                                            <li>
+                                                                <p>
+                                                                    Publications and Participations are
+                                                                    offered by Digital
+                                                                    Universities or by Educators with
+                                                                    association to
+                                                                    Digital Universities.
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    Publications and Participations provide
+                                                                    learners to
+                                                                    collaborate with other learners along
+                                                                    with
+                                                                    educators to get more insights on forum
+                                                                    purpose.
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div style="margin-top:20px; padding-right:20px; ">
+                                                    <div class='module-excerpt'>
+                                                        <ul class="timeline">
+                                                            <!-- Item 1 -->
+                                                            <li>
+                                                                <div class="direction-r">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">1 - Get Columnist
+                                                                            Membership</span>
+                                                                    </div>
+                                                                    <div class="desc">
+                                                                        First step is to apply for columnist
+                                                                        membership for start writing.
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <!-- Item 2 -->
+                                                            <!-- Item 2 -->
+                                                            <li>
+                                                                <div class="direction-l">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">2 - Start
+                                                                            Writing</span>
+                                                                    </div>
+                                                                    <div class="desc">Explore challenges to
+                                                                        participate directly to platform or
+                                                                        in community run activities. Every
+                                                                        particiation go through Hybrid AI
+                                                                        review cycle to safeguarding
+                                                                        community guidelines.</div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="direction-r">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">3 - Score for
+                                                                            Leaderboard</span>
+                                                                    </div>
+                                                                    <div class="desc">For every publication
+                                                                        challenge 100 score points rewared
+                                                                        and 50 score points for
+                                                                        participation challenge. </div>
+                                                                </div>
+                                                            </li>
+                                                            <!-- Item 3 -->
+                                                            <li>
+                                                                <div class="direction-l">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">4 - Earn Reward
+                                                                            Points</span>
+                                                                    </div>
+                                                                    <div class="desc">Start earning reward
+                                                                        points for every participation. Our
+                                                                        Built-in AI would assign points
+                                                                        respective to your participation
+                                                                        quality and your membership options.
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="direction-r">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">5 - Use Earned
+                                                                            Points</span>
+                                                                    </div>
+                                                                    <div class="desc">Earned points can be
+                                                                        redeemed on official NFTs and
+                                                                        programs run by Digital
+                                                                        Universities. More you participate,
+                                                                        more your get from our platform.
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="direction-l">
+                                                                    <div class="flag-wrapper">
+                                                                        <span class="hexa"></span>
+                                                                        <span class="flag">6 - Get Eligible
+                                                                            for NFT mints</span>
+                                                                    </div>
+                                                                    <div class="desc">Your reward points
+                                                                        makes you eligible for frequent NFT
+                                                                        miniting from Digital Universities
+                                                                        and Our Platform.</div>
+                                                                </div>
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <div class='button-group' style="float:right; padding-bottom:20px;">
+                                                        <button class='button variant-cta'
+                                                            style="border-radius:7px; font-size:20px;"
+                                                            onclick="CloseGetPublishedHowItWorksDialog();">Done</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button id="CloseGetPublishedHowItWorksDialogButton"
+                                        onclick="CloseGetPublishedHowItWorksDialog();" aria-label="close" class="x">
+                                        <svg version='1.1' xmlns='http://www.w3.org/2000/svg'
+                                            xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='25'
+                                            height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                                            xml:space='preserve'>
+                                            <path
+                                                d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+                                        </svg>
+                                    </button>
+
+                                </div>
+                            </dialog>
+                        </div>
+
+                        <section class='' style="margin-top:50px;">
+                            <div>
+                                <header class='auxsection-hd' style="margin-top:0px;">
+                                    <span class='updates-list' style="margin-left:0px;">Rewards Tally</span>
+                                </header>
+                            </div>
+                        </section>
+
+                        <section class='auxsection'>
+                            <div class='stream'>
+                                <header class='auxsection-hd' style="margin-top:0px;">
+                                    <span class='updates-list'
+                                        style="margin-left:0px; font-size:40px;color:#3c3c3c;">Publications</span>
+                                </header>
+                                <div class="leader-board">
+                                    <div class="l-wrapper">
+                                        <div class="c-header" style="visibility:hidden;">
+                                        </div>
+                                        <div class="l-grid" style="margin-top:-50px;">
+                                            <div class="l-grid__item">
+                                                <div class="c-card" style="margin-left:0%;width:100%;">
+                                                    <div class="c-card__body">
+                                                        <ul class="c-list" id="publication_reward_rally_list">
+                                                            <li class="c-list__item_publication_reward_rally">
+                                                                <div class="c-list__grid">
+                                                                    <div
+                                                                        class="u-text--left u-text--small u-text--medium">
+                                                                        Rank</div>
+                                                                    <div
+                                                                        class="u-text--left u-text--small u-text--medium">
+                                                                        Player</div>
+                                                                    <div
+                                                                        class="u-text--right u-text--small u-text--medium">
+                                                                        #Score</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='stream'>
+                                <header class='auxsection-hd' style="margin-top:20px;">
+                                    <span class='updates-list'
+                                        style="margin-left:0px; font-size:40px;color:#3c3c3c;">Participations</span>
+                                </header>
+                                <div class="leader-board">
+                                    <div class="l-wrapper">
+                                        <div class="c-header" style="visibility:hidden;">
+                                        </div>
+                                        <div class="l-grid" style="margin-top:-50px;">
+                                            <div class="l-grid__item">
+                                                <div class="c-card" style="margin-left:0%; width:100%;">
+                                                    <div class="c-card__body">
+                                                        <ul class="c-list" id="participation_reward_rally_list">
+                                                            <li class="c-list__item_participation_reward_rally">
+                                                                <div class="c-list__grid">
+                                                                    <div
+                                                                        class="u-text--left u-text--small u-text--medium">
+                                                                        Rank</div>
+                                                                    <div
+                                                                        class="u-text--left u-text--small u-text--medium">
+                                                                        Player</div>
+                                                                    <div
+                                                                        class="u-text--right u-text--small u-text--medium">
+                                                                        #Score</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+                        <section class='auxsection' style="margin-top:-50px;">
+                            <div class='stream'>
+                                <header class='auxsection-hd'>
+                                    <span class='updates-list'
+                                        style="margin-left:0px; margin-top:-20px; margin-bottom:20px; font-size:50px;">Challenges
+                                        <br /></span>
+                                    <span class='updates-list'
+                                        style="margin-left:0px; margin-top:0px; font-size:40px;color:#3c3c3c;">Publications</span>
+                                </header>
+                                <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
+                                    style="margin-top:-100px;">
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Metaworld College of Media
+                                                        Science</div>
+                                                    <h2 class='module-title'>The Evolution of Virtual Economies:
+                                                        Trends, Challenges, and Future Directions
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Publish'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Publish</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/metaworld-college-of-media-science.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Horizon World Graduate School of
+                                                        Business</div>
+                                                    <h2 class='module-title'>Designing for Inclusivity:
+                                                        Accessibility and Representation in Virtual Worlds
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Publish'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Publish</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/horizon-world-graduate-school-of-business.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Space Institute of Metaverse
+                                                        Research</div>
+                                                    <h2 class='module-title'>Regulating Virtual Spaces:
+                                                        Governance and Legal Frameworks in the Metaverse
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Publish'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Publish</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/space-institute-of-metaverse-research.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Metaworld College of Media
+                                                        Science</div>
+                                                    <h2 class='module-title'>The Impact of the Metaverse on
+                                                        Social Interaction and Mental Health
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Publish'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Publish</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/metaworld-college-of-media-science.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>New Island School of Art</div>
+                                                    <h2 class='module-title'>Immersive Art Experiences: The Role
+                                                        of VR and AR in Art Creation and Consumption
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Publish'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Publish</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/new-island-school-of-art.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='stream'>
+                                <header class='auxsection-hd'>
+                                    <span class='updates-list'
+                                        style="margin-left:0px; margin-top:50px; font-size:40px;color:#3c3c3c;">Participations</span>
+                                </header>
+                                <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
+                                    style="margin-top:-100px;">
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Metaverse Institute Of
+                                                        Technology</div>
+                                                    <h2 class='module-title'>Digital Identity and Avatar
+                                                        Representation
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Participate'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Participate</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/metaverse-institute-of-technology.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>New Island School of Art</div>
+                                                    <h2 class='module-title'>Ethical Implications of Virtual
+                                                        Real Estate and Ownership
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Participate'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Participate</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/new-island-school-of-art.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Matrix University of Second Life
+                                                    </div>
+                                                    <h2 class='module-title'>Virtual Workspaces and the Future
+                                                        of Remote Collaboration
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Participate'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Participate</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/matrix-university-of-second-life.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>School of Metaworld Economics
+                                                    </div>
+                                                    <h2 class='module-title'>Governance Models in Decentralized
+                                                        Metaverse Communities
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Participate'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Participate</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/school-of-metaworld-economics.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='container-item listing-layout-item'
+                                        style="width:110%; margin-left:-5%;">
+                                        <div style="width:100%;">
+                                            <div class='listing-content' style="width:75%; margin-top:10px;">
+                                                <div class="listing-content-width">
+                                                    <div class='module-eyebrow'>Earth 2.0 College of Design
+                                                    </div>
+                                                    <h2 class='module-title'>User Interface (UI) and User
+                                                        Experience (UX) Design in Immersive Worlds
+                                                    </h2>
+                                                    <footer class='module-meta'>
+                                                        <div style="display:inline-block;">
+                                                            <div class='button-group'>
+                                                                <button type='submit' class='button form-submit'
+                                                                    value='Participate'
+                                                                    style="border-radius:7px; font-size:14px;"
+                                                                    onclick="ShowPublishDialog();">Participate</button>
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                            <div class='listing-thumb'
+                                                style='background-image: url("/static/Image/DigitalUniversity/earth2-college-of-design.png"); margin-top:60px; width:25%;'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class='auxsection' style="padding-top:50px;">
+                            <header class='auxsection-hd'>
+                                <span class='updates-list'>Bulletin Board</span>
+                            </header>
+                            <div>
+                                <iframe src="https://e.widgetbot.io/channels/1361649235795116132/1361649703434977290"
+                                    allow="clipboard-write; fullscreen" height="600" width="100%"></iframe>
+                            </div>
+                        </section>
+
+                        <section class='auxsection' style="padding-top:0px;">
+                            <header class='auxsection-hd' style="height:50px;">
+                                <span class='updates-list'>Recommended</span>
+                            </header>
+                            <div class='hero variant-module' id="RecommendedContent" style='width: 100%; height:800px;'>
+                            </div>
+                        </section>
+
+                        <section class='auxsection'>
+                            <div class="stream" id="RecommendedBitsContent">
+                            </div>
+                        </section>
+
+                        <section class='auxsection' style="margin-top:500px;">
+                            <div class='feed-block module-list-block stream-block' id="OrganizationalContent">
+                            </div>
+                        </section>
+
+                        <section class='auxsection' style="margin-top:-100px;">
+                            <header class='auxsection-hd' style="height:50px;">
+                                <span class='updates-list'>Related</span>
+                            </header>
+                            <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
+                                id="EndPageRelatedContent" style="margin-top:-100px;">
+                            </div>
+                        </section>
+
+                        <section class='auxsection'>
+                            <div class='feed-block module-list-block stream-block' id="EndPagePromoContent">
+                            </div>
+                        </section>
+
+                        <section class='auxsection'>
+                            <div class='feed-block module-list-block stream-block' id="SingleNewsContent">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <footer class='global-footer' style="margin-top:350px;">
+                <div id="MetaverseDailyFooterContent">
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <dialog id="MetaverseDailySubscribeDialog">
+    </dialog>
+
+    <dialog id="MetaverseDailyMessageUsDialog" style="margin-top:50px;">
+    </dialog>
+
+    <dialog id="MetaverseDailyPartnerWithUsDialog">
+    </dialog>
+
+    <dialog id="MetaverseDailyBecomeMerchantDialog">
+    </dialog>
+
+    <dialog id="AnnouncementDialog" style="background-color: rgb(26, 26, 26); width:70%; margin-top:50px;">
+    </dialog>
+
+    <div style="position: fixed; height: 70px; z-index:90;" id="MetaverseDailyShortcuts">
+    </div>
+
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/jodit.min.js'></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/common.min.js'></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/materialize.js'></script>
+    <script type="text/javascript" src="/static/scripts/bundles/mobile/timer.js"></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/mainpageaddon.js'></script>
+    <script type="text/javascript" src='/static/scripts/bundles/mobile/postslider.js'></script>
+
+    <div class="slider-content" id="MetaverseDailyHeroSliderContent">
+    </div>
+
+    <dialog id="MetaverseDailyPublishDialog" style="width:75%; margin-top:50px;">
+        <style>
+            #MetaverseDailyPublishDialog {
+                overflow-y: hidden;
+                overflow-x: hidden;
+                max-height: 550px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar {
+                width: 1px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar {
+                width: 1px;
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .becomepublish-dialog-box {
+                transition: opacity 1s ease, visibility 1s ease;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .becomepublish-dialog-box.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .becomepublish-dialog-box.hidden {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            #PublishLoader {
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            #multi-step-form-container {
+                margin-top: 5rem;
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            .mx-auto {
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+            .pl-0 {
+                padding-left: 0;
+            }
+
+            .button-dialog {
+                padding: 0.7rem 1.5rem;
+                border: 1px solid #4361ee;
+                background-color: #4361ee;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .submit-btn {
+                border: 1px solid #0e9594;
+                background-color: #0e9594;
+            }
+
+            .mt-3 {
+                margin-top: 2rem;
+            }
+
+            .d-none {
+                display: none;
+            }
+
+            .form-step {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                padding: 3rem;
+            }
+
+            .font-normal {
+                font-weight: normal;
+            }
+
+            ul.form-stepper {
+                counter-reset: section;
+                margin-bottom: 1rem;
+            }
+
+            ul.form-stepper .form-stepper-circle {
+                position: relative;
+            }
+
+            ul.form-stepper .form-stepper-circle span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+
+            .form-stepper-horizontal {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
+
+            ul.form-stepper>li:not(:last-of-type) {
+                margin-bottom: 0.625rem;
+                -webkit-transition: margin-bottom 0.4s;
+                -o-transition: margin-bottom 0.4s;
+                transition: margin-bottom 0.4s;
+            }
+
+            .form-stepper-horizontal>li:not(:last-of-type) {
+                margin-bottom: 0 !important;
+            }
+
+            .form-stepper-horizontal li {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                -webkit-box-align: start;
+                -ms-flex-align: start;
+                align-items: start;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+            }
+
+            .form-stepper-horizontal li:not(:last-child):after {
+                position: relative;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                height: 1px;
+                content: "";
+                top: 32%;
+            }
+
+            .form-stepper-horizontal li:after {
+                background-color: #dee2e6;
+            }
+
+            .form-stepper-horizontal li.form-stepper-completed:after {
+                background-color: #00c46f;
+            }
+
+            .form-stepper-horizontal li:last-child {
+                flex: unset;
+            }
+
+            ul.form-stepper li a .form-stepper-circle {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                margin-right: 0;
+                line-height: 1.7rem;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.38);
+                border-radius: 50%;
+            }
+
+            .form-stepper .form-stepper-active .form-stepper-circle {
+                background-color: #4361ee !important;
+                color: #fff;
+            }
+
+            .form-stepper .form-stepper-active .label {
+                color: #4361ee !important;
+            }
+
+            .form-stepper .form-stepper-active .form-stepper-circle:hover {
+                background-color: #4361ee !important;
+                color: #fff !important;
+            }
+
+            .form-stepper .form-stepper-unfinished .form-stepper-circle {
+                background-color: darkgray;
+            }
+
+            .form-stepper .form-stepper-completed .form-stepper-circle {
+                background-color: #00c46f !important;
+                color: #fff;
+            }
+
+            .form-stepper .form-stepper-completed .label {
+                color: #0e9594 !important;
+            }
+
+            .form-stepper .form-stepper-completed .form-stepper-circle:hover {
+                background-color: #0e9594 !important;
+                color: #fff !important;
+            }
+
+            .form-stepper .form-stepper-active span.text-muted {
+                color: #fff !important;
+            }
+
+            .form-stepper .form-stepper-completed span.text-muted {
+                color: #fff !important;
+            }
+
+            .form-stepper .label {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .form-stepper a {
+                cursor: default;
+            }
+
+            ::-webkit-calendar-picker-indicator {
+                width: 30px;
+                height: 30px;
+                background-image: url('/static/svgs/datepicker.svg');
+            }
+
+            .field {
+                margin-bottom: 20px;
+            }
+        </style>
+
+
+        <div style="margin-left:20px;" style="width:100%;">
+            <h2>Write Publication </h2>
+            <span style="color:red; font-size: 18px;">Get your columnist membership to start writing</span>
+            <div id="publishPage1" style="width:130%; margin-left:-18%;">
+                <div id="multi-step-form-container" style="margin-top:20px;">
+                    <!-- Form Steps / Progress Bar -->
+                    <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                        <!-- Step 1 -->
+                        <li class="form-stepper-active text-center form-stepper-list" step="1">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle">
+                                    <span></span>
+                                </span>
+                                <h2 style="font-size:25px; color:#4d4c4d;">Content</h2>
+                            </a>
+                        </li>
+                        <!-- Step 2 -->
+                        <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle text-muted">
+                                    <span></span>
+                                </span>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Details</h2>
+                            </a>
+                        </li>
+                        <!-- Step 3 -->
+                        <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle text-muted">
+                                    <span></span>
+                                </span>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Finals</h2>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Step Wise Form Content -->
+                    <div>
+                        <h2 style="color:red; font-weight: 500; display:none; width:95%; font-size:15px;"
+                            id="PublishErrorMessage">**Error**</h2>
+                    </div>
+                    <!-- Step 1 Content -->
+                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:200px;">
+                        <!-- Step 1 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:150px;">
+                            <form id="publishStep1Form" name="publishStep1Form">
+                                <fieldset class='form-bd'>
+                                    <div class='field-group' style="margin-top:0px; ">
+                                        <div class='field custom-input'>
+                                            <input id='txtPublishFullName' type='text' name='PublishFullName'
+                                                placeholder="Full Name" required minlength="3" maxlength="100"
+                                                pattern="^[a-zA-Z ]+$" style="font-size: larger; width:90%;" disabled>
+                                        </div>
+                                        <div class='field custom-input'>
+                                            <textarea id="area_editor" disabled></textarea>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="mt-3">
+                            <button class="button variant-cta btn-navigate-form-step" type='button' step_number="2"
+                                style="border-radius:7px; font-size:20px;" form_to_validate="publishStep1Form"
+                                disabled>Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 2 Content, default hidden on page load. -->
+                    <section id="step-2" class="form-step d-none"
+                        style="margin-top:0px; padding-top:0px; min-height:300px; ">
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                            <form id="publishStep2Form" name="publishStep2Form">
+                                <fieldset class='form-bd'>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="mt-3">
+                            <button class="button variant-cta btn-navigate-form-step" type="button" step_number="1"
+                                style="border-radius:7px; font-size:20px;">Prev</button>
+                            <button class="button variant-cta btn-navigate-form-step" type="button" step_number="3"
+                                style="border-radius:7px; font-size:20px;"
+                                form_to_validate="publishStep2Form">Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 3 Content, default hidden on page load. -->
+                    <section id="step-3" class="form-step d-none"
+                        style="margin-top:0px; padding-top:0px; min-height:300px; ">
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                            <form id="publishStep3Form" name="publishStep3Form">
+                                <fieldset class='form-bd'>
+                                </fieldset>
+                            </form>
+                            <div>
+                                <p>* By submitting for publish request, you agree to the <a href="/termsandconditions"
+                                        target="_black" style="color:blue;"> Terms & Conditions</a> and <a
+                                        href="/codeofconduct" target="_black" style="color:blue;">Code of Conduct</a>
+                                    for safeguard ecosystem. </p>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div style="float:left;">
+                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="2"
+                                    style="border-radius:7px; font-size:20px;">Prev</button>
+                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="3"
+                                    style="border-radius:7px; font-size:20px;" form_to_validate="publishStep3Form"
+                                    onclick="Publish(this);">Submit</button>
+                            </div>
+                            <div style="float:left;margin-left:5px;">
+                                <svg id="PublishLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                    viewBox="0 0 512 512">
+                                    <path fill="#000000"
+                                        d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div id="publishPage2" class="becomepublish-dialog-box" style="width:100%;">
+                <div style="margin-top:20px;">
+                    <div style="text-align: center;">
+                        <h2 style="color:green; font-size:25px;">🎉🎉🎉 Hurray 🎉🎉🎉</h2>
+                    </div>
+                    <div style="margin:auto; text-align:center;">
+                        <span style="font-size:20px; color:#201f20;">Verification link mailed to you. Our team will
+                            connect you
+                            for further process.</span>
+                    </div>
+                    <div
+                        style='background-image: url("/static/gifs/mail.gif"); height:350px; width:350px; background-size: contain; margin-top:-20px;'>
+                    </div>
+                    <div class='button-group' style="float:left; margin-top:-50px;">
+                        <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
+                            onclick="ClosePublishDialog();">Done</button>
+                    </div>
+                </div>
+            </div>
+            <button id="ClosePublishDialogButton" aria-label="close" class="x">
+                <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px'
+                    y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                    xml:space='preserve'>
+                    <path
+                        d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+                </svg>
+            </button>
+        </div>
+        <script type="text/javascript" src="/static/scripts/bundles/mobile/publish.js"></script>
+    </dialog>
+
+    <script>
+        const team = [
+            {
+                rank: 1,
+                name: 'Jessica Wang',
+                handle: 'jessicawang',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/jessicawang.png',
+                kudos: 7300,
+                sent: 31
+            },
+            {
+                rank: 2,
+                name: 'Nathan Jiam',
+                handle: 'nathanjiam',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/nathanjiam.png',
+                kudos: 5100,
+                sent: 21
+            },
+            {
+                rank: 3,
+                name: 'Kanika Jha',
+                handle: 'kanikajha',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/kanikajha.png',
+                kudos: 3800,
+                sent: 70
+            },
+            {
+                rank: 4,
+                name: 'Sharon Buteau',
+                handle: 'sharonbuteau',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/sharonbuteau.png',
+                kudos: 2200,
+                sent: 34
+            },
+            {
+                rank: 5,
+                name: 'Sofia Monti',
+                handle: 'sofiamonti',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/sofiamonti.png',
+                kudos: 1800,
+                sent: 116
+            },
+            {
+                rank: 6,
+                name: 'Jabish Ibrahim',
+                handle: 'jabishibrahim',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/jabishibrahim.png',
+                kudos: 1600,
+                sent: 16
+            },
+            {
+                rank: 7,
+                name: 'Indira Das',
+                handle: 'indiradas',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/indiradas.png',
+                kudos: 1000,
+                sent: 21
+            },
+            {
+                rank: 8,
+                name: 'Noah Sun',
+                handle: 'noahsun',
+                handlelink: 'people/probono',
+                img: './static/Image/Avatars/noahsun.png',
+                kudos: 700,
+                sent: 26
+            },
+            {
+                rank: 9,
+                name: 'Daniel Haziza',
+                handle: 'danielhaziza',
+                handlelink: 'people/researchers',
+                img: './static/Image/Avatars/danielhaziza.png',
+                kudos: 400,
+                sent: 52
+            },
+            {
+                rank: 10,
+                name: 'Maya Fitzger',
+                handle: 'mayafitzger',
+                handlelink: 'people/reviewers',
+                img: './static/Image/Avatars/mayafitzger.png',
+                kudos: 100,
+                sent: 24
+            }];
+
+        const randomEmoji = () => {
+            const emojis = ['👏', '👍', '🙌', '🤩', '🔥', '⭐️', '🏆', '💯'];
+            let randomNumber = Math.floor(Math.random() * emojis.length);
+            return emojis[randomNumber];
+        };
+
+        team.forEach(member => {
+            let newRow = document.createElement('li');
+            newRow.classList = 'c-list__item';
+            newRow.innerHTML = `
+                <div class="c-list__grid">
+                    <div class="c-flag c-place u-bg--transparent">${member.rank}</div>
+                    <div class="c-media">
+                        <img class="c-avatar c-media__img" src="${member.img}" />
+                        <div class="c-media__content">
+                            <div class="c-media__title">${member.name}</div>
+                            <a class="c-media__link u-text--small" href="${member.handlelink}">@${member.handle}</a>
+                        </div>
+                    </div>
+                    <div class="u-text--right c-kudos">
+                        <div class="u-mt--8">
+                            <strong>${member.kudos}</strong> ${randomEmoji()}
+                        </div>
+                    </div>
+                </div>
+            `;
+            if (member.rank === 1) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--yellow');
+                newRow.querySelector('.c-kudos').classList.add('u-text--yellow');
+            } else if (member.rank === 2) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--teal');
+                newRow.querySelector('.c-kudos').classList.add('u-text--teal');
+            } else if (member.rank === 3) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--orange');
+                newRow.querySelector('.c-kudos').classList.add('u-text--orange');
+            }
+            list.appendChild(newRow);
+        });
+
+        let sortedTeam = team.sort((a, b) => b.sent - a.sent);
+        let winner = sortedTeam[0];
+
+        const winnerCard = document.getElementById('winner');
+        winnerCard.innerHTML = `
+            <div class="u-text-small u-text--medium u-mb--16">Top Overall</div>
+            <img class="c-avatar c-avatar--lg" src="${winner.img}"/>
+            <h3 class="u-mt--16">${winner.name}</h3>
+            <span class="u-text--teal u-text--small">${winner.name}</span>
+        `;
+
+        const publicationRewardTallyTeam = [
+            {
+                rank: 1,
+                name: 'Maya Fitzger',
+                handle: 'mayafitzger',
+                handlelink: 'people/reviewers',
+                img: './static/Image/Avatars/mayafitzger.png',
+                kudos: 3500,
+                sent: 24
+            },
+            {
+                rank: 2,
+                name: 'Nathan Jiam',
+                handle: 'nathanjiam',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/nathanjiam.png',
+                kudos: 3100,
+                sent: 21
+            },
+            {
+                rank: 3,
+                name: 'Daniel Haziza',
+                handle: 'danielhaziza',
+                handlelink: 'people/researchers',
+                img: './static/Image/Avatars/danielhaziza.png',
+                kudos: 400,
+                sent: 2
+            },
+            {
+                rank: 4,
+                name: 'Indira Das',
+                handle: 'indiradas',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/indiradas.png',
+                kudos: 1000,
+                sent: 21
+            },
+            {
+                rank: 5,
+                name: 'Noah Sun',
+                handle: 'noahsun',
+                handlelink: 'people/probono',
+                img: './static/Image/Avatars/noahsun.png',
+                kudos: 700,
+                sent: 46
+            },
+            {
+                rank: 6,
+                name: 'Jabish Ibrahim',
+                handle: 'jabishibrahim',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/jabishibrahim.png',
+                kudos: 1600,
+                sent: 6
+            },
+            {
+                rank: 7,
+                name: 'Sharon Buteau',
+                handle: 'sharonbuteau',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/sharonbuteau.png',
+                kudos: 2200,
+                sent: 4
+            },
+            {
+                rank: 8,
+                name: 'Sofia Monti',
+                handle: 'sofiamonti',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/sofiamonti.png',
+                kudos: 1800,
+                sent: 16
+            },
+            {
+                rank: 9,
+                name: 'Kanika Jha',
+                handle: 'kanikajha',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/kanikajha.png',
+                kudos: 2400,
+                sent: 7
+            },
+            {
+                rank: 10,
+                name: 'Jessica Wang',
+                handle: 'jessicawang',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/jessicawang.png',
+                kudos: 3600,
+                sent: 31
+            }];
+
+        publicationRewardTallyTeam.forEach(member => {
+            let newRow = document.createElement('li');
+            newRow.classList = 'c-list__item_publication_reward_rally';
+            newRow.innerHTML = `
+                <div class="c-list__grid">
+                    <div class="c-flag c-place u-bg--transparent">${member.rank}</div>
+                    <div class="c-media">
+                        <img class="c-avatar c-media__img" src="${member.img}" />
+                        <div class="c-media__content">
+                            <div class="c-media__title">${member.name}</div>
+                            <a class="c-media__link u-text--small" href="${member.handlelink}">@${member.handle}</a>
+                        </div>
+                    </div>
+                    <div class="u-text--right c-kudos">
+                        <div class="u-mt--8">
+                            <strong>${member.kudos}</strong> ${randomEmoji()}
+                        </div>
+                    </div>
+                </div>
+            `;
+            if (member.rank === 1) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--yellow');
+                newRow.querySelector('.c-kudos').classList.add('u-text--yellow');
+            } else if (member.rank === 2) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--teal');
+                newRow.querySelector('.c-kudos').classList.add('u-text--teal');
+            } else if (member.rank === 3) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--orange');
+                newRow.querySelector('.c-kudos').classList.add('u-text--orange');
+            }
+            publication_reward_rally_list.appendChild(newRow);
+        });
+
+        let sortedPublicationTeam = publicationRewardTallyTeam.sort((a, b) => b.sent - a.sent);
+        let publicationWinner = sortedPublicationTeam[0];
+
+        const publicationWinnerCard = document.getElementById('publication-winner');
+        publicationWinnerCard.innerHTML = `
+            <div class="u-text-small u-text--medium u-mb--16">Top Publisher</div>
+            <img class="c-avatar c-avatar--lg" src="${publicationWinner.img}"/>
+            <h3 class="u-mt--16">${publicationWinner.name}</h3>
+            <span class="u-text--teal u-text--small">${publicationWinner.name}</span>
+        `;
+
+
+        const participationRewardTallyTeam = [
+            {
+                rank: 1,
+                name: 'Jabish Ibrahim',
+                handle: 'jabishibrahim',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/jabishibrahim.png',
+                kudos: 2600,
+                sent: 31
+            },
+            {
+                rank: 2,
+                name: 'Sharon Buteau',
+                handle: 'sharonbuteau',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/sharonbuteau.png',
+                kudos: 2200,
+                sent: 25
+            },
+            {
+                rank: 3,
+                name: 'Maya Fitzger',
+                handle: 'mayafitzger',
+                handlelink: 'people/reviewers',
+                img: './static/Image/Avatars/mayafitzger.png',
+                kudos: 100,
+                sent: 70
+            },
+            {
+                rank: 4,
+                name: 'Nathan Jiam',
+                handle: 'nathanjiam',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/nathanjiam.png',
+                kudos: 3100,
+                sent: 64
+            },
+            {
+                rank: 5,
+                name: 'Sofia Monti',
+                handle: 'sofiamonti',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/sofiamonti.png',
+                kudos: 1800,
+                sent: 16
+            },
+            {
+                rank: 6,
+                name: 'Jessica Wang',
+                handle: 'jessicawang',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/jessicawang.png',
+                kudos: 3600,
+                sent: 56
+            },
+            {
+                rank: 7,
+                name: 'Daniel Haziza',
+                handle: 'danielhaziza',
+                handlelink: 'people/researchers',
+                img: './static/Image/Avatars/danielhaziza.png',
+                kudos: 400,
+                sent: 81
+            },
+            {
+                rank: 8,
+                name: 'Noah Sun',
+                handle: 'noahsun',
+                handlelink: 'people/probono',
+                img: './static/Image/Avatars/noahsun.png',
+                kudos: 700,
+                sent: 46
+            },
+            {
+                rank: 9,
+                name: 'Indira Das',
+                handle: 'indiradas',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/indiradas.png',
+                kudos: 1000,
+                sent: 20
+            },
+            {
+                rank: 10,
+                name: 'Kanika Jha',
+                handle: 'kanikajha',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/kanikajha.png',
+                kudos: 2400,
+                sent: 24
+            }];
+
+        participationRewardTallyTeam.forEach(member => {
+            let newRow = document.createElement('li');
+            newRow.classList = 'c-list__item_participation_reward_rally';
+            newRow.innerHTML = `
+                <div class="c-list__grid">
+                    <div class="c-flag c-place u-bg--transparent">${member.rank}</div>
+                    <div class="c-media">
+                        <img class="c-avatar c-media__img" src="${member.img}" />
+                        <div class="c-media__content">
+                            <div class="c-media__title">${member.name}</div>
+                            <a class="c-media__link u-text--small" href="${member.handlelink}">@${member.handle}</a>
+                        </div>
+                    </div>
+                    <div class="u-text--right c-kudos">
+                        <div class="u-mt--8">
+                            <strong>${member.kudos}</strong> ${randomEmoji()}
+                        </div>
+                    </div>
+                </div>
+            `;
+            if (member.rank === 1) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--yellow');
+                newRow.querySelector('.c-kudos').classList.add('u-text--yellow');
+            } else if (member.rank === 2) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--teal');
+                newRow.querySelector('.c-kudos').classList.add('u-text--teal');
+            } else if (member.rank === 3) {
+                newRow.querySelector('.c-place').classList.add('u-text--dark');
+                newRow.querySelector('.c-place').classList.add('u-bg--orange');
+                newRow.querySelector('.c-kudos').classList.add('u-text--orange');
+            }
+            participation_reward_rally_list.appendChild(newRow);
+        });
+
+        let sortedParticipationTeam = participationRewardTallyTeam.sort((a, b) => b.sent - a.sent);
+        let participationWinner = sortedParticipationTeam[0];
+
+        const participationWinnerCard = document.getElementById('participation-winner');
+        participationWinnerCard.innerHTML = `
+            <div class="u-text-small u-text--medium u-mb--16">Top Participant</div>
+            <img class="c-avatar c-avatar--lg" src="${participationWinner.img}"/>
+            <h3 class="u-mt--16">${participationWinner.name}</h3>
+            <span class="u-text--teal u-text--small">${participationWinner.name}</span>
+        `;
+
+        const communityRewardTeam = [
+            {
+                rank: 1,
+                name: 'Jabish Ibrahim',
+                handle: 'jabishibrahim',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/jabishibrahim.png',
+                kudos: 1600,
+                sent: 31
+            },
+            {
+                rank: 2,
+                name: 'Sharon Buteau',
+                handle: 'sharonbuteau',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/sharonbuteau.png',
+                kudos: 2200,
+                sent: 210
+            },
+            {
+                rank: 3,
+                name: 'Maya Fitzger',
+                handle: 'mayafitzger',
+                handlelink: 'people/reviewers',
+                img: './static/Image/Avatars/mayafitzger.png',
+                kudos: 100,
+                sent: 7
+            },
+            {
+                rank: 4,
+                name: 'Nathan Jiam',
+                handle: 'nathanjiam',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/nathanjiam.png',
+                kudos: 3100,
+                sent: 4
+            },
+            {
+                rank: 5,
+                name: 'Sofia Monti',
+                handle: 'sofiamonti',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/sofiamonti.png',
+                kudos: 1800,
+                sent: 16
+            },
+            {
+                rank: 6,
+                name: 'Jessica Wang',
+                handle: 'jessicawang',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/jessicawang.png',
+                kudos: 3600,
+                sent: 6
+            },
+            {
+                rank: 7,
+                name: 'Daniel Haziza',
+                handle: 'danielhaziza',
+                handlelink: 'people/researchers',
+                img: './static/Image/Avatars/danielhaziza.png',
+                kudos: 400,
+                sent: 21
+            },
+            {
+                rank: 8,
+                name: 'Noah Sun',
+                handle: 'noahsun',
+                handlelink: 'people/probono',
+                img: './static/Image/Avatars/noahsun.png',
+                kudos: 700,
+                sent: 46
+            },
+            {
+                rank: 9,
+                name: 'Indira Das',
+                handle: 'indiradas',
+                handlelink: 'people/columnists',
+                img: './static/Image/Avatars/indiradas.png',
+                kudos: 1000,
+                sent: 2
+            },
+            {
+                rank: 10,
+                name: 'Kanika Jha',
+                handle: 'kanikajha',
+                handlelink: 'people/advisorycouncil',
+                img: './static/Image/Avatars/kanikajha.png',
+                kudos: 2400,
+                sent: 24
+            }];
+
+        let sortedCommunityTeam = communityRewardTeam.sort((a, b) => b.sent - a.sent);
+        let communityWinner = sortedCommunityTeam[0];
+
+        const communityWinnerCard = document.getElementById('community-winner');
+        communityWinnerCard.innerHTML = `
+            <div class="u-text-small u-text--medium u-mb--16">Top Community Voice</div>
+            <img class="c-avatar c-avatar--lg" src="${communityWinner.img}"/>
+            <h3 class="u-mt--16">${communityWinner.name}</h3>
+            <span class="u-text--teal u-text--small">${communityWinner.name}</span>
+        `;
+    </script>
+
+    <script>
+        var getPublishedHowItWorksDialog;
+        $(document).ready(function () {
+            var editor = Jodit.make('#area_editor', {
+                textIcons: false,
+                toolbarButtonSize: 'small',
+                toolbarinline: false,
+                toolbarSticky: true,
+                height: 'auto',
+                inline: true,
+                statusbar: false,
+                minHeight: 100,
+                defaultMode: Jodit.MODE_WYSIWYG,
+                history: {
+                    timeout: 100
+                },
+                commandToHotkeys: {
+                    openreplacedialog: 'ctrl+p'
+                }
+            });
+            getPublishedHowItWorksDialog = document.getElementById("GetPublishishedHowItWorksDialog");
+        });
+
+        function ShowKnowMoreDialog() {
+            var knowMoreDialog = document.getElementById("AnnouncementDialog");
+            knowMoreDialog.showModal();
+        }
+
+        function ShowGetPublishedHowItWorksDialog() {
+            getPublishedHowItWorksDialog.showModal();
+        }
+
+        function CloseGetPublishedHowItWorksDialog() {
+            getPublishedHowItWorksDialog.close();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+
+<style>
+
+.ScrollableTextArea::-webkit-scrollbar {
+    width: 1px;
+}
+
+.ScrollableTextArea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+.ScrollableTextArea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+#multi-step-form-container {
+    margin-top: 5rem;
+    width:90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.text-center {
+    text-align: center;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.pl-0 {
+    padding-left: 0;
+}
+.button-dialog {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #4361ee;
+    background-color: #4361ee;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-btn {
+    border: 1px solid #0e9594;
+    background-color: #0e9594;
+}
+.mt-3 {
+    margin-top: 2rem;
+}
+.d-none {
+    display: none;
+}
+.form-step {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+}
+.font-normal {
+    font-weight: normal;
+}
+ul.form-stepper {
+    counter-reset: section;
+    margin-bottom: 1rem;
+}
+ul.form-stepper .form-stepper-circle {
+    position: relative;
+}
+ul.form-stepper .form-stepper-circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.form-stepper-horizontal {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+ul.form-stepper > li:not(:last-of-type) {
+    margin-bottom: 0.625rem;
+    -webkit-transition: margin-bottom 0.4s;
+    -o-transition: margin-bottom 0.4s;
+    transition: margin-bottom 0.4s;
+}
+.form-stepper-horizontal > li:not(:last-of-type) {
+    margin-bottom: 0 !important;
+}
+.form-stepper-horizontal li {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.form-stepper-horizontal li:not(:last-child):after {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    content: "";
+    top: 32%;
+}
+.form-stepper-horizontal li:after {
+    background-color: #dee2e6;
+}
+.form-stepper-horizontal li.form-stepper-completed:after {
+    background-color: #00c46f;
+}
+.form-stepper-horizontal li:last-child {
+    flex: unset;
+}
+ul.form-stepper li a .form-stepper-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+    line-height: 1.7rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.38);
+    border-radius: 50%;
+}
+.form-stepper .form-stepper-active .form-stepper-circle {
+    background-color: #4361ee !important;
+    color: #fff;
+}
+.form-stepper .form-stepper-active .label {
+    color: #4361ee !important;
+}
+.form-stepper .form-stepper-active .form-stepper-circle:hover {
+    background-color: #4361ee !important;
+    color: #fff !important;
+}
+.form-stepper .form-stepper-unfinished .form-stepper-circle {
+    background-color: #f8f7ff;
+}
+.form-stepper .form-stepper-completed .form-stepper-circle {
+    background-color: #00c46f !important;
+    color: #fff;
+}
+.form-stepper .form-stepper-completed .label {
+    color: #0e9594 !important;
+}
+.form-stepper .form-stepper-completed .form-stepper-circle:hover {
+    background-color: #0e9594 !important;
+    color: #fff !important;
+}
+.form-stepper .form-stepper-active span.text-muted {
+    color: #fff !important;
+}
+.form-stepper .form-stepper-completed span.text-muted {
+    color: #fff !important;
+}
+.form-stepper .label {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+.form-stepper a {
+    cursor: default;
+}
+
+
+::-webkit-calendar-picker-indicator { 
+    width:30px; 
+    height:30px;
+    background-image: url('/static/svgs/datepicker.svg');
+}
+
+.field {
+    margin-bottom:20px;
+}
+
+
+        </style>
+
+<script src='/static/scripts/bundles/Mobile/multistepform.js'></script>
+
+<div style="margin-left:20px;">
+    <h2>Partner With Us</h2>
+
+    <div id="memberAccessPage1">
+        <form id="memberAccessForm" name="memberAccessForm" style="margin-top:0px; padding-top:0px;" onsubmit="event.preventDefault();">
+            <fieldset class='form-bd'>           
+                <div class='field-group' style="margin-top:0px; padding-top:40px; padding-bottom:20px;">
+                    <h2 style="color:red; font-weight: 500; display:none; width:95%;" id="SignInErrorMessage">**Error**</h2>
+                    <div class='field custom-input ' style="background-color: black; color:white;">
+                        <input id='txtEmail' type='email' name='email' placeholder="Email Address" required style="font-size: larger; width:90%; color:white;">
+                    </div>
+                    <div class="input-field">
+                        <select id="picker_content_emotion">
+                            <option value="0" disabled selected>Choose Option</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Cool">Cool</option>
+                            <option value="Quiet">Quiet</option>
+                            <option value="Surprise">Surprise</option>
+                            <option value="Scared">Scared</option>
+                            <option value="Nervous">Nervous</option>
+                            <option value="Goofy">Goofy</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Excited">Excited</option>
+                            <option value="Frustrated">Frustrated</option>
+                            <option value="Angry">Angry</option>
+                            <option value="Proud">Proud</option>
+                            <option value="Funny">Funny</option>
+                            <option value="Thoughtful">Thoughtful</option>
+                            <option value="Loved">Loved</option>
+                            <option value="MoneyFace">MoneyFace</option>
+                            <option value="StarEye">StarEye</option>
+                            <option value="Forecast">Forecast</option>
+                        </select>
+                        <label for="picker_content_emotion">Content Emotion</label>
+                    </div>
+                </div>
+            </fieldset>
+            <div>
+                <div class='button-group' style="float:left;">
+                    <button class='button variant-cta' style="border-radius:7px; font-size:25px;" form_to_validate="signInForm" onclick="SignInValidation(this);">Next</button>        
+                </div>
+                <div style="float:left;">
+                    <svg id="MemberAccessLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 512 512">
+                        <path fill="#ffffff" d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/>
+                    </svg>
+                </div>
+            </div>
+        </form>
+        <div style="display:inline-block; width:100%; margin-top:30px;">
+            <footer class='form-ft'>
+                <div class="link-group">
+                    <a class="form-link" href='/contact' style="color:lightgrey; transition: color .2s;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='lightgrey'">
+                        Having trouble Sign In? Write to Us.
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div id="signInPage2">
+        <form id="otpVerificationForm" name="otpVerificationForm" style="margin-top:0px; padding-top:0px;" onsubmit="event.preventDefault();">
+            <fieldset class='form-bd'>           
+                <div class='field-group' style="margin-top:0px; padding-top:40px; padding-bottom:20px;">
+                    <h2 style="color:red; font-weight: 500; display:none;" id="OTPVerificationErrorMessage">**Error**</h2>
+                    <p style="margin-top:20px; color:lightgrey; font-weight: 500; width:80%;">Verfication Code sent to email : <span id="EmailForVerification" style="font-weight: 700;"></span>. Please enter received code here.</p>
+                    <div style="margin-top:20px; ">
+                        <div class='field custom-input' style="float:left;">
+                            <input id='txtOTP' type='text' name='txtOTP' required placeholder="OTP" minlength="4" maxlength="4" required style="font-size: xx-large; width:100px; color:white;" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+                        </div>
+                        
+                        <div style="width:100%; padding-left:50px;">
+                            <div style="float:left; padding-left:50px;">
+                                <a href="javascript:void(0);" style="color:blue; font-weight: 900; display:block; margin-top:20px;" id="ResendCode" onclick="ResendCode(this);">Resend Code</a>
+                            </div>
+                            <div id="countdown" style="margin-top:0px; float:left; padding-left:50px; margin-top:5px;">
+                                <div id="countdown-number">1</div>
+                                <svg class="timer">
+                                  <circle r="18" cx="20" cy="20"></circle>
+                                </svg>
+                            </div>
+                            <div style="float:left; padding-left:50px; margin-top:5px;">
+                                <svg id="ResendLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 512 512">
+                                    <path fill="#ffffff" d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div>
+                <div class='button-group' style="float:left; padding-top:20px;">
+                    <button class='button variant-cta' style="border-radius:7px; font-size:25px;" id="btnOTPVerify" form_to_validate="otpVerificationForm" onclick="OTPValidation(this);">Verify</button>        
+                </div>
+            </div>
+            
+        </form>
+    </div>
+
+</div>

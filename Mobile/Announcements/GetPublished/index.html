@@ -1,0 +1,94 @@
+<style>
+    .ScrollableApplyNowForm::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    .ScrollableApplyNowForm::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+
+    .ScrollableApplyNowForm::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    select option {
+        color: black;
+    }
+
+    select:not(:checked) {
+        color: gray;
+    }
+
+    #ApplyNowLoader {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+
+<div style="width:100%;">
+    <h2 style="color:bisque;">Gamified Publishing 🎉🎉🎉</h2>
+    <div id="announcementPage1" style="width:100%; margin-top:10px;">
+        <div style="float:left; width:120%; margin-left:-10%;">
+            <div style="height:350px;  overflow-y:scroll; margin-left:0px;" class="ScrollableApplyNowForm">
+                <div style="margin-top:20px; padding-right:20px; padding-left:20px; color:#ffffff; ">
+                    <div class='module-excerpt' id="divGamifiedPublishingDesc">
+                        <p style="font-size:large;">
+                            Welcome to the new world of Gamified Publishing that offers a refreshing way to engage,
+                            inspire, and connect. It's not just about reading; it's about playing, exploring, and
+                            becoming part of a community that evolves with every interaction. Are you ready to dive in
+                            and unlock the next level of publishing?
+                        </p>
+                        <p style="font-size:large;">
+                            As brands and publishers embrace this exciting trend, the possibilities are endless.
+                        </p>
+                        <p style="font-size:large;">
+                            Gamified Publishing uses elements like points, quizzes, and challenges to foster deeper
+                            engagement. Readers can embark on journeys through interactive infographics, participate in
+                            polls that shape ongoing content, or tackle trivia that reinforces learning. This not only
+                            boosts retention but also creates a sense of community, as users share achievements and
+                            collaborate on challenges.
+                        </p>
+                        <p style="font-size:large;">
+                            Welcome to the realm of gamified content publishing—a revolutionary approach that transforms
+                            passive reading into an exhilarating experience.
+                        </p>
+                        <p style="font-size:large;">
+                            In a world craving connection and creativity, gamified publishing is not just an
+                            innovation—it's the next chapter in storytelling, where every reader can be a hero in their
+                            own epic tale. So, are you ready to turn the page?
+                        </p>
+                        <p style="font-size:large; font-weight: 700;">
+                            Publishing is open for Columnists. Apply now for Columnist Membership to start publishing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class='button-group' style="float:right; padding-bottom:10px; filter:invert(1); margin-top:5px;">
+                    <a href="/memberships/columnist" type='submit' class='button variant-cta' value='Apply'
+                        style="border-radius:7px;  font-size:20px;">Apply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="CloseAnnouncementDialog" aria-label="close" class="x">
+        <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
+            width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25' xml:space='preserve'>
+            <path fill="#ffffff"
+                d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+        </svg>
+    </button>
+</div>

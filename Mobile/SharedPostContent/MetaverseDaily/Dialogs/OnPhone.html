@@ -1,0 +1,31 @@
+<script src="/static/scripts/bundles/AppDownload.js"></script>
+<script>
+    RegisterAppDownloadDialog(document.getElementById("OnPhoneDialog"), document.getElementById("OpenOnPhoneDialog"), document.getElementById("CloseOnPhoneDialog"), document.getElementById("btnOnPhoneViewDone"));
+</script>
+<div style="margin-left:20px; margin-top:20px;">
+    <h2>Get On Phone</h2>
+    <p style="width:350px; color:darkgray; font-weight: 700; margin-top:-10px;">
+        Browser is recommended to serve more content in a single screen size. Or
+    </p>
+    <form class='form login-form' onsubmit='event.preventDefault();'>
+        <fieldset class='form-bd'>
+            <span style="margin-left:30px; color: grey; font-size:22px;font-weight: 700;">Scan QR</span>
+            <div
+                style='background-image:url(/static/Image/QR/metaversedaily_comingsoon.png); background-repeat:no-repeat;height:350px; width:350px; background-size: cover; margin-top:-20px;'>
+            </div>
+        </fieldset>
+        <footer class='form-ft' style="float:left; margin-top:0px;">
+            <div class='button-group'>
+                <button id="btnOnPhoneViewDone" type='submit' class='button variant-cta' value='Done'
+                    style="border-radius:7px;">Done</button>
+            </div>
+        </footer>
+    </form>
+    <button id="CloseOnPhoneDialog" aria-label="close" class="x">
+        <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
+            width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25' xml:space='preserve'>
+            <path
+                d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+        </svg>
+    </button>
+</div>
