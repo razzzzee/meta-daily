@@ -38,6 +38,9 @@ app.use(session({
     saveUninitialized: true
 }));
 
+const dictFileDownloadKey = {
+    'rahulyadav': 'test'
+}
 
 const contentImageExtension = '.jpg';
 const dateFormat = 'month dd, yyyy';
@@ -242,7 +245,7 @@ function GenerateResponse(item) {
 
 
 function GetFileDownloadKey(adminUser) {
-    return 'test';
+    return fileDownloadKey = dictFileDownloadKey[adminUser];
 }
 
 function sleep(ms) {
@@ -274,7 +277,7 @@ const transporter = createTransport({
     port: 587,
     auth: {
         user: "contactus@metaversedaily.world",
-        pass: "",
+        pass: "Rahul12345$",
     },
 });
 
@@ -328,7 +331,6 @@ app.post("/SubscribeNewsletter", async function (req, res, next) {
                 var greetings = helloElement;
                 var pageTitle = 'Welcome to Metaverse Daily';
                 var activationLink = applicationURL + 'activateSubscription/' + subscriptionId;
-
                 const mailOptions = {
                     from: 'Metaverse Daily <contactus@metaversedaily.world>',
                     to: emailId,
@@ -365,7 +367,11 @@ app.post("/SubscribeNewsletter", async function (req, res, next) {
                 });
             }
             else
+            {
                 status = "EMAIL-SUBSCRIBED";
+                console.log('Subscribe Newsletter Status : ' + status);
+                res.status(200).send(status);
+            }
         });
     }
     else {
@@ -749,6 +755,7 @@ app.post("/SignInVerification", async function (req, res, next) {
             var fullName;
             var userRole;
             var userId;
+            var userFoundResult;
             console.log(req.body.Email);
             var stream = fs.createReadStream(__dirname + '/Data/Users/data.csv');
             const template = Handlebars.compile(readFileSync('/EmailTemplates/SignInVerification.html'));
