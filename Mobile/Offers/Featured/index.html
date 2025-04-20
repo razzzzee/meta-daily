@@ -125,27 +125,31 @@
 
                     <div class='rail-layout-body'>
                         <div class='stream'>
-                            <header class='auxsection-hd'>
-                                <div style="display:inline-flex;">
-                                    <img src="/static/svgs/offers.svg"
-                                        style="width:45px; height:45px; margin-top:-3px;" />
-                                    <span class='updates-list' style="margin-left:5px;">Offers</span>
+                            <div style="height:150px;">
+                                <div style="background-color:white; margin-left:0px;">
+                                    <header class='auxsection-hd'>
+                                        <div style="display:inline-flex;margin-left:-15px;">
+                                            <img src="static/svgs/offers.svg"
+                                                style="width:45px; height:45px; margin-top:0px;" />
+                                            <span class='updates-list' style="margin-left:10px;">Offers</span>
+                                        </div>
+                                        <div style="display:block; margin-top:-25px; margin-left:-5px;">
+                                            <a href="javascript:;" style="display:inline-flex;"
+                                                onclick="ShowOfferFilterDialog();" class="action-link">
+                                                <img src="/static/svgs/filter.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
+                                            </a>
+                                            <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
+                                                onclick="ShowOfferPublishDialog();" class="action-link">
+                                                <img src="/static/svgs/circle-green.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
+                                            </a>
+                                        </div>
+                                    </header>
                                 </div>
-                                <div style="display:block; margin-top:-25px; margin-left:15px;">
-                                    <a href="javascript:;" style="display:inline-flex;"
-                                        onclick="ShowOfferFilterDialog();" class="action-link">
-                                        <img src="/static/svgs/filter.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
-                                    </a>
-                                    <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
-                                        onclick="ShowOfferPublishDialog();" class="action-link">
-                                        <img src="/static/svgs/circle-green.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
-                                    </a>
-                                </div>
-                            </header>
+                            </div>
                             <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
                                 style="margin-top:-100px;">
                                 <div class='container-item listing-layout-item ' data-href='/posts/offers/3a9306c5668dab3a9ebe005d15be068ac0819bb7' style="width:110%; margin-left:-5%;">

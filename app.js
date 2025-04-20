@@ -42,7 +42,7 @@ app.use(session({
 const contentImageExtension = '.jpg';
 const dateFormat = 'month dd, yyyy';
 const timeFormat = 'AM PM';
-const applicationURL = 'http://localhost:5000/';
+const applicationURL = 'https://meta-daily.onrender.com/';
 
 const hello = [
     'Hello',

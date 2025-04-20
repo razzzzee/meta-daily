@@ -124,27 +124,31 @@
 
                     <div class='rail-layout-body'>
                         <div class='stream'>
-                            <header class='auxsection-hd'>
-                                <div style="display:inline-flex;">
-                                    <img src="/static/svgs/podcasts.svg"
-                                        style="width:45px; height:45px; margin-top:-3px;" />
-                                    <span class='updates-list' style="margin-left:5px;">Podcasts</span>
+                            <div style="height:150px;">
+                                <div style="background-color:white; margin-left:0px;">
+                                    <header class='auxsection-hd'>
+                                        <div style="display:inline-flex;margin-left:-15px;">
+                                            <img src="/static/svgs/podcasts.svg"
+                                                style="width:45px; height:45px; margin-top:0px;" />
+                                            <span class='updates-list' style="margin-left:10px;">Podcasts</span>
+                                        </div>
+                                        <div style="display:block; margin-top:-25px; margin-left:-5px;">
+                                            <a href="javascript:;" style="display:inline-flex;"
+                                                onclick="ShowPodcastFilterDialog();" class="action-link">
+                                                <img src="/static/svgs/filter.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
+                                            </a>
+                                            <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
+                                                onclick="ShowPodcastPublishDialog();" class="action-link">
+                                                <img src="/static/svgs/circle-green.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
+                                            </a>
+                                        </div>
+                                    </header>
                                 </div>
-                                <div style="display:block; margin-top:-25px; margin-left:15px;">
-                                    <a href="javascript:;" style="display:inline-flex;"
-                                        onclick="ShowPodcastFilterDialog();" class="action-link">
-                                        <img src="/static/svgs/filter.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
-                                    </a>
-                                    <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
-                                        onclick="ShowPodcastPublishDialog();" class="action-link">
-                                        <img src="/static/svgs/circle-green.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
-                                    </a>
-                                </div>
-                            </header>
+                            </div>
                             <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
                                 style="margin-top:-100px;">
                                 <div class='container-item listing-layout-item ' data-href='/posts/podcasts/37a4e5b8154cf985f0a34ed6463da1889b73abd1' style="width:110%; margin-left:-5%;">

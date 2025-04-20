@@ -21,7 +21,7 @@ function ShowPartnerWithUsDialog()
     step4Form.reset();
     partnerWithUsErrorMessage.style.display = 'none';
     partnerWithUsPage1.style.display = 'block';
-    partnerWithUsDialog.style.width = "700px";
+    //partnerWithUsDialog.style.width = "700px";
     partnerWithUsDialog.showModal();
 }
 
@@ -136,7 +136,7 @@ async function PartnerWithUs(el) {
                     partnerWithUsErrorMessage.style.display = 'none';
                     partnerWithUsPage1.style.display = 'none';
                     partnerWithUsPage2.classList.toggle('show');
-                    partnerWithUsDialog.style.width = "400px";
+                    //partnerWithUsDialog.style.width = "400px";
                 }
                 else {
                     el.disabled = false;

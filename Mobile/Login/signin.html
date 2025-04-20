@@ -323,6 +323,8 @@
     <script type="text/javascript" src='/static/scripts/bundles/mobile/materialize.js'></script>
     <script type="text/javascript" src="/static/scripts/bundles/mobile/timer.js"></script>
     <script type="text/javascript" src='/static/scripts/bundles/mobile/mainpageaddon.js'></script>
+    <script type="text/javascript" src='/static/scripts/bundles/signinpreloads.js'></script>
+    <script type="text/javascript" src='/static/scripts/bundles/signinpostloads.js'></script>
 
 
     <script type="text/javascript">
@@ -465,6 +467,7 @@
                             token = data.Token;
                             otpVerificationErrorMessage.style.display = 'none';
                             setSessionStorage();
+                            SetUserProfileSession();
                             sessionStorage.setItem('signin-status', 1);
                             window.location.href = '/home'
                         }

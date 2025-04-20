@@ -2,8 +2,9 @@
     #MetaverseDailyPartnerWithUsDialog {
         overflow-y: hidden;
         overflow-x: hidden;
-        max-height: 580px;
-        max-width: 100%;
+        max-height: 550px;
+        width: 75%;
+        margin-top: 50px;
     }
 
     .ScrollableTextArea::-webkit-scrollbar {
@@ -262,10 +263,10 @@
     }
 </style>
 
-<div style="margin-left:20px;">
+<div style="margin-left:20px;" style="width:100%;">
     <h2>Partner With Us</h2>
-    <div id="partnerWithUsPage1" style="max-width:100%;">
-        <div id="multi-step-form-container" style="margin-top:20px;">
+    <div id="partnerWithUsPage1" style="width:130%; margin-left:-18%;">
+        <div id="multi-step-form-container" style="margin-top:20px; ">
             <!-- Form Steps / Progress Bar -->
             <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
                 <!-- Step 1 -->
@@ -274,7 +275,7 @@
                         <span class="form-stepper-circle">
                             <span></span>
                         </span>
-                        <h2 style="font-size:30px; color:#4d4c4d;">Basics</h2>
+                        <h2 style="font-size:20px; color:#4d4c4d;">Basics</h2>
                     </a>
                 </li>
                 <!-- Step 2 -->
@@ -283,7 +284,7 @@
                         <span class="form-stepper-circle text-muted">
                             <span></span>
                         </span>
-                        <h2 class="text-muted" style="font-size:30px; color:#4d4c4d;">Options</h2>
+                        <h2 class="text-muted" style="font-size:20px; color:#4d4c4d;">Options</h2>
                     </a>
                 </li>
                 <!-- Step 3 -->
@@ -292,7 +293,7 @@
                         <span class="form-stepper-circle text-muted">
                             <span></span>
                         </span>
-                        <h2 class="text-muted" style="font-size:30px; color:#4d4c4d;">Details</h2>
+                        <h2 class="text-muted" style="font-size:20px; color:#4d4c4d;">Details</h2>
                     </a>
                 </li>
                 <!-- Step 4 -->
@@ -301,7 +302,7 @@
                         <span class="form-stepper-circle text-muted">
                             <span></span>
                         </span>
-                        <h2 class="text-muted" style="font-size:30px; color:#4d4c4d;">Finals</h2>
+                        <h2 class="text-muted" style="font-size:20px; color:#4d4c4d;">Finals</h2>
                     </a>
                 </li>
             </ul>
@@ -311,25 +312,26 @@
                     id="PartnerWithUsErrorMessage">**Error**</h2>
             </div>
             <!-- Step 1 Content -->
-            <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:300px; ">
+            <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; height:300px; ">
                 <!-- Step 1 input fields -->
-                <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                <div class="mt-3"
+                    style="margin-top:0px; padding-top:0px; min-height:250px; max-height:250px; height:250px; width:120%; margin-left:-10%;">
                     <form id="partnerWithUsStep1Form" name="partnerWithUsStep1Form">
                         <fieldset class='form-bd'>
                             <div class='field-group' style="margin-top:0px; ">
                                 <div class='field custom-input'>
                                     <input id='txtPartnerFullName' type='text' name='PartnerFullName'
                                         placeholder="Full Name" required minlength="3" maxlength="100"
-                                        pattern="^[a-zA-Z ]+$" style="font-size: larger; width:500px;">
+                                        pattern="^[a-zA-Z ]+$" style="font-size: larger; width:100%;">
                                 </div>
                                 <div class='field custom-input'>
                                     <input id='txtPartnerEmail' type='email' name='PartnerEmail' maxlength="200"
-                                        placeholder="Email Address" required style="font-size: larger; width:500px;">
+                                        placeholder="Email Address" required style="font-size: larger; width:100%;">
                                 </div>
                                 <div class='field custom-input'>
                                     <input id='txtPartnerContactNumber' type='text' name='PartnerContactNumber'
                                         minlength="10" maxlength="20" placeholder="Contact Number"
-                                        style="font-size: larger; width:500px;" pattern="^[0-9+]+$">
+                                        style="font-size: larger; width:100%;" pattern="^[0-9+]+$">
                                 </div>
                             </div>
                         </fieldset>
@@ -341,83 +343,92 @@
                         form_to_validate="partnerWithUsStep1Form">Next</button>
                 </div>
             </section>
-            <section id="step-2" class="form-step d-none" style="margin-top:0px; padding-top:0px; min-height:300px; ">
+            <section id="step-2" class="form-step d-none" style="margin-top:0px; padding-top:0px; height:300px; ">
                 <!-- Step 2 input fields -->
-                <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                <div class="mt-3"
+                    style="margin-top:0px; padding-top:0px; min-height:250px; max-height:250px; height:250px; width:120%; margin-left:-10%;">
                     <form id="partnerWithUsStep2Form" name="partnerWithUsStep2Form">
                         <fieldset class='form-bd'>
                             <div class='field-group' style=" margin-top:0px;">
-                                <div class='field custom-input' style="display:inline-flex;">
-                                    <div style="width:250px; float:left;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionPublishing"
-                                            type="checkbox" checked disabled data-attr="Publishing" />
-                                        <label for="chkPartnerOptionPublishing"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Publishing (Default)
-                                        </label>
-                                    </div>
-                                    <div style="width:250px; float:right;margin-left:20px;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionBroadcasting"
-                                            type="checkbox" data-attr="Broadcasting" />
-                                        <label for="chkPartnerOptionBroadcasting"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Broadcasting
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class='field custom-input ' style="display:inline-flex; margin-top:-10px;">
-                                    <div style="width:250px; float:left;">
-                                        <input class="custom-metaversedaily-checkbox"
-                                            id="chkPartnerOptionEventPublishing" type="checkbox" />
-                                        <label for="chkPartnerOptionEventPublishing"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Event Publishing
-                                        </label>
-                                    </div>
-                                    <div style="width:250px; float:right; margin-left:20px;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionEventBooking"
-                                            type="checkbox" />
-                                        <label for="chkPartnerOptionEventBooking"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Event Booking
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class='field custom-input ' style="display:inline-flex; margin-top:-10px;">
-                                    <div style="width:250px; float:left;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionEventCasting"
-                                            type="checkbox" />
-                                        <label for="chkPartnerOptionEventCasting"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Event Casting
-                                        </label>
-                                    </div>
-                                    <div style="width:250px; float:right; margin-left:20px;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionMarketplace"
-                                            type="checkbox" />
-                                        <label for="chkPartnerOptionMarketplace"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Marketplace
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class='field custom-input ' style="display:inline-flex; margin-top:-10px;">
-                                    <div style="width:250px; float:left;">
-                                        <input class="custom-metaversedaily-checkbox" id="chkPartnerOptionResearchLabs"
-                                            type="checkbox" />
-                                        <label for="chkPartnerOptionResearchLabs"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Research Labs
-                                        </label>
-                                    </div>
-                                    <div style="width:250px; float:right; margin-left:20px;">
-                                        <input class="custom-metaversedaily-checkbox"
-                                            id="chkPartnerOptionEducationPrograms" type="checkbox" />
-                                        <label for="chkPartnerOptionEducationPrograms"
-                                            style="font-weight: 500; color:rgb(26, 26, 26);">
-                                            Education Programs
-                                        </label>
-                                    </div>
+                                <div class='field custom-input'>
+                                    <table>
+                                        <tr style="width:100%;">
+                                            <td style="width:45%; min-width: 45%;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionPublishing" type="checkbox" checked disabled
+                                                    data-attr="Publishing" />
+                                                <label for="chkPartnerOptionPublishing"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Publishing (Default)
+                                                </label>
+                                            </td>
+                                            <td style="width:45%; min-width: 45%; padding-left:10px;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionBroadcasting" type="checkbox"
+                                                    data-attr="Broadcasting" />
+                                                <label for="chkPartnerOptionBroadcasting"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Broadcasting
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%; margin-top: 10px;">
+                                            <td style="width:45%; min-width: 45%;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionEventPublishing" type="checkbox" />
+                                                <label for="chkPartnerOptionEventPublishing"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Event Publishing
+                                                </label>
+                                            </td>
+                                            <td style="width:45%; min-width: 45%; padding-left:10px;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionEventBooking" type="checkbox" />
+                                                <label for="chkPartnerOptionEventBooking"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Event Booking
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="width:100%; margin-top: 10px;">
+                                            <td style="width:45%; min-width: 45%;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionEventCasting" type="checkbox" />
+                                                <label for="chkPartnerOptionEventCasting"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Event Casting
+                                                </label>
+                                            </td>
+                                            <td style="width:45%; min-width: 45%; padding-left:10px;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionMarketplace" type="checkbox" />
+                                                <label for="chkPartnerOptionMarketplace"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Marketplace
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="width:100%; margin-top: 10px;">
+                                            <td style="width:45%; min-width: 45%;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionResearchLabs" type="checkbox" />
+                                                <label for="chkPartnerOptionResearchLabs"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Research Labs
+                                                </label>
+                                            </td>
+                                            <td style="width:45%; min-width: 45%; padding-left:10px;">
+                                                <input class="custom-metaversedaily-checkbox"
+                                                    id="chkPartnerOptionEducationPrograms" type="checkbox" />
+                                                <label for="chkPartnerOptionEducationPrograms"
+                                                    style="font-weight: 500; font-size:18px; color:rgb(26, 26, 26);">
+                                                    Education Programs
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </fieldset>
@@ -432,28 +443,29 @@
                 </div>
             </section>
             <!-- Step 3 Content, default hidden on page load. -->
-            <section id="step-3" class="form-step d-none" style="margin-top:0px; padding-top:0px; min-height:300px; ">
+            <section id="step-3" class="form-step d-none" style="margin-top:0px; padding-top:0px; height:300px; ">
                 <!-- Step 3 input fields -->
-                <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                <div class="mt-3"
+                    style="margin-top:0px; padding-top:0px; min-height:250px; max-height:250px; height:250px;">
                     <form id="partnerWithUsStep3Form" name="partnerWithUsStep3Form">
                         <fieldset class='form-bd'>
                             <div class='field-group' style="margin-top:0px;">
                                 <div class='field custom-input'>
                                     <input id='txtPartnerOrganizationName' type='text' name='PartnerOrganizationName'
                                         placeholder="Your Organization" required minlength="3" maxlength="100"
-                                        pattern="^[a-zA-Z0-9 ]+$" style="font-size: larger; width:500px;">
+                                        pattern="^[a-zA-Z0-9 ]+$" style="font-size: larger; width:100%;">
                                 </div>
                                 <div class='field custom-input'>
                                     <input id='txtPartnerOrganizationURL' type='text' name='PartnerOrganizationURL'
                                         pattern="^((https):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$"
                                         placeholder="Your Organization URL" required minlength="10" maxlength="200"
-                                        style="font-size: larger; width:500px;">
+                                        style="font-size: larger; width:100%;">
                                 </div>
                                 <div class='field custom-input'>
                                     <input id='txtPartnerOrganizationalTitle' type='text'
                                         name='PartnerOrganizationalTitle' pattern="^[a-zA-Z ]+$"
                                         placeholder="Your Organizational Title" required minlength="2" maxlength="100"
-                                        style="font-size: larger; width:500px;">
+                                        style="font-size: larger; width:100%;">
                                 </div>
                             </div>
                         </fieldset>
@@ -468,9 +480,10 @@
                 </div>
             </section>
             <!-- Step 3 Content, default hidden on page load. -->
-            <section id="step-4" class="form-step d-none" style="margin-top:0px; padding-top:0px; min-height:300px; ">
+            <section id="step-4" class="form-step d-none" style="margin-top:0px; padding-top:0px; height:300px; ">
                 <!-- Step 3 input fields -->
-                <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                <div class="mt-3"
+                    style="margin-top:0px; padding-top:0px; min-height:250px; max-height:250px; height:250px;">
                     <form id="partnerWithUsStep4Form" name="partnerWithUsStep4Form">
                         <fieldset class='form-bd'>
                             <div class='field-group' style="margin-top:0px;">
@@ -478,12 +491,12 @@
                                     <input id='txtPartnerLinkedInProfile' type='text' name='PartnerLinkedInProfile'
                                         placeholder="LinkedIn Profile Link" required minlength="3"
                                         pattern="^((https):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$"
-                                        style="font-size: larger; width:500px;">
+                                        style="font-size: larger; width:100%;">
                                 </div>
                                 <div class='field custom-input'>
                                     <input id='txtPartnerOtherSocialProfile' type='text'
                                         name='PartnerOtherSocialProfile' placeholder="Other Social Profile Link"
-                                        style="font-size: larger; width:500px;"
+                                        style="font-size: larger; width:100%;"
                                         pattern="^((https):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$">
                                 </div>
                             </div>
@@ -504,7 +517,7 @@
                             onclick="PartnerWithUs(this);">Submit</button>
                     </div>
                     <div style="float:left;margin-left:5px;">
-                        <svg id="PartnerWithUsLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                        <svg id="PartnerWithUsLoader" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
                             viewBox="0 0 512 512">
                             <path fill="#000000"
                                 d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
@@ -525,7 +538,7 @@
                     for further process.</span>
             </div>
             <div
-                style='background-image: url("/static/gifs/mail.gif"); height:350px; width:350px; background-size: contain; margin-top:-20px;'>
+                style='background-image: url("/static/gifs/mail.gif"); height:300px; width:100%; background-size: contain; margin-top:-20px;'>
             </div>
             <div class='button-group' style="float:left; margin-top:-50px;">
                 <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
@@ -541,4 +554,4 @@
         </svg>
     </button>
 </div>
-<script type="text/javascript" src="/static/scripts/bundles/partnerwithus.js"></script>
+<script type="text/javascript" src="/static/scripts/bundles/mobile/partnerwithus.js"></script>

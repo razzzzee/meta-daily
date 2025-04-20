@@ -473,14 +473,14 @@
                         if (data.Status == 'SUCCESS') {
                             el.disabled = false;
                             otpVerificationErrorMessage.style.display = 'none';
-                            userName = data.FullName;
-                            userRole = data.Role;
-                            token = data.Token;
-                            avatar = data.Avatar;
-                            isAuthorized = 1;
-                            sessionStorage.setItem('signin-status', 1);
-                            setSessionStorage();
-                            window.location.href = '/home'
+                            //userName = data.FullName;
+                            //userRole = data.Role;
+                            //token = data.Token;
+                            //avatar = data.Avatar;
+                            //isAuthorized = 1;
+                            sessionStorage.setItem('signup-status', 1);
+                            //setSessionStorage();
+                            window.location.href = '/signin'
                         }
                         else if (data.Status == 'INVALID-OTP') {
                             el.disabled = false;

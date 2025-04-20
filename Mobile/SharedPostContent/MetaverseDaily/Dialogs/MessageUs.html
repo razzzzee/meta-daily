@@ -3,6 +3,7 @@
         overflow-y:hidden;
         overflow-x: hidden;
         height:550px;
+        margin-top: 50px;
     }
     
     .ScrollableTextArea::-webkit-scrollbar {
@@ -83,17 +84,17 @@
                             <input id='txtMessageUsEmail' type='email' name='MessageUsEmail' placeholder="Email Address"
                                 maxlength="100" required style="font-size: larger; width:100%;">
                         </div>
-                        <div class='field custom-input ' style="height:250px; margin-top:10px;">
+                        <div class='field custom-input ' style="height:200px; margin-top:10px;">
                             <textarea id="txtMessageUsMessage" name='MessageUsMessage'
                                 placeholder="Write Your Message (Max 2000 words)" rows="10" cols="50" required
                                 maxlength="2000" pattern="^[a-zA-Z0-9_@.:/\&,]+$"
-                                style="height:250px; font-size: larger; border-radius:7px;"
+                                style="height:200px; font-size: larger; border-radius:7px;"
                                 class="ScrollableTextArea"></textarea>
                         </div>
                     </div>
                 </fieldset>
             </div>
-            <div style="padding-bottom:20px;">
+            <div style="margin-top:-50px;">
                 <div class='button-group' style="float:left;">
                     <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
                         form_to_validate="messageUsForm" onclick="MessageUsSend(this);">Send</button>
@@ -109,48 +110,19 @@
         </form>
     </div>
     <div id="messageUsPage2" class="messageus-dialog-box">
-        <div style="width:100%; margin-left:0px;">
-            <p style="color: rgb(26, 26, 26); font-weight: 400; width:95%; font-size:20px; margin-top:10px; line-height: 1.15;">
-                Thanks for your message to Metaverse Daily. Our support team will be reverting you with appropriate response.</p>
+        <div style="margin-top:0px;">
+            <div style="margin:auto; text-align:center;">
+                <p
+                style="color: rgb(26, 26, 26); font-weight: 400; width:95%; font-size:20px; margin-top:0px; line-height: 1.15;">
+                Thanks for your message to Metaverse Daily. Our support team will be
+                reverting you with appropriate response.</p>
+            </div>
+            <div
+                style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; margin-top:10px;'>
+            </div>
             <div class='button-group' style="float:left; margin-top:0px;">
                 <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
                     onclick="CloseMessageUsDialog();">Done</button>
-            </div>
-        </div>
-        
-        <div style="width:100%; display:inline-block; margin-top:15px;">
-            <header class='auxsection-hd' style="width:100%; margin-left:0px; padding-left:0px; border-top:1px solid lightgrey;">
-                <span class='updates-list' style="margin-top:20px; padding-top:0px; font-size:25px; font-weight:700;">Explore
-                    More</span>
-            </header>
-            <div style="width:100%; display:inline-block; margin-top:20px;">
-                <div data-href='/educationprograms' style="width:50%; float:left;">
-                    <a class='module-content-guard' href='/educationprograms'>
-                        <div
-                            style='background-image: url("/static/gifs/programs.gif"); width:50%; background-repeat: no-repeat; background-size: cover;'>
-                            <div>
-                                <div
-                                    style=" color:black; width:30%; text-align: center; font-size:50px; font-weight: 700; padding-top:30%; text-align:center;">
-                                    <span>Education Programs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div data-href='/digitaluniversities' style="width:50%; float:right;">
-                    <a class='module-content-guard' href='/digitaluniversities'>
-                        <div
-                            style='background-image: url("/static/gifs/universities.gif"); width:50%; background-repeat: no-repeat; background-size: cover;'>
-                            <div class='module-content'>
-                                <div
-                                    style=" color:white; width:30%; text-align: center; font-size:40px; font-weight: 700; padding-top:30%; padding-left:10%;">
-                                    <span>Digital Universities<span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>

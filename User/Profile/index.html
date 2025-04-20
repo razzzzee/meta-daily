@@ -516,7 +516,7 @@
     </dialog>
     <script>
         var chooseAvatarDialog = document.getElementById('ChooseAvatarDialog');
-        var selectedAvatar;
+        var selectedAvatar = '0';
         function ShowChooseAvatarDialog() {
             chooseAvatarDialog.showModal();
         }
@@ -534,27 +534,11 @@
     </script>
 
     <script>
-
-        fetch('/UserProfile', {
-            method: 'POST',
-            headers: {
-                Authorization: sessionStorage.getItem('token'),
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                token: sessionStorage.getItem('token')
-            })
-        })
-            .then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                document.getElementById('txtFullName').value = data.FullName;
-                document.getElementById('txtEmail').value = data.Email;
-                document.getElementById('txtDOB').value = data.DOB;
-            });
-
-
         function SaveUserProfile() {
+            if(selectedAvatar == '0') {
+                selectedAvatar = sessionStorage.getItem('avatar');
+            }
+
             fetch('/SaveUserProfile', {
                 method: 'POST',
                 headers: {
@@ -578,8 +562,11 @@
                             icon: true,
                             dismissable: true
                         });
+                        SetUserProfile();
+                        SetUserDrawerProfile();
                         document.getElementById('txtFullName').value = data.FullName;
-                        selectedAvatar: Avatar;
+                        //selectedAvatar: Avatar;
+                        
                     }
                     else if (data.Status == "UNAUTHORIZED") {
                         window.location.href = '/home';
