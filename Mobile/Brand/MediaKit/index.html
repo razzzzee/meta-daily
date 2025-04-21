@@ -19,17 +19,27 @@
    <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner-autoscroll"></script>
    <script src="https://cdn.jsdelivr.net/npm/@tripetto/studio"></script>
    <style>
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}
+
+      @media only screen and (orientation:landscape) {
+         #turn {
+            display: block;
+         }
+
+         #container {
+            display: none;
+         }
+      }
+
+
+      @media only screen and (orientation:portrait) {
+         #turn {
+            display: none;
+         }
+
+         #container {
+            display: block;
+         }
+      }
       /*Dialog Styles*/
       dialog {
          padding: 1rem 3rem;
@@ -190,6 +200,10 @@
 </head>
 
 <body>
+   <div id="turn">
+      Please rotate your device!
+   </div>
+<div id="container">
    <div data-id="module-loading-1" style="display:flex" class="loading-section" style="float:left; margin-left:30px;">
       <h3 data-id="module-loading-header-1"
          style="margin-left:20px;opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
@@ -1672,7 +1686,7 @@
          document.getElementById("SubscribeDialog").close();
       }
    </script>
-
+</div>
 </body>
 
 </html>
