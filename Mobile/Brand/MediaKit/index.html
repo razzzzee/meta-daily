@@ -19,6 +19,17 @@
    <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner-autoscroll"></script>
    <script src="https://cdn.jsdelivr.net/npm/@tripetto/studio"></script>
    <style>
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
       /*Dialog Styles*/
       dialog {
          padding: 1rem 3rem;
