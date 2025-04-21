@@ -2,6 +2,63 @@
 <html>
 
 <head>
+    <style>
+        .screen-size-loader {
+            display: none;
+        }
+
+        #ScreenSizeLoader {
+            display: none;
+        }
+
+
+        @media only screen and (orientation:landscape) {
+            #turn {
+                display: block;
+            }
+
+            #container {
+                display: none;
+            }
+
+            #ScreenSizeLoader {
+                display: block;
+            }
+
+            #ScreenSizeLoader.display {
+                visibility: visible;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        @media only screen and (orientation:portrait) {
+            #turn {
+                display: none;
+            }
+
+            #container {
+                display: block;
+            }
+
+            #ScreenSizeLoader {
+                display: none;
+            }
+
+            #ScreenSizeLoader.display {
+                visibility: hidden;
+            }
+        }
+
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-77T4QBSXXP"></script>
     <script>
@@ -15,6 +72,8 @@
     <script src="/static/scripts/bundles/mobile/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src='/static/scripts/bundles/mobile/preloads.js'></script>
     <script type="text/javascript" src="/static/scripts/bundles/mobile/postSharedContent.js"></script>
+
+
 
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
@@ -73,8 +132,22 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:100%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -140,15 +213,19 @@
                                         </p>
                                         <p>
                                             <b>Twitter:</b> <br />
-                                            Tweet us on <a href='https://x.com/metaverse_daily' target='_blank'>MetaverseDaily Twitter Handle</a>
+                                            Tweet us on <a href='https://x.com/metaverse_daily'
+                                                target='_blank'>MetaverseDaily Twitter Handle</a>
                                         </p>
                                         <p>
                                             <b>Facebook:</b> <br />
-                                            Drop a message on <a href='https://www.facebook.com/profile.php?id=100093464404065' target='_blank'>MetaverseDaily Facebook Page</a>
+                                            Drop a message on <a
+                                                href='https://www.facebook.com/profile.php?id=100093464404065'
+                                                target='_blank'>MetaverseDaily Facebook Page</a>
                                         </p>
                                         <p>
                                             <b>LinkedIn:</b> <br />
-                                            Drop a message on <a href='https://www.linkedin.com/company/metaversedaily/' target='_blank'>MetaverseDaily LinkedIn Page</a>
+                                            Drop a message on <a href='https://www.linkedin.com/company/metaversedaily/'
+                                                target='_blank'>MetaverseDaily LinkedIn Page</a>
                                         </p>
                                         <p>
                                             or Send us a <b>Email:</b> <br />
@@ -166,13 +243,12 @@
                         </div>
 
                         <section class='auxsection' style="margin-top:-100px;">
-                            <header class='auxsection-hd'  style="height:50px;">
+                            <header class='auxsection-hd' style="height:50px;">
                                 <span class='updates-list'>Message Board</span>
                             </header>
                             <div>
-                                <iframe
-                                src="https://e.widgetbot.io/channels/1105814189647347743/1105814190289059862"
-                                allow="clipboard-write; fullscreen" height="500" width="100%"></iframe>
+                                <iframe src="https://e.widgetbot.io/channels/1105814189647347743/1105814190289059862"
+                                    allow="clipboard-write; fullscreen" height="500" width="100%"></iframe>
                             </div>
                         </section>
 
