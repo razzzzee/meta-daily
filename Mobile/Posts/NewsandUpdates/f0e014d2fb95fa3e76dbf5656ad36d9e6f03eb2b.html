@@ -27,7 +27,7 @@
 <meta name="coverage" content="Worldwide">
 <meta name="distribution" content="Global">
 <meta name="keywords"
-    content="Post,Binance,newsandupdates,featured,NFT,HealthAndWellness,Sustainability,USA,metaverse, metaverse daily, spatial, virtual, virtualreality, augmentreality, vr, ar, broadcasting, media, content, publishing, platform, news, art, generative ai, digital art, crypto, blockchain, nft, artificial intelligence, generative art" />
+    content="Post,Binance,newsandupdates,featured,NFT,HealthAndWellness,NFT,USA,metaverse, metaverse daily, spatial, virtual, virtualreality, augmentreality, vr, ar, broadcasting, media, content, publishing, platform, news, art, generative ai, digital art, crypto, blockchain, nft, artificial intelligence, generative art" />
 <meta name='description' content='Metaverse Daily is a Broadcasting and Media Publishing as a platform for metaverse explorers.' />
 <meta property='og:url' content='https://www.metaversedaily.world' />
 <meta property='og:title' content='Metaverse Daily' />
@@ -99,8 +99,21 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -161,7 +174,7 @@
                                 </div>
                                 <p>Published by <a href='/people/researchers'><strong>Daniel Haziza</strong></a>
                                 </p>
-                                <p>Apr 18, 2025</p>
+                                <p>Apr 22, 2025</p>
                             </div>
                             <div class='rail-meta'>
                                 <div style="display:inline-flex;">
@@ -358,7 +371,7 @@
                                         </div>
                                         <div>
                                             <h4 style="color:darkgray; font-weight: 500;">
-                                                Apr 18, 2025
+                                                Apr 22, 2025
                                                 in <a href='/NewsandUpdates/Featured' style="text-decoration: none; ">
                                                     Featured
                                                 </a>
@@ -370,7 +383,7 @@
                                                     style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                                                     NFT
                                                 </span>
-                                                <img src="/static/Image/Emoji/excited-girl.png"
+                                                <img src="/static/Image/Emoji/excited-boy.png"
                                                     style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-5px;" />
                                                 <span
                                                     style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
@@ -378,7 +391,7 @@
                                                 </span>
                                                 <span
                                                     style="background: gray; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                                                    Sustainability
+                                                    NFT
                                                 </span>
                                             </div>
 
@@ -393,7 +406,7 @@
                                                 <div>
                                                     <div class="fixed-action-btn share-action-btn-bottom click-to-toggle"
                                                         style=" background-color: transparent; z-index:0; width:40px; float:right; margin-top:10px;">
-                                                        <a class="btn-floating">
+                                                        <a class="btn-floating" onclick="ShowShareOptionDialog();">
                                                             <img src="/static/svgs/share.svg" class="logo-image-share"
                                                                 style="height:30px; width:40px; fill:#ffffff; " />
                                                         </a>
@@ -542,7 +555,7 @@
                                             <div style="display: inline-flex; margin-left:2px;">
                                                 <div class="fixed-action-btn share-action-btn-top click-to-toggle"
                                                     style=" background-color: transparent; z-index:0; width:25px;">
-                                                    <a class="btn-floating">
+                                                    <a class="btn-floating" onclick="ShowShareOptionDialog();">
                                                         <img src="/static/svgs/share.svg" class="logo-image-share"
                                                             style="height:25px; width:25px; fill:#ffffff; margin-right:5px;" />
                                                     </a>
@@ -737,13 +750,12 @@
     <div class="slider-content" id="MetaverseDailyHeroSliderContent">
     </div>
 
-    <dialog id="MetaverseDailyPublishDialog" style="max-width:1000px; width:1000px;">
+    <dialog id="MetaverseDailyPublishDialog" style="width:75%; margin-top:50px;">
         <style>
             #MetaverseDailyPublishDialog {
                 overflow-y: hidden;
                 overflow-x: hidden;
-                max-height: 580px;
-                max-width: 1200px;
+                max-height: 550px;
             }
 
             .ScrollableTextArea::-webkit-scrollbar {
@@ -806,7 +818,7 @@
 
             #multi-step-form-container {
                 margin-top: 5rem;
-                width: 90%;
+                width: 100%;
                 margin-right: auto;
                 margin-left: auto;
             }
@@ -933,8 +945,8 @@
 
             ul.form-stepper li a .form-stepper-circle {
                 display: inline-block;
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
                 margin-right: 0;
                 line-height: 1.7rem;
                 text-align: center;
@@ -1003,10 +1015,10 @@
         </style>
 
 
-        <div style="margin-left:20px;">
+        <div style="margin-left:20px;" style="width:100%;">
             <h2>Write Publication </h2>
             <span style="color:red; font-size: 18px;">Get your columnist membership to start writing</span>
-            <div id="publishPage1" style="max-width:1000px;width:950px;">
+            <div id="publishPage1" style="width:130%; margin-left:-18%;">
                 <div id="multi-step-form-container" style="margin-top:20px;">
                     <!-- Form Steps / Progress Bar -->
                     <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
@@ -1016,7 +1028,7 @@
                                 <span class="form-stepper-circle">
                                     <span></span>
                                 </span>
-                                <h2 style="font-size:30px; color:#4d4c4d;">Content</h2>
+                                <h2 style="font-size:25px; color:#4d4c4d;">Content</h2>
                             </a>
                         </li>
                         <!-- Step 2 -->
@@ -1025,7 +1037,7 @@
                                 <span class="form-stepper-circle text-muted">
                                     <span></span>
                                 </span>
-                                <h2 class="text-muted" style="font-size:30px; color:#4d4c4d;">Details</h2>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Details</h2>
                             </a>
                         </li>
                         <!-- Step 3 -->
@@ -1034,7 +1046,7 @@
                                 <span class="form-stepper-circle text-muted">
                                     <span></span>
                                 </span>
-                                <h2 class="text-muted" style="font-size:30px; color:#4d4c4d;">Finals</h2>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Finals</h2>
                             </a>
                         </li>
                     </ul>
@@ -1044,16 +1056,16 @@
                             id="PublishErrorMessage">**Error**</h2>
                     </div>
                     <!-- Step 1 Content -->
-                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:300px;">
+                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:200px;">
                         <!-- Step 1 input fields -->
-                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:150px;">
                             <form id="publishStep1Form" name="publishStep1Form">
                                 <fieldset class='form-bd'>
                                     <div class='field-group' style="margin-top:0px; ">
                                         <div class='field custom-input'>
                                             <input id='txtPublishFullName' type='text' name='PublishFullName'
                                                 placeholder="Full Name" required minlength="3" maxlength="100"
-                                                pattern="^[a-zA-Z ]+" style="font-size: larger; width:500px;" disabled>
+                                                pattern="^[a-zA-Z ]+" style="font-size: larger; width:90%;" disabled>
                                         </div>
                                         <div class='field custom-input'>
                                             <textarea id="area_editor" disabled></textarea>
@@ -1122,7 +1134,7 @@
                     </section>
                 </div>
             </div>
-            <div id="publishPage2" class="becomepublish-dialog-box" style="width:400px;">
+            <div id="publishPage2" class="becomepublish-dialog-box" style="width:100%;">
                 <div style="margin-top:20px;">
                     <div style="text-align: center;">
                         <h2 style="color:green; font-size:25px;">ðŸŽ‰ðŸŽ‰ðŸŽ‰ Hurray ðŸŽ‰ðŸŽ‰ðŸŽ‰</h2>
@@ -1152,6 +1164,139 @@
         </div>
         <script type="text/javascript" src="/static/scripts/bundles/mobile/publish.js"></script>
     </dialog>
+
+
+    <dialog id="ShareOptionDialog" style="width:70%; max-height:550px; background-color: #000000; color:#ffffff; ">
+        <style>
+            .share-option {
+                font-size: 25px;
+                border-radius: 7px;
+                font-weight: 900;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                background-color: rgba(0, 0, 0, .8);
+                transition: all .2s linear;
+            }
+
+            .share-option:hover {
+                background-color: rgba(0, 0, 255, .8);
+            }
+
+            .on-share-image {
+                border-radius: 7px;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                border: 1px solid #ffffff;
+                transition: all .1s ease;
+            }
+
+            .on-share-image:hover {
+                box-shadow: none;
+                border: 2px solid red;
+            }
+
+            .share-option-icon {
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(0, 0, 0, 1);
+                transition: all .3s linear;
+            }
+
+            .share-option-icon:hover {
+                background-color: rgba(255, 0, 0, .5);
+            }
+        </style>
+
+        <div style="margin-left:20px; width:90%; height:420px;">
+            <h2>Share Options</h2>
+            <hr />
+            <div style="margin-right:auto; margin-left:25px; align-items: center;">
+                <div
+                    style="width:95%;display:inline-flex;  margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank" 
+                            href='https://twitter.com/share?url=https://www.metaversedaily.world/posts/newsandupdates/f0e014d2fb95fa3e76dbf5656ad36d9e6f03eb2b&amp;text=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share'>
+                            <img src="/static/svgs/PostShareTwitterX.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://www.facebook.com/sharer/?u=https://www.metaversedaily.world/posts/newsandupdates/f0e014d2fb95fa3e76dbf5656ad36d9e6f03eb2b'>
+                            <img src="/static/svgs/PostShareFacebook.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+                <div
+                    style="width:95%;display:inline-flex;  margin:auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank" 
+                            href='https://www.linkedin.com/shareArticle?url=https://www.metaversedaily.world/posts/newsandupdates/f0e014d2fb95fa3e76dbf5656ad36d9e6f03eb2b&amp;mini=true'>
+                            <img src="/static/svgs/PostShareLinkedin.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" target="_blank" 
+                            href='https://www.reddit.com/submit?url=https://www.metaversedaily.world/posts/newsandupdates/f0e014d2fb95fa3e76dbf5656ad36d9e6f03eb2b&title=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share'>
+                            <img src="/static/svgs/PostShareReddit.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+                <div
+                    style="width:95%;display:inline-flex;  margin:auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon" 
+                        style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://mastodonshare.com/?text=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share&url=https://www.metaversedaily.world/posts/newsandupdates/f0e014d2fb95fa3e76dbf5656ad36d9e6f03eb2b'>
+                            <img src="/static/svgs/PostShareMastodon.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" href='javascript:void(0)'
+                        onclick="CopyLinkToToast();">
+                            <img src="/static/svgs/PostShareCopyLink.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+
+        <footer class='form-ft'>
+            <div class='button-group' style="margin-top:-40px; margin-left:20px; margin-bottom:10px;">
+                <button class='button variant-cta' style="border-radius:7px; font-size:20px; filter:invert(1);"
+                    onclick="CloseShareOptionDialog();">Done</button>
+            </div>
+        </footer>
+    </dialog>
+
+    <script>
+        var shareOptionDialog = document.getElementById('ShareOptionDialog');
+        function ShowShareOptionDialog() {
+            shareOptionDialog.showModal();
+        }
+
+        function CloseShareOptionDialog() {
+            shareOptionDialog.close();
+        }
+    </script>
 
 </body>
 

@@ -27,7 +27,7 @@
 <meta name="coverage" content="Worldwide">
 <meta name="distribution" content="Global">
 <meta name="keywords"
-    content="Post,Binance,marketplace,games,NFT,Economical,Forecast,USA,metaverse, metaverse daily, spatial, virtual, virtualreality, augmentreality, vr, ar, broadcasting, media, content, publishing, platform, news, art, generative ai, digital art, crypto, blockchain, nft, artificial intelligence, generative art" />
+    content="Post,Binance,marketplace,games,NFT,Political,NFT,USA,metaverse, metaverse daily, spatial, virtual, virtualreality, augmentreality, vr, ar, broadcasting, media, content, publishing, platform, news, art, generative ai, digital art, crypto, blockchain, nft, artificial intelligence, generative art" />
 <meta name='description' content='Metaverse Daily is a Broadcasting and Media Publishing as a platform for metaverse explorers.' />
 <meta property='og:url' content='https://www.metaversedaily.world' />
 <meta property='og:title' content='Metaverse Daily' />
@@ -167,7 +167,7 @@
                                         </div>
                                         <p>Authored by <a href='/people/reviewers'><strong>Maya Fitzger</strong></a>
                                         </p>
-                                        <p>Apr 18, 2025</p>
+                                        <p>Apr 22, 2025</p>
                                     </div>
                                     <div class='rail-meta' style="width: 240px;">
                                         <div style="display:inline-flex;">
@@ -421,7 +421,7 @@
                                                 </div>
                                                 <div style="margin-top:0px;">
                                                     <h4 style="color:darkgray; font-weight: 500;">
-                                                        Apr 18, 2025
+                                                        Apr 22, 2025
                                                         in <a href='/Marketplace/Games' style="text-decoration: none; ">
                                                             Marketplace
                                                         </a>
@@ -434,22 +434,22 @@
                                                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                                                             NFT
                                                         </span>
-                                                        <img src="/static/Image/Emoji/excited-girl.png"
+                                                        <img src="/static/Image/Emoji/excited-boy.png"
                                                             style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-5px;" />
                                                         <span
                                                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                                                            Economical
+                                                            Political
                                                         </span>
                                                         <span
                                                             style="background: gray; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                                                            Forecast
+                                                            NFT
                                                         </span>
                                                     </div>
                                                     <div style="float:right; width:20%;  text-align: right;">
                                                         <div style=" height: 70px; z-index:0;">
                                                             <div class="fixed-action-btn share-action-btn-bottom click-to-toggle"
                                                                 style=" background-color: transparent; z-index:0; width:40px; float:right; margin-top:20px;">
-                                                                <a class="btn-floating">
+                                                                <a class="btn-floating" onclick="ShowShareOptionDialog();">
                                                                     <img src="/static/svgs/share.svg"
                                                                         class="logo-image-share"
                                                                         style="height:30px; width:40px; fill:#ffffff; " />
@@ -606,7 +606,7 @@
                                                     <div style="width:70px; display: inline-flex; margin-left:2px;">
                                                         <div class="fixed-action-btn share-action-btn-top click-to-toggle"
                                                             style=" background-color: transparent; z-index:0; width:25px;">
-                                                            <a class="btn-floating">
+                                                            <a class="btn-floating" onclick="ShowShareOptionDialog();">
                                                                 <img src="/static/svgs/share.svg"
                                                                     class="logo-image-share"
                                                                     style="height:25px; width:25px; fill:#ffffff; margin-right:5px;" />
@@ -1231,6 +1231,135 @@
         </div>
         <script type="text/javascript" src="/static/scripts/bundles/publish.js"></script>
     </dialog>
+
+
+    <dialog id="ShareOptionDialog" style="max-height:650px; background-color: #000000; color:#ffffff; ">
+        <style>
+            .share-option {
+                font-size: 25px;
+                border-radius: 7px;
+                font-weight: 900;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                background-color: rgba(0, 0, 0, .8);
+                transition: all .2s linear;
+            }
+
+            .share-option:hover {
+                background-color: rgba(0, 0, 255, .8);
+            }
+
+            .on-share-image {
+                border-radius: 7px;
+                box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+                border: 1px solid #ffffff;
+                transition: all .1s ease;
+            }
+
+            .on-share-image:hover {
+                box-shadow: none;
+                border: 2px solid red;
+            }
+
+            .share-option-icon {
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(0, 0, 0, 1);
+                transition: all .3s linear;
+            }
+
+            .share-option-icon:hover {
+                background-color: rgba(255, 0, 0, .5);
+            }
+        </style>
+
+        <div style="margin-left:20px; width:250px; height:420px;">
+            <h2>Share Options</h2>
+            <hr />
+            <div style="margin-right:auto; margin-left:25px; align-items: center;">
+                <div
+                    style="width:95%;display:inline-flex;  margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon" style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://twitter.com/share?url=https://www.metaversedaily.world/posts/marketplace/534a18244dc39f8225aedebe2fff0d4f971ed690&amp;text=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share'>
+                            <img src="/static/svgs/PostShareTwitterX.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://www.facebook.com/sharer/?u=https://www.metaversedaily.world/posts/marketplace/534a18244dc39f8225aedebe2fff0d4f971ed690'>
+                            <img src="/static/svgs/PostShareFacebook.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+                <div
+                    style="width:95%;display:inline-flex;  margin:auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon" style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://www.linkedin.com/shareArticle?url=https://www.metaversedaily.world/posts/marketplace/534a18244dc39f8225aedebe2fff0d4f971ed690&amp;mini=true'>
+                            <img src="/static/svgs/PostShareLinkedin.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://www.reddit.com/submit?url=https://www.metaversedaily.world/posts/marketplace/534a18244dc39f8225aedebe2fff0d4f971ed690&title=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share'>
+                            <img src="/static/svgs/PostShareReddit.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+                <div
+                    style="width:95%;display:inline-flex;  margin:auto; margin-top:10px; margin-bottom:10px; padding:auto; align-items: center; text-align: center; ">
+                    <div class="share-option-icon" style="width:80px; height:80px; float:left;">
+                        <a style="outline: none;" target="_blank"
+                            href='https://mastodonshare.com/?text=Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share&url=https://www.metaversedaily.world/posts/marketplace/534a18244dc39f8225aedebe2fff0d4f971ed690'>
+                            <img src="/static/svgs/PostShareMastodon.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                    <div class="share-option-icon"
+                        style="width:80px; height:80px; float:right;align-items: center; margin:auto; padding:auto;">
+                        <a style="outline: none;" href='javascript:void(0)' onclick="CopyLinkToToast();">
+                            <img src="/static/svgs/PostShareCopyLink.svg" width="60px" height="60px" alt=""
+                                class="image-8"
+                                style="border-radius:10%; margin-left:auto; margin-right: auto; margin-top:10px; margin-bottom: auto;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+
+        <footer class='form-ft'>
+            <div class='button-group' style="margin-top:-40px; margin-left:20px; margin-bottom:10px;">
+                <button class='button variant-cta' style="border-radius:7px; font-size:20px; filter:invert(1);"
+                    onclick="CloseShareOptionDialog();">Done</button>
+            </div>
+        </footer>
+    </dialog>
+
+    <script>
+        var shareOptionDialog = document.getElementById('ShareOptionDialog');
+        function ShowShareOptionDialog() {
+            shareOptionDialog.showModal();
+        }
+
+        function CloseShareOptionDialog() {
+            shareOptionDialog.close();
+        }
+    </script>
 
 </body>
 

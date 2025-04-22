@@ -2,63 +2,7 @@
 <html>
 
 <head>
-    <style>
-        .screen-size-loader {
-            display: none;
-        }
 
-        #ScreenSizeLoader {
-            display: none;
-        }
-
-
-        @media only screen and (orientation:landscape) {
-            #turn {
-                display: block;
-            }
-
-            #container {
-                display: none;
-            }
-
-            #ScreenSizeLoader {
-                display: block;
-            }
-
-            #ScreenSizeLoader.display {
-                visibility: visible;
-            }
-
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-        }
-
-        @media only screen and (orientation:portrait) {
-            #turn {
-                display: none;
-            }
-
-            #container {
-                display: block;
-            }
-
-            #ScreenSizeLoader {
-                display: none;
-            }
-
-            #ScreenSizeLoader.display {
-                visibility: hidden;
-            }
-        }
-
-    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-77T4QBSXXP"></script>
     <script>
@@ -72,7 +16,6 @@
     <script src="/static/scripts/bundles/mobile/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src='/static/scripts/bundles/mobile/preloads.js'></script>
     <script type="text/javascript" src="/static/scripts/bundles/mobile/postSharedContent.js"></script>
-
 
 
     <meta charset='utf-8' />
@@ -132,7 +75,7 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
-    <div id="turn" class="screen-size-loader" style="background-color: black; height:100%;">
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
         <div id="ScreenSizeLoader"
             style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
         </div>
@@ -146,7 +89,6 @@
         </div>
     </div>
     <div id="royal_preloader"></div>
-
     <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>

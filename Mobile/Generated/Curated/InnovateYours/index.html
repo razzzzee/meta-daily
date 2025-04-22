@@ -74,8 +74,21 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -171,10 +184,10 @@
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         Magical </span>
                 </a>
-                <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
+                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
                     <span
                         style="background-color: lightgray; color:black; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Sustainability </span>
+                        Forecast </span>
                 </a>
             </div>
         </div>
@@ -245,15 +258,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Technology" style="text-decoration: none;">
+                <a href="/searchresults/?q=Music" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Technology </span>
+                        Music </span>
                 </a>
-                <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        VirtualReality </span>
+                        AugmentedReality </span>
                 </a>
             </div>
         </div>
@@ -324,15 +337,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Finance" style="text-decoration: none;">
+                <a href="/searchresults/?q=Research" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Finance </span>
+                        Research </span>
                 </a>
-                <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AI </span>
+                        NFT </span>
                 </a>
             </div>
         </div>
@@ -403,15 +416,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Social" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Economical </span>
+                        Social </span>
                 </a>
-                <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AI </span>
+                        Sustainability </span>
                 </a>
             </div>
         </div>
@@ -482,15 +495,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                <a href="/searchresults/?q=Research" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Music </span>
+                        Research </span>
                 </a>
-                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AugmentedReality </span>
+                        MixedReality </span>
                 </a>
             </div>
         </div>
@@ -559,17 +572,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Finance" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Economical </span>
+                        Finance </span>
                 </a>
-                <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        MixedReality </span>
+                        Sustainability </span>
                 </a>
             </div>
         </div>
@@ -638,17 +651,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Creative </span>
+                        Economical </span>
                 </a>
-                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AugmentedReality </span>
+                        Forecast </span>
                 </a>
             </div>
         </div>
@@ -717,17 +730,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-bottom:-12px;" />
-                <a href="/searchresults/?q=Magical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Magical </span>
+                        Entertainment </span>
                 </a>
-                <a href="/searchresults/?q=Currency" style="text-decoration: none;">
+                <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                     <span
                         style="background-color: lightgray; color:black; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Currency </span>
+                        VirtualReality </span>
                 </a>
             </div>
         </div>
@@ -798,15 +811,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Games" style="text-decoration: none;">
+                <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Games </span>
+                        Entertainment </span>
                 </a>
-                <a href="/searchresults/?q=Currency" style="text-decoration: none;">
+                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Currency </span>
+                        Forecast </span>
                 </a>
             </div>
         </div>
@@ -875,17 +888,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Social" style="text-decoration: none;">
+                <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Social </span>
+                        Narrative </span>
                 </a>
-                <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=AI" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        VirtualReality </span>
+                        AI </span>
                 </a>
             </div>
         </div>
@@ -954,17 +967,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
+                <a href="/searchresults/?q=Political" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        HealthAndWellness </span>
+                        Political </span>
                 </a>
-                <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
+                <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Sustainability </span>
+                        Currency </span>
                 </a>
             </div>
         </div>
@@ -1033,17 +1046,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Creative </span>
+                        Narrative </span>
                 </a>
-                <a href="/searchresults/?q=Currency" style="text-decoration: none;">
+                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Currency </span>
+                        AugmentedReality </span>
                 </a>
             </div>
         </div>
@@ -1112,17 +1125,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Economical </span>
+                        HealthAndWellness </span>
                 </a>
-                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AugmentedReality </span>
+                        Sustainability </span>
                 </a>
             </div>
         </div>
@@ -1193,15 +1206,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Games" style="text-decoration: none;">
+                <a href="/searchresults/?q=Political" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Games </span>
+                        Political </span>
                 </a>
-                <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        VirtualReality </span>
+                        AugmentedReality </span>
                 </a>
             </div>
         </div>
@@ -1270,17 +1283,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
+                <a href="/searchresults/?q=Technology" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        HealthAndWellness </span>
+                        Technology </span>
                 </a>
-                <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AI </span>
+                        VirtualReality </span>
                 </a>
             </div>
         </div>
@@ -1349,17 +1362,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-bottom:-12px;" />
-                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Economical </span>
+                        Narrative </span>
                 </a>
-                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=AI" style="text-decoration: none;">
                     <span
                         style="background-color: lightgray; color:black; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AugmentedReality </span>
+                        AI </span>
                 </a>
             </div>
         </div>
@@ -1430,15 +1443,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
+                <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Narrative </span>
+                        Entertainment </span>
                 </a>
-                <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        NFT </span>
+                        MixedReality </span>
                 </a>
             </div>
         </div>
@@ -1509,15 +1522,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Sports" style="text-decoration: none;">
+                <a href="/searchresults/?q=Lifestyle" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Sports </span>
+                        Lifestyle </span>
                 </a>
-                <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        MixedReality </span>
+                        NFT </span>
                 </a>
             </div>
         </div>
@@ -1588,15 +1601,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                <a href="/searchresults/?q=Lifestyle" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Music </span>
+                        Lifestyle </span>
                 </a>
-                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AugmentedReality </span>
+                        Currency </span>
                 </a>
             </div>
         </div>
@@ -1667,15 +1680,15 @@
                 </a>
                 <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Lifestyle" style="text-decoration: none;">
+                <a href="/searchresults/?q=Social" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Lifestyle </span>
+                        Social </span>
                 </a>
-                <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        AI </span>
+                        NFT </span>
                 </a>
             </div>
         </div>
@@ -1744,17 +1757,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Music </span>
+                        HealthAndWellness </span>
                 </a>
-                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Forecast </span>
+                        AugmentedReality </span>
                 </a>
             </div>
         </div>
@@ -1823,17 +1836,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Games" style="text-decoration: none;">
+                <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Games </span>
+                        Entertainment </span>
                 </a>
-                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Forecast </span>
+                        AugmentedReality </span>
                 </a>
             </div>
         </div>
@@ -1902,17 +1915,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                <a href="/searchresults/?q=Technology" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Music </span>
+                        Technology </span>
                 </a>
-                <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                     <span
                         style="background-color: grey; color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Forecast </span>
+                        MixedReality </span>
                 </a>
             </div>
         </div>
@@ -1981,17 +1994,17 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
                     style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-bottom:-12px;" />
-                <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Finance" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Economical </span>
+                        Finance </span>
                 </a>
-                <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                <a href="/searchresults/?q=AI" style="text-decoration: none;">
                     <span
                         style="background-color: lightgray; color:black; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        NFT </span>
+                        AI </span>
                 </a>
             </div>
         </div>
@@ -2060,12 +2073,12 @@
                         style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                         NFT </span>
                 </a>
-                <img src="/static/Image/Emoji/excited-girl.png" class="overlay-emoji"
+                <img src="/static/Image/Emoji/excited-boy.png" class="overlay-emoji"
                     style="height:30px; width:30px; margin-left:10px; margin-right:10px; margin-bottom:-10px;" />
-                <a href="/searchresults/?q=Magical" style="text-decoration: none;">
+                <a href="/searchresults/?q=Political" style="text-decoration: none;">
                     <span
                         style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; margin-right:10px; padding:5px 8px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                        Magical </span>
+                        Political </span>
                 </a>
                 <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                     <span

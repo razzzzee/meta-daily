@@ -487,25 +487,6 @@ button.primary:hover {
 }
 
 
-#ScreenSizeLoader {
-  animation: spin 3s linear infinite;
-  visibility: visible;
-}
-
-#ScreenSizeLoader.display {
-  visibility: visible;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 
 #avatar {
   /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
@@ -830,17 +811,88 @@ ul.hero-marquee p.ticker-module-title {
 }
 
 #drawer-avatar {
-width: 80px;
-height: 80px;
-background-size: cover;
-background-position: top center;
-border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
 }
 
 #rail-avatar {
-width: 80px;
-height: 80px;
-background-size: cover;
-background-position: top center;
-border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+
+
+
+.screen-size-loader {
+  display: none;
+}
+
+#ScreenSizeLoader {
+  display: none;
+}
+
+
+@media only screen and (orientation:landscape) {
+  #turn {
+      display: block;
+  }
+
+  #container {
+      display: none;
+  }
+
+  html {
+      background-color: black;
+  }
+
+  #MetaverseDailyShortcuts {
+      display:none;
+  }
+
+  #ScreenSizeLoader {
+      display: block;
+      animation: spin 3s linear infinite;
+  }
+
+  #ScreenSizeLoader.display {
+      visibility: visible;
+  }
+
+  @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+      }
+
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  #turn {
+      display: none;
+  }
+
+  #container {
+      display: block;
+  }
+
+  #MetaverseDailyShortcuts {
+      display:block;
+  }
+
+  #ScreenSizeLoader {
+      display: none;
+  }
+
+  #ScreenSizeLoader.display {
+      visibility: hidden;
+  }
 }

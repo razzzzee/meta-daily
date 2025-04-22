@@ -723,3 +723,74 @@ ul.hero-marquee p.ticker-module-title {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+
+
+.screen-size-loader {
+  display: none;
+}
+
+#ScreenSizeLoader {
+  display: none;
+}
+
+
+@media only screen and (orientation:landscape) {
+  #turn {
+      display: block;
+  }
+
+  #container {
+      display: none;
+  }
+
+  html {
+      background-color: black;
+  }
+
+  #MetaverseDailyShortcuts {
+      display:none;
+  }
+
+  #ScreenSizeLoader {
+      display: block;
+      animation: spin 3s linear infinite;
+  }
+
+  #ScreenSizeLoader.display {
+      visibility: visible;
+  }
+
+  @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+      }
+
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+}
+
+@media only screen and (orientation:portrait) {
+  #turn {
+      display: none;
+  }
+
+  #container {
+      display: block;
+  }
+
+  #MetaverseDailyShortcuts {
+      display:block;
+  }
+
+  #ScreenSizeLoader {
+      display: none;
+  }
+
+  #ScreenSizeLoader.display {
+      visibility: hidden;
+  }
+}

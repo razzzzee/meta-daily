@@ -74,8 +74,21 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -122,13 +135,17 @@
 
                     <div class='rail-layout-body'>
                         <div class='stream'>
-                            <header class='auxsection-hd'>
-                                <div style="display:inline-flex;">
-                                    <img src="/static/svgs/forecast.svg"
-                                        style="width:45px; height:45px; margin-top:0px;" />
-                                    <span class='updates-list' style="margin-left:10px;">Forecasts</span>
+                            <div style="height:100px;">
+                                <div style="background-color:white; margin-left:0px;">
+                                    <header class='auxsection-hd'>
+                                        <div style="display:inline-flex;margin-left:-15px;">
+                                            <img src="/static/svgs/forecast.svg"
+                                                style="width:45px; height:45px; margin-top:0px;" />
+                                            <span class='updates-list' style="margin-left:10px;">Forecasts</span>
+                                        </div>
+                                    </header>
                                 </div>
-                            </header>
+                            </div>
                             <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
                                 style="margin-top:-100px;">
                                 <div class='container-item listing-layout-item '
@@ -144,15 +161,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Technology" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Technology</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            Currency</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -209,15 +226,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Technology" style="text-decoration: none;">
+                    <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Technology</span>
+                            HealthAndWellness</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Sustainability</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -274,15 +291,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Music</span>
+                            Entertainment</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            VirtualReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -339,15 +356,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Art" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Sports</span>
+                            Art</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Currency</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -409,10 +426,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Games</span>
                     </a>
-                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Currency</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -469,15 +486,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Magical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Magical</span>
+                            Narrative</span>
                     </a>
-                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Sustainability</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -534,15 +551,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Games" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Narrative</span>
+                            Games</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            VirtualReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -597,12 +614,12 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/forecast-boy.png"
+                    <img src="/static/Image/Emoji/forecast-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Magical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Art" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Magical</span>
+                            Art</span>
                     </a>
                     <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
@@ -664,15 +681,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Magical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Entertainment</span>
+                            Magical</span>
                     </a>
-                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AI</span>
+                            VirtualReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -729,15 +746,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Political" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Political</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            VirtualReality</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -794,15 +811,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Technology" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Technology</span>
+                            Narrative</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            NFT</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -859,15 +876,15 @@
                     </a>
                     <img src="/static/Image/Emoji/forecast-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Narrative</span>
+                            Sports</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Forecast</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>

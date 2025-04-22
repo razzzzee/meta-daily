@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html data-wf-domain="metaversedaily" data-page="metaversedaily-media">
+
+<head>
+   <meta charset="utf-8" />
+   <title>Metaverse Daily</title>
+   <meta content="Metaverse Daily" property="og:title" />
+   <meta content="" property="og:image" />
+   <meta content="user-scalable=no, width=device-width, initial-scale=1" name="viewport" />
+   <link rel='icon' type='image/x-icon' href='/Brand/static/resources/metaversedaily.png' />
+   <link href="\Brand\static\resources\css\metaversedaily.media.min.css" rel="stylesheet" type="text/css" />
+   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+   <script
+      type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+   <link href="/Brand/static/resources/metaversedaily.png" rel="apple-touch-icon" />
+   <script src="/static/scripts/bundles/jquery-1.11.3.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner-autoscroll"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@tripetto/studio"></script>
+   <style>
+      @media only screen and (orientation:landscape) {
+         #turn {
+            display: block;
+         }
+
+         #container {
+            display: none;
+         }
+      }
+
+
+      @media only screen and (orientation:portrait) {
+         #turn {
+            display: none;
+         }
+
+         #container {
+            display: block;
+         }
+      }
+
+      /*Dialog Styles*/
+      dialog {
+         padding: 1rem 3rem;
+         background: white;
+         max-width: 1200px;
+         padding-top: 2rem;
+         border-radius: 20px;
+         border: 0;
+         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+         -webkit-animation: fadeInDialog 1s ease both;
+         animation: fadeInDialog 1s ease both;
+      }
+
+      dialog::-webkit-backdrop {
+         -webkit-animation: fadeInDialog 1s ease both;
+         animation: fadeInDialog 1s ease both;
+         background: rgba(255, 255, 255, 0.4);
+         z-index: 2;
+         -webkit-backdrop-filter: blur(0px);
+         backdrop-filter: blur(0px);
+      }
+
+      dialog::backdrop {
+         -webkit-animation: fadeInDialog 1s ease both;
+         animation: fadeInDialog 1s ease both;
+         background: rgba(255, 255, 255, 0.4);
+         z-index: 2;
+         -webkit-backdrop-filter: blur(0px);
+         backdrop-filter: blur(0px);
+      }
+
+      dialog .x {
+         filter: grayscale(1);
+         border: none;
+         background: none;
+         position: absolute;
+         top: 15px;
+         right: 10px;
+         transition: ease filter, transform 0.3s;
+         cursor: pointer;
+         transform-origin: center;
+      }
+
+      dialog .x:hover {
+         filter: grayscale(0);
+         transform: scale(1.1);
+      }
+
+      dialog h2 {
+         font-weight: 600;
+         font-size: 2rem;
+         padding-bottom: 1rem;
+      }
+
+      dialog p {
+         font-size: 1rem;
+         line-height: 1.3rem;
+         padding: 0.5rem 0;
+      }
+
+      dialog p a:visited {
+         color: rgb(var(--vs-primary));
+      }
+
+      /*General Styles*/
+
+      button.primary {
+         display: inline-block;
+         font-size: 0.8rem;
+         color: #fff !important;
+         background: rgb(var(--vs-primary)/100%);
+         padding: 13px 25px;
+         border-radius: 17px;
+         transition: background-color 0.1s ease;
+         box-sizing: border-box;
+         transition: all 0.25s ease;
+         border: 0;
+         cursor: pointer;
+         box-shadow: 0 10px 20px -10px rgb(var(--vs-primary)/50%);
+      }
+
+      button.primary:hover {
+         box-shadow: 0 20px 20px -10px rgb(var(--vs-primary)/50%);
+         transform: translateY(-5px);
+      }
+
+      @-webkit-keyframes fadeInDialog {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+
+      @keyframes fadeInDialog {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+
+      ul li {
+         list-style: none;
+         margin: 0 15px;
+      }
+
+      .play-image {
+         border-radius: 50%;
+         z-index: 9999;
+         width: 150px;
+         transition: .5s;
+      }
+
+      .play-image::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         border-radius: 50%;
+         background: #ffee10;
+         transition: .5s;
+         transform: scale(.9);
+         z-index: -1;
+      }
+
+      .play-image:hover::before {
+         transform: scale(1.1);
+         box-shadow: 0 0 15px #ffee10;
+      }
+
+      .play-image:hover {
+         color: red;
+         box-shadow: 0 0 25px red;
+         text-shadow: 0 0 5px red;
+      }
+
+      .wallet-connect {
+         font-size: 20px;
+         border-radius: 7px;
+         font-weight: 900;
+         color: #ffffff;
+         border: 1px solid #ffffff;
+         background-color: rgba(0, 0, 0, .8);
+         transition: all .2s linear;
+      }
+
+      .wallet-connect:hover {
+         background-color: rgba(0, 0, 255, .8);
+      }
+
+      #ScreenSizeLoader {
+         animation: spin 3s linear infinite;
+         visibility: visible;
+      }
+
+      #ScreenSizeLoader.display {
+         visibility: visible;
+      }
+
+      @keyframes spin {
+         0% {
+            transform: rotate(0deg);
+         }
+
+         100% {
+            transform: rotate(360deg);
+         }
+      }
+
+
+      .screen-size-loader {
+         display: none;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="turn" class="screen-size-loader">
+      <div id="ScreenSizeLoader"
+         style="background-image: url('/Brand/static/resources/badge5.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+      </div>
+      <div
+         style="margin:auto; z-index:9999999;background-image: url('/Brand/static/resources/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+      </div>
+      <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+         Orientation Matters
+         <br />
+         <span style="font-size:15px;">Please Rotate Your Device</span>
+      </div>
+   </div>
+   <div id="container">
+      <div data-id="module-loading-1" style="display:flex" class="loading-section"
+         style="float:left; margin-left:30px;">
+         <h3 data-id="module-loading-header-1"
+            style="margin-left:20px;opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            class="heading-4">Metaverse Daily<br />Connecting Worlds <span class="text-span-3">Together. <img
+                  src="/Brand/static/resources/metaversedaily.png"
+                  style="height:50px; width:50px; border-radius:50%;" /></span></h3>
+      </div>
+
+      <a href="https://www.instagram.com/metaversedaily.world/" target="_blank" class="social-link no-shadow"
+         style="margin-right:60px;"><img src="/Brand/static/resources/Instragram.svg" width="27" alt="" /></a>
+      <a href="https://x.com/metaverse_daily/" target="_blank" class="social-link no-shadow"
+         style="margin-right:20px;"><img src="/Brand/static/resources/TwitterX.svg" width="25" alt="" /></a>
+      <div data-id="module-hero-1" class="hero-section">
+         <div class="container less-top not-relative w-container">
+            <img src="/Brand/static/resources/metaversedaily.png" width="74.5" alt="Epic image"
+               data-id="639584b8-91d3-c323-0b4b-bec816eb8d93"
+               style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0; border-radius:50%;"
+               class="epic-image" />
+            <div class="flex-row">
+               <div class="hold-headings">
+                  <h3 data-id="d2a92664-d461-f246-a09b-3cfa7c9c043f"
+                     style="-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="heading-6">Welcome to the New Planet</h3>
+                  <h1 data-id="fba2ca2e-8f54-c3ba-74ed-29b0c680d64f"
+                     style="color:green;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="hero-heading hidden">Stay <span style="color:red">Immersed</span></h1>
+                  <h1 data-id="6db6b525-a715-be36-0487-d6aeee974289"
+                     style="color:#080402;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="hero-heading hidden">Inhale. <span style="color:green;">Exhale.</span></h1>
+                  <h1 data-id="b3bbcaca-3037-c215-5949-2b55f16730b7"
+                     style="color:#43f5f2;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="hero-heading hidden">Adventure.</h1>
+                  <h1 data-id="fa079933-42f6-cfd1-9e07-e0b67b6f45e2"
+                     style="color:red;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="hero-heading hidden">Fun.</h1>
+               </div>
+
+               <div data-id="80541922-3e49-ab57-2f4a-7c71d4bb5520" class="hold-logo">
+                  <a href="/home">
+                     <div class="div-block"><img src="/Brand/static/resources/play.png" alt="Metaverse Daily Logo Image"
+                           class="image-4 play-image" />
+                        <img src="/Brand/static/resources/badge5.png" width="487"
+                           data-id="eaf60bd2-f14c-9a3e-df5f-c739f68e4a67" alt="" />
+                     </div>
+                  </a>
+               </div>
+
+               <div class="hold-ticket-link-and-heading">
+                  <h3 data-id="044dc31d-1cab-062f-88f9-93a6236c5030"
+                     style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="heading-2">Metaverse Daily for You.</h3>
+                  <div data-id="d78e5e54-e71e-0c52-ca33-b49f266b78e3"
+                     style="opacity:0;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                     class="hold-dates">
+                     <div class="text-block">Platform</div>
+                     <div class="text-block-2">That's Make<br />You More Inspired.</div>
+                  </div>
+
+                  <div data-id="9bbb9d1f-f7cf-8e12-e15e-cb32e4091a01"
+                     style="background:rgba(0,0,0,0.5); border-radius:5px;-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                     class="div-block-3">
+                     <p class="centered-hero-text" style="color:#ffffff;">Free Memberships for Early Birds. <br />Want
+                        to join but</p>
+                     <a href="#" data-id="566087ad-a504-bd1c-b331-c34b8858bbc2" class="div-block-4 w-inline-block">
+                        <div class="centered-hero-text">don&#x27;t know yet?</div>
+                        <div data-id="20ae54f5-ad47-d5ad-848a-45eabfc1b1e2" class="link-line"></div>
+                     </a>
+                  </div>
+                  <a href="/memberships" target="_blank" data-id="e64a0eb4-fc31-02cb-2357-88ac4ff0b154"
+                     style="-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);margin-top:150px;"
+                     class="button w-inline-block">
+                     <div data-id="e80811be-5d99-954c-9b08-a2eafc168511" class="text-block-3">MEMBERSHIPS</div>
+                     <div data-id="dec207ba-d0c3-a695-5d15-0d7a2b8b4976"
+                        style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;"
+                        class="text-block-3 absolute w-hidden-tiny">MEMBERSHIPS</div>
+                     <div data-id="2e8b38f7-d565-5501-bf0e-66bbdd95eede"
+                        style="-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="absolute-block"></div>
+                  </a>
+               </div>
+            </div>
+            <div class="row w-row">
+               <div class="column-5 w-col w-col-4"></div>
+               <div data-id="fba2ca2e-8f54-c3ba-74ed-29b0c680d653" style="opacity:0" class="hold-logo w-col w-col-4">
+               </div>
+               <div class="column-6 w-col w-col-4"></div>
+            </div>
+         </div>
+         <div data-id="7730191f-a8a1-3d47-d31d-e58421e0eea4" class="bottom-image-section">
+            <div style="display:inline-flexbox;">
+               <div style="float:left;">
+                  <img src="/Brand/static/resources/Marketplace1.png" width="200" alt="Avatar Image"
+                     srcset="/Brand/static/resources/Marketplace1.png 500w, /Brand/static/resources/Marketplace1.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+               <div style="float:right; display:none;">
+                  <img src="/Brand/static/resources/Marketplace2.png" width="200" alt="Avatar Image"
+                     srcset="/Brand/static/resources/Marketplace2.png 500w, /Brand/static/resources/Marketplace2.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+            </div>
+            <img src="/Brand/static/resources/WorldFlags.png"
+               srcset="/Brand/static/resources/WorldFlags.png 500w, /Brand/static/resources/WorldFlags.png 800w, /Brand/static/resources/WorldFlags.png 1080w, /Brand/static/resources/WorldFlags.png 1920w"
+               sizes="(max-width: 1920px) 100vw, 1920px" alt="" class="image-2" style="margin-left:200px;" />
+         </div>
+         <a href="/marketplace" target="_blank" data-id="01f27ee3-1567-16cd-8c48-dbf4dfa9f175"
+            style="opacity:0;margin-right:10px; -webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            class="right-side-link hero-link v2 w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Explore &nbsp; <span class="text-span">Marketplace.</span>
+            </div>
+            <img src="/Brand/static/resources/Help1.png" style="width:75px; max-width: 75px; margin-top:15px;" alt=""
+               class="image-6" />
+         </a>
+         <img src="/Brand/static/resources/Marketplace.jpeg" data-id="967c2e63-59ed-eabe-3ad4-5ca72580f628" alt=""
+            class="absolute-mobile-hero-bg-image" />
+         <img src="/Brand/static/resources/Marketplace.jpeg"
+            srcset="/Brand/static/resources/Marketplace.jpeg 500w, /Brand/static/resources/Marketplace.jpeg 800w, /Brand/static/resources/Marketplace.jpeg 1600w, /Brand/static/resources/Marketplace.jpeg 1920w"
+            sizes="100vw" data-id="cf555fa7-fbcd-22a1-8e7a-84f7f59dbd97" alt="" class="background-image large" />
+      </div>
+
+      <div class="section overflow-visible">
+         <a href="/becomeamerchant" target="_blank" data-id="b6180e6e-9867-7aae-1fb3-6c70bbd60209"
+            style="-webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+            class="left-side-link hero-link v2 top w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px; margin-left: 50px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Become &nbsp; <span class="text-span">A Merchant.</span></div>
+            <img src="/Brand/static/resources/Help2.png"
+               style="width:100px; max-width: 100px; margin-top:15px;margin-left: 50px;" alt="" class="image-6" />
+         </a>
+         <div class="container w-container">
+            <div class="number">01</div>
+            <div class="row w-row">
+               <div class="w-col w-col-8">
+                  <h1>Metaverse Daily is the original activity-focused and community moderated platform for creatives
+                     that
+                     focuses on
+                     keeping you emerged into a new world with exciting platform offerings and unforgettable
+                     experiences.
+                  </h1>
+               </div>
+               <div class="w-col w-col-4">
+                  <p>Join the explorers through our established channels i.e. members, research labs, digital
+                     universities,
+                     groups and more in a adventure filled journey and dive into unheard stories from creatives of all
+                     types and inspiration
+                     everywhere.<br /><br />Metaverse Daily is the definition of an experience you&#x27;ll never forget.
+                  </p>
+                  <a href="/home" target="_blank" data-id="fb5c4f9b-14e8-9940-92fa-63a1b66a8f4a"
+                     class="link overflow-hidden w-inline-block">
+                     <div>Let&#x27;s get inspired to fun together</div>
+                     <div data-id="fd664d8f-0611-96f8-f20d-ad10ca122e75"
+                        style="-webkit-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="line-trail"></div>
+                  </a>
+                  <a href="/broadcasts" class="social-link title wallet-connect"
+                     style="width:100%; margin-top:10px;font-size: 25px;">
+                     <img src="/Brand/static/resources/images/broadcast.svg"
+                        style="height:45px; width:45px; padding-right:10px;" />
+                     Top Broadcasts
+                  </a>
+               </div>
+            </div>
+            <img src="/Brand/static/resources/metaversedaily1.png" width="262" alt="Metaverse Daily Badge"
+               data-id="24ac6438-acfb-0746-43b3-4cd2d0fd689f" class="image-3"
+               style="border-radius:50%; opacity: 1; margin-top:-50px;" />
+         </div>
+      </div>
+      <div class="section newsreader">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">02</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(255, 0, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1 class="heading-4">NEWS + AI + ART <br />More than Only News</h1>
+                  <p class="white-paragraph">Get your curiousity drive into
+                     the upcomings. Stay updated on latests from around this growing community along with platform
+                     offerings.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/newsandupdates" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+            style="margin-right:10px;">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Get &nbsp; <span class="text-span">Latest Updates.</span>
+            </div>
+            <img src="/Brand/static/resources/Help3.png" style="width:75px; max-width: 75px; margin-top:15px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+
+      <div class="section overflow-visible">
+         <a href="/broadcasts" target="_blank" data-id="b6180e6e-9867-7aae-1fb3-6c70bbd60209"
+            style="-webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+            class="left-side-link hero-link v2 top w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 255, 0.9); border-radius: 5px; margin-left:10px;">
+               &nbsp;&nbsp;&nbsp;*Explore
+               &nbsp; <span class="text-span">New Broadcasts.</span></div>
+            <img src="/Brand/static/resources/Help4.png"
+               style="width:100px; max-width: 100px; margin-top:15px; margin-left:10px;" alt="" class="image-6" />
+         </a>
+         <div class="container w-container">
+            <div class="number">03</div>
+            <div class="row w-row">
+               <div class="w-col w-col-8">
+                  <h1>Metaverse Daily leverages Generative AI for serving content with more excitements that matches
+                     your
+                     flavours of choices.</h1>
+               </div>
+               <div class="w-col w-col-4">
+                  <p>Join the creative minds on discord servers, share your insights around meta worlds, participate in
+                     collaborative activities and get reward points to gain official NFTs and exclusive access on latest
+                     programs.
+                  </p>
+               </div>
+            </div>
+            <img src="/Brand/static/resources/metaversedaily1.png" width="262" alt="Metaverse Daily Badge"
+               data-id="24ac6438-acfb-0746-43b3-4cd2d0fd689f" class="image-3"
+               style="border-radius:50%; opacity: 1; margin-top:-50px;" />
+         </div>
+      </div>
+
+      <div class="section treasure-hunt">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">04</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 255, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1 class="heading-4">Metaverse Marketplace <br />Powered on Blockchain</h1>
+                  <p class="white-paragraph">Join early birds waitlist and
+                     become part of exclusive members of pool to gain official NFT mints and merchandises.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/marketplace" target="_blank" class="right-side-link hero-link v2 w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px;">&nbsp;*Join &nbsp; <span
+                  class="text-span">Marketplace Waitlist.</span></div>
+            <img src="/Brand/static/resources/More_New.png" style="width:75px; max-width: 75px; margin-top:15px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+
+      <div class="section overflow-hidden">
+         <div class="container w-container">
+            <p class="paragraph">Hey Avatars,</p>
+            <div class="row w-row">
+               <div class="column w-col w-col-8">
+                  <h1 class="heading-5">Welcome to the Metaverse Daily — a limitless digital space where imagination
+                     meets
+                     reality! Explore new virtual worlds, discover events and social spaces that defy the ordinary.
+                  </h1>
+               </div>
+               <div class="column-2 w-col w-col-4">
+                  <p class="paragraph-3">Whether you have craving for creative publishing or simply connecting with
+                     others,
+                     dive into this funtastic world. Ready to redefine your virtual self? Ready to create, play, and
+                     live
+                     in a world without boundaries? The Metaverse Daily is calling—step in!</p>
+               </div>
+            </div>
+            <div class="w-row">
+               <div class="w-col w-col-4">
+                  <h2 class="heading happening">Wow. Yup.<br />It's happening!</h2>
+               </div>
+               <div class="w-col w-col-4">
+                  <div class="div-block"><img src="/Brand/static/resources/metaversedaily.png" width="184"
+                        alt="Dann Petty image" class="image-4" style="border-radius:50%;   z-index: 9999;" />
+                     <img src="/Brand/static/resources/badge5.png" width="487"
+                        data-id="eaf60bd2-f14c-9a3e-df5f-c739f68e4a67" alt="" />
+                  </div>
+               </div>
+               <div class="w-col w-col-4"></div>
+            </div>
+            <a href="/events" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+               style="margin-right:10px;">
+               <div class="text-block-4 taller biggest">*Explore <span class="text-span">Upcoming Events.</span></div>
+               <img src="/Brand/static/resources/Char3.png" width="150px" alt="" style="width:100px; max-width:100px;"
+                  class="image-6" />
+            </a>
+            <div data-id="5340b3c5-7297-a3e7-6a74-9ddf780476be" class="yeww">HELLO</div>
+         </div>
+      </div>
+
+
+      <div data-id="ce0466de-e7b2-1808-242d-e5df157e8fd3" class="section creative-challenge" style="margin-top:100px;">
+         <div data-id="3ac66a79-758e-0166-d1fe-ead52e78587f" class="container less-top-copy w-container">
+            <div class="number">05</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 0, 0, 0.5); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1 class="heading-4">Event Discovery <br />Publishing & Booking</h1>
+                  <p class="white-paragraph">Single platform for all virtual worlds events need. Stay updated on
+                     upcoming
+                     and satellite events or host yours for bookings.</p>
+               </div>
+               <div class="w-col w-col-8 w-col-stack"></div>
+            </div>
+            <div class="number margined">&nbsp;</div>
+         </div>
+         <div data-id="7730191f-a8a1-3d47-d31d-e58421e0eea4" class="bottom-image-section">
+            <div>
+               <div style="float:left;">
+                  <img src="/Brand/static/resources/Char5.png" width="200" alt="Camp Fire gathering image"
+                     srcset="/Brand/static/resources/Char5.png 500w, /Brand/static/resources/Char5.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+               <div style="float:right;">
+                  <img src="/Brand/static/resources/Char4.png" width="200" alt="Camp Fire gathering image"
+                     srcset="/Brand/static/resources/Char4.png 500w, /Brand/static/resources/Char4.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+            </div>
+            <img src="/Brand/static/resources/Marketplace5.jpeg"
+               srcset="/Brand/static/resources/Marketplace5.jpeg 580w, /Brand/static/resources/Marketplace5.jpeg 1600w, /Brand/static/resources/Marketplace5.jpeg 1920w"
+               sizes="50vw" data-id="405b7178-b771-9a7c-920b-8def1d57783e" alt="" class="bg-image v2" />
+         </div>
+      </div>
+
+      <div class="section overflow-hidden">
+         <div class="container w-container">
+            <h2 class="large-heading">Generative AI <br />in the core</h2>
+            <div class="status-block w-clearfix">
+               <div data-id="a48dc501-904e-e45f-8c94-50fa470d415c" class="activity-icon full v3">
+                  <div data-id="a48dc501-904e-e45f-8c94-50fa470d415d"></div>
+                  <div data-id="a48dc501-904e-e45f-8c94-50fa470d415e"></div>
+                  <div data-id="a48dc501-904e-e45f-8c94-50fa470d415f"></div>
+                  <div data-id="a48dc501-904e-e45f-8c94-50fa470d4160"></div>
+               </div>
+               <div data-id="a2915fd4-af08-53fc-1418-f0324e56a688" class="activity-icon full v3">
+               </div>
+               <div data-id="ac7871cf-3e73-81a9-0b9a-fab201e1e66e">
+               </div>
+               <div data-id="aece5bda-2a5e-a4d5-9c22-6c602c7674d6">
+               </div>
+               <div data-id="ae67fe02-30b2-3a7f-d3cf-c32083ff3040">
+               </div>
+            </div>
+            <div data-duration-in="500" data-duration-out="500" class="tabs-parent w-tabs">
+               <div class="tabs-menu w-tab-menu">
+                  <a data-w-tab="Tab 1" data-id="ab1d9f22-7f68-c693-457b-2880656b3e24"
+                     class="tabs w-inline-block w-clearfix w-tab-link w--current">
+                     <div class="activity-icon full flexed">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Content Moderation</div>
+                  </a>
+                  <a data-w-tab="Tab 2" data-id="ab1d9f22-7f68-c693-457b-2880656b3e27"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Image Generation</div>
+                  </a>
+                  <a data-w-tab="Tab 3" data-id="ab1d9f22-7f68-c693-457b-2880656b3e2a"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Audio Generation</div>
+                  </a>
+                  <a data-w-tab="Tab 4" data-id="a175a094-f1bf-e5cd-738c-8ebb1f0eb2b5"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Sentimental Analysis</div>
+                  </a>
+                  <a data-w-tab="Tab 5" data-id="a86a86fa-1164-775a-8db7-078e03cdb995"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Recommendations</div>
+                  </a>
+                  <a data-w-tab="Tab 6" data-id="acaa2d7c-00f7-5651-33e8-f1ac052f0dd8"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">And More..</div>
+                  </a>
+               </div>
+               <div class="tabs-content w-tab-content" style="height:600px;">
+                  <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                     <div>
+                        <h2 data-id="a92b764d-60da-33d0-e75a-88d7a86b7f83"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Content Moderation</h2>
+                        <p data-id="aa5b4391-640a-59d5-4791-7a54d221fa86"
+                           style="color:#e6e6e6;opacity:0;-webkit-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="paragraph-2">Our Platform takes the helm of content moderation, ensuring that virtual
+                           interactions remain safe and engaging. Equipped with Generative AI and human insight, we're
+                           committed to fostering a vibrant online community. From filtering out harmful content,
+                           generating hashtags, making right classification to promoting positive interactions, our
+                           mission
+                           is to create Metaverse Daily where creativity flourishes.</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 2" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="a2df5361-a41e-5a1f-d9f7-62f7a7cf9c78"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Image Generation</h2>
+                        <p data-id="a2df5361-a41e-5a1f-d9f7-62f7a7cf9c7a"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Step into a world where your creativity knows no bounds! At Metaverse
+                           Daily,
+                           We leverages DALL-E technology that transforms every serving content into stunning visuals in
+                           an
+                           instant. Get more engaged with each publishing with your exploring sense of artistic world
+                           Whether you're envisioning fantastical AI geneated art, our platform brings wildest to life.
+                        </p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 3" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="a5f2fa10-6a10-eca6-c3a9-50b9a460e76c"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Audio Generation</h2>
+                        <p data-id="a5f2fa10-6a10-eca6-c3a9-50b9a460e76e"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Imagine every words transforming into rich, captivating audio for you! At
+                           Metaverse Daily, Generative AI's Text to Audio Generation capabilities do just that for you,
+                           turning each written content into engaging soundscapes. With seamless integration and an
+                           intuitive interface, elevate your content experience and connect in a whole new way.</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 4" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="a23af2c2-08e2-03dd-07d6-774efb34c3d6"
+                           style="opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="heading purple">Sentimental Analysis</h2>
+                        <p data-id="a23af2c2-08e2-03dd-07d6-774efb34c3d8"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Discover the heart of content with Metaverse Daily's Sentiment Analysis
+                           powering on Generative AI. Our platform's AI capabilities dive deep into text to uncover the
+                           emotions that resonate within. At Metaverse Daily, we believe every word tells a story—and
+                           now
+                           you can understand that story like never before. Because understanding emotion is the key to
+                           effective communication</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 5" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="a7fba847-a459-6250-3520-7be17691501b"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Recommendations</h2>
+                        <p data-id="a7fba847-a459-6250-3520-7be17691501d"
+                           style="color:#e6e6e6;opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="paragraph-2">Unlock a world tailored just for you with Personalized Content
+                           Recommendations! Our in-built engine dives deep into your interests and preferences,
+                           curating a selection of articles, videos, and experiences that resonate with your unique
+                           tastes.
+                           With Metaverse Daily, discovering your next favorite piece of content is effortless—because
+                           your
+                           digital experience should be as unique as you are!</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 6" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="a870dab1-1fdc-76a4-b86c-8c6e8488919f"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">And More..</h2>
+                        <p data-id="a870dab1-1fdc-76a4-b86c-8c6e848891a1"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Engage with content a little more with platform AI capablities of
+                           forecasting on upcomings, curated generations for you, real-time event discovery, AI enabled
+                           search capablities, video intelligence for explicit content, latest market intelligence and
+                           lot
+                           more. Stay tuned with us to get latest upcoming advance offering on each content. </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <img src="/Brand/static/resources/Golf.png" data-id="dd6f9761-ad55-7c0f-5af1-032f57f5797a" alt=""
+            class="bg-image" />
+      </div>
+
+      <div class="section overflow-hidden">
+         <div class="container w-container">
+            <p class="paragraph">Dear Learners,</p>
+            <div class="row w-row">
+               <div class="column w-col w-col-8">
+                  <h1 class="heading-5">Come celebrate the real sense of democracy. Become a part of Digital
+                     Universities
+                     as a student or an educator, own your first ever public digital university and participate in
+                     decision
+                     makings.</h1>
+               </div>
+               <div class="column-2 w-col w-col-4">
+                  <p class="paragraph-3">Become a part as council or get your grades as a student, Digital Universities
+                     run
+                     all it's affairs as Decentralized Autonomous Organization. All association make you a part of this
+                     digital organization that govern by your own authorities and become exclusive member of tokenomics.
+                  </p>
+               </div>
+            </div>
+            <div class="w-row">
+               <div class="w-col w-col-4">
+                  <h2 class="heading happening">Wow. Yeah.<br />New arrivings!</h2>
+               </div>
+               <div class="w-col w-col-4">
+                  <div class="div-block"><img src="/Brand/static/resources/metaversedaily.png" width="184"
+                        alt="Dann Petty image" class="image-4" style="border-radius:50%;   z-index: 9999;" />
+                     <img src="/Brand/static/resources/badge5.png" width="487"
+                        data-id="eaf60bd2-f14c-9a3e-df5f-c739f68e4a67" alt="" />
+                  </div>
+               </div>
+               <div class="w-col w-col-4"></div>
+            </div>
+            <a href="/digitaluniversities" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+               style="margin-right:30px;">
+               <div class="text-block-4 taller biggest">*Explore <span class="text-span">Digital Universities.</span>
+               </div>
+               <img src="/Brand/static/resources/Char4.png" width="150px" alt="" style="width:100px; max-width:100px;"
+                  class="image-6" />
+            </a>
+            <div data-id="5340b3c5-7297-a3e7-6a74-9ddf780476be" class="yeww">HOLA</div>
+         </div>
+         <img src="/Brand/static/resources/5b6f9fb741c6163e076dbc37_clouds-left.png"
+            data-id="4921c091-e1f5-8d6f-a7ec-d84f70d7a902" alt="" class="image-7" />
+      </div>
+
+      <div class="section digital-university" style="margin-top:100px;">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">06</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 0, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1 class="heading-4">Digital Universities <br /> for democratic education</h1>
+                  <p class="white-paragraph">Choose your own combination of education on your interests sense and
+                     accumate
+                     grades from first ever DAO run universities and extending to Metaverse.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/digitaluniversities" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+            style="margin-right:15px;">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(255, 0, 0, 0.9); border-radius: 5px;">
+               &nbsp;&nbsp;&nbsp;*Become
+               &nbsp; <span class="text-span">Alumini Member.</span></div>
+            <img src="/Brand/static/resources/Help2.png" style="width:75px; max-width: 75px; margin-top:15px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+
+
+      <div class="section overflow-visible">
+         <a href="/digitaluniversities" target="_blank" data-id="b6180e6e-9867-7aae-1fb3-6c70bbd60209"
+            style="-webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+            class="left-side-link hero-link v2 top w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 255, 0.9); border-radius: 5px; margin-left:15px;">
+               &nbsp;&nbsp;&nbsp;*Become
+               &nbsp; <span class="text-span">Council Member.</span></div>
+            <img src="/Brand/static/resources/Help1.png"
+               style="width:100px; max-width: 100px; margin-top:15px; margin-left:15px;" alt="" class="image-6" />
+         </a>
+         <div class="container w-container">
+            <div class="number">07</div>
+            <div class="row w-row">
+               <div class="w-col w-col-8">
+                  <h1>Step into the Metaverse Daily, where brand collaboration and partnerships are transforming the way
+                     we
+                     connect and engage in this dynamic digital landscape like never before.</h1>
+               </div>
+               <div class="w-col w-col-4">
+                  <p>Welcome to a new era of creativity and connection! At Metaverse Daily, we believe that
+                     collaboration
+                     is the heart of innovation. By partnering with like-minded brands, we create unforgettable
+                     experiences
+                     that resonate with our users and push boundaries.<br /><br />
+                     Together, let's create magic and elevate the experiences we offer to our valued community!
+                  </p>
+                  <a href="/partnerwithus" target="_blank" data-id="fb5c4f9b-14e8-9940-92fa-63a1b66a8f4a"
+                     class="link overflow-hidden w-inline-block">
+                     <div>Let&#x27;s get inspired to partner together</div>
+                     <div data-id="fd664d8f-0611-96f8-f20d-ad10ca122e75"
+                        style="-webkit-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="line-trail"></div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div data-id="ce0466de-e7b2-1808-242d-e5df157e8fd3" class="section creative-challenge">
+         <div data-id="3ac66a79-758e-0166-d1fe-ead52e78587f" class="container less-top-copy w-container">
+            <div class="number">08</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 0, 0, 0.5); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1 class="heading-4">Brand Collaborations <br /> and Partnerships</h1>
+                  <p class="white-paragraph">Let your brand shine with us to global explorers. Explore
+                     partnerships and collaboration options to start that matches your pace.</p>
+               </div>
+               <div class="w-col w-col-8 w-col-stack"></div>
+            </div>
+            <div class="number margined">&nbsp;</div>
+         </div>
+         <div data-id="7730191f-a8a1-3d47-d31d-e58421e0eea4" class="bottom-image-section">
+            <div>
+               <div style="float:left;">
+                  <img src="/Brand/static/resources/Char2.png" width="200" alt="Camp Fire gathering image"
+                     srcset="/Brand/static/resources/Char2.png 500w, /Brand/static/resources/Char2.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+               <div style="float:right;">
+                  <img src="/Brand/static/resources/Char3.png" width="200" alt="Camp Fire gathering image"
+                     srcset="/Brand/static/resources/Char3.png 500w, /Brand/static/resources/Char3.png 1600w"
+                     sizes="74vw" class="avatar-image" style="height:660px; width:660px; margin-bottom:0px;" />
+               </div>
+            </div>
+            <img src="/Brand/static/resources/Metaverse3.jpeg"
+               srcset="/Brand/static/resources/Metaverse3.jpeg 580w, /Brand/static/resources/Metaverse3.jpeg 1600w, /Brand/static/resources/Metaverse3.jpeg 1920w"
+               sizes="50vw" data-id="405b7178-b771-9a7c-920b-8def1d57783e" alt="" class="bg-image v2" />
+         </div>
+      </div>
+      <div class="section overflow-visible">
+         <a href="/partnerwithus" target="_blank" data-id="b6180e6e-9867-7aae-1fb3-6c70bbd60209"
+            style="-webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+            class="left-side-link hero-link v2 top w-inline-block">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(255, 0, 0, 0.9); border-radius: 5px; margin-left:15px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Partner &nbsp; <span
+                  class="text-span">With Us.</span></div>
+            <img src="/Brand/static/resources/Help3.png"
+               style="width:100px; max-width: 100px; margin-top:15px; margin-left:15px;" alt="" class="image-6" />
+         </a>
+         <div class="container w-container">
+            <div class="number">09</div>
+            <div class="row w-row">
+               <div class="w-col w-col-8">
+                  <h1> Metaverse Daily guide you, inspire you, and elevate your experiences to know more around new
+                     worlds,
+                     making every day a little more magical!</h1>
+               </div>
+               <div class="w-col w-col-4">
+                  <p>Welcome to the future of personalization, where curated mixes by us transform your daily experience
+                     into a unique adventure! Imagine a world where every playlist, product bundle, or content
+                     collection
+                     is thoughtfully crafted just for you.
+                     <br /><br />Dive in and enjoy the magic of personalization—where every selection feels like it was
+                     made just for you!
+                  </p>
+                  <a href="/curatedgenerations" target="_blank" data-id="fb5c4f9b-14e8-9940-92fa-63a1b66a8f4a"
+                     class="link overflow-hidden w-inline-block">
+                     <div>Let&#x27;s get inspired to pick together</div>
+                     <div data-id="fd664d8f-0611-96f8-f20d-ad10ca122e75"
+                        style="-webkit-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="line-trail"></div>
+                  </a>
+               </div>
+            </div>
+            <img src="/Brand/static/resources/metaversedaily1.png" width="262" alt="Metaverse Daily Badge"
+               data-id="24ac6438-acfb-0746-43b3-4cd2d0fd689f" class="image-3"
+               style="border-radius:50%; opacity: 1; margin-top:-50px;" />
+         </div>
+      </div>
+
+
+
+      <div class="section curatedmixes">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">10</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(255, 0, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1>Curated Mixes<br />For your flavours</h1>
+                  <p class="white-paragraph">Stay tuned and engaged with your genre of choices. Our Ai-Engine
+                     understands
+                     new worlds favorite colors and choose right shades for everyone.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/curatedgenerations" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+            style="margin-right:10px;">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Explore &nbsp;<span class="text-span">Curations.</span>
+            </div>
+            <img src="/Brand/static/resources/More.png" style="width:75px; max-width: 75px; margin-top:25px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+      <div class="section" style="height:500px;">
+         <div class="container mega-padded w-container"></div>
+         <div class="bottom-image-section">
+            <img src="/Brand/static/resources/Tree.png" alt="" class="avatar-image"
+               style="height:300px; width:300px; margin-bottom:150px;" />
+         </div>
+         <a href="/researchlabs" target="_blank" class="left-side-link hero-link v2 w-inline-block"
+            style="margin-bottom:120px;">
+            <div class="text-block-4 taller biggest" style="background:rgba(0, 0, 255, 0.9); border-radius: 5px;">
+               *Participate &nbsp;In &nbsp;<span class="text-span">Research
+                  Labs.</span></div>
+            <img src="/Brand/static/resources/Char4.png" style="width:100px; max-width: 100px; margin-top:0px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+
+
+      <div class="section" style="margin-top:0px;">
+         <div class="container less-top-bottom w-container">
+            <div class="number">11</div>
+            <div class="row w-row">
+               <div class="column w-col w-col-4">
+                  <h1>Collaborative<br />Discussions</h1>
+               </div>
+               <div class="column-2 left w-col w-col-4">
+                  <p>In the Metaverse, collaborative discussions are more than just exchanges—they're a movement. Each
+                     interaction opens doors to new ideas and friendships, creating a rich tapestry of innovation that
+                     spans the globe. Join us and be part of a daily adventure where your voice matters, and every idea
+                     has
+                     the potential to shape our future! </p>
+               </div>
+               <div class="column-3 w-col w-col-4">
+                  <p> It's a space where thoughts collide and converge, sparking innovation and deeper insight. Here,
+                     dialogue is a dance—fluid, engaging, and ever-evolving—where every voice contributes to a greater,
+                     collective clarity.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div>
+         <div style="margin:auto;padding:auto;text-align: center; width:100%;">
+            <div>
+               <h1 style="color:#ffffff; font-size: xx-large;">Join Us On</h1>
+            </div>
+            <div style="display:inline-flex; margin-top:20px; width:100%;">
+               <a href="https://discord.com/channels/1105814189647347743/1105814190289059862" target="_blank"
+                  class="social-link title wallet-connect">
+                  <img src="/Brand/static/resources/images/discord.svg"
+                     style="height:35px; width:45px; padding-right:0px;" />
+                  Discord
+               </a>
+               <a href="https://mastodon.social/@metaversedaily" target="_blank"
+                  class="social-link title wallet-connect">
+                  <img src="/Brand/static/resources/images/mastodon-logo-purple.svg"
+                     style="height:35px; width:45px; padding-right:0px;" />
+                  Mastodon
+               </a>
+               <a href="https://metaverse-daily.slack.com" target="_blank" class="social-link title wallet-connect">
+                  <img src="/Brand/static/resources/images/slack-icon1.svg"
+                     style="height:35px; width:45px; padding-right:0px;" />
+                  Slack
+               </a>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="section globalpresence" style="margin-top:100px;">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">12</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 255, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1>Global Coverage<br />and Global Audience</h1>
+                  <p class="white-paragraph">Where every day offers the chance to connect with a global audience and
+                     experience unparalleled coverage of cultures, ideas, and innovations.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/metaworldsinsider" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+            style="margin-right:10px;">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(0, 0, 0, 0.9); border-radius: 5px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Metaworlds &nbsp; <span class="text-span">Insider.</span></div>
+            <img src="/Brand/static/resources/Char1.png" style="width:75px; max-width: 75px; margin-top:20px;" alt=""
+               class="image-6" />
+         </a>
+      </div>
+
+
+
+      <div class="section overflow-visible">
+         <a href="/startupsandbusiness" target="_blank" data-id="b6180e6e-9867-7aae-1fb3-6c70bbd60209"
+            style="-webkit-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+            class="left-side-link hero-link v2 top w-inline-block" style="padding-left:20px;">
+            <div class="text-block-4 taller"
+               style="display:inline-flex; background:rgba(255, 0, 0, 0.9); border-radius: 5px; margin-left:10px;">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Startups&nbsp; + &nbsp;<span class="text-span">Business.</span></div>
+            <img src="/Brand/static/resources/Char3.png"
+               style="width:100px; max-width: 100px; margin-top:15px; margin-left:10px;" alt="" class="image-6" />
+         </a>
+         <div class="container w-container">
+            <div class="number">13</div>
+            <div class="row w-row">
+               <div class="w-col w-col-8">
+                  <h1>Welcome to a world where learning is a thrilling adventure! With Metaverse Daily — it's a vibrant
+                     playground that brings joy to discovery every single day.</h1>
+               </div>
+               <div class="w-col w-col-4">
+                  <p>Every day in the Metaverse is an opportunity to explore, connect, and grow. With education programs
+                     that adapt to student interests and leverage cutting-edge technology, the future of learning is as
+                     dynamic and engaging as the learners themselves.<br /><br />
+                     Get ready to embark on an unforgettable educational journey—where every day is a new adventure!
+                  </p>
+                  <a href="/educationprograms" target="_blank" data-id="fb5c4f9b-14e8-9940-92fa-63a1b66a8f4a"
+                     class="link overflow-hidden w-inline-block">
+                     <div>Let&#x27;s get inspired to learn together.</div>
+                     <div data-id="fd664d8f-0611-96f8-f20d-ad10ca122e75"
+                        style="-webkit-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="line-trail"></div>
+                  </a>
+               </div>
+            </div>
+
+         </div>
+      </div>
+
+      <div class="section programs">
+         <div data-id="25a8e409-38e4-2899-311c-18f167b12e52" class="container w-container">
+            <div class="number">14</div>
+            <div class="row w-row">
+               <div class="w-col w-col-4"
+                  style="background:rgba(0, 0, 0, 0.9); border-radius:10px; width:500px; padding-left:25px; padding-right:25px; padding-top:20px; padding-bottom:30px;">
+                  <h1>Education Programs<br />That Excites You<br />To Get Involved</h1>
+                  <p class="white-paragraph">Expand your horizon and get
+                     your craving grow to know more about. Choose your programs, collaborate with groups, and get
+                     associated
+                     with digital universities.</p>
+               </div>
+               <div class="w-col w-col-8"></div>
+            </div>
+         </div>
+         <a href="/educationprograms" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+            style="margin-right:10px;">
+            <div class="text-block-4 taller" style="background:rgba(0, 0, 255, 0.9); border-radius: 5px;">*Explore <span
+                  class="text-span">Programs.</span></div>
+            <img src="/Brand/static/resources/Help4.png" width="34.5" alt="" class="image-6"
+               style="margin-top:25px; width:75px; max-width:75px;" />
+         </a>
+      </div>
+
+      <div class="section overflow-hidden">
+         <div class="container w-container">
+            <h2 class="large-heading">And lots More..</h2>
+            <div class="status-block w-clearfix">
+               <div data-id="248dc501-904e-e45f-8c94-50fa470d415c" class="activity-icon full v3">
+                  <div data-id="248dc501-904e-e45f-8c94-50fa470d415d"></div>
+                  <div data-id="248dc501-904e-e45f-8c94-50fa470d415e"></div>
+                  <div data-id="248dc501-904e-e45f-8c94-50fa470d415f"></div>
+                  <div data-id="248dc501-904e-e45f-8c94-50fa470d4160"></div>
+               </div>
+               <div data-id="72915fd4-af08-53fc-1418-f0324e56a688" class="activity-icon full v3">
+               </div>
+               <div data-id="2c7871cf-3e73-81a9-0b9a-fab201e1e66e">
+               </div>
+               <div data-id="1ece5bda-2a5e-a4d5-9c22-6c602c7674d6">
+               </div>
+               <div data-id="9e67fe02-30b2-3a7f-d3cf-c32083ff3040">
+               </div>
+            </div>
+            <div data-duration-in="500" data-duration-out="500" class="tabs-parent w-tabs">
+               <div class="tabs-menu w-tab-menu">
+                  <a data-w-tab="Tab 1" data-id="fb1d9f22-7f68-c693-457b-2880656b3e24"
+                     class="tabs w-inline-block w-clearfix w-tab-link w--current">
+                     <div class="activity-icon full flexed">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Partnerships</div>
+                  </a>
+                  <a data-w-tab="Tab 2" data-id="fb1d9f22-7f68-c693-457b-2880656b3e27"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div data-id="fb1d9f22-7f68-c693-457b-2880656b3e28" class="tab-text">Broadcasting</div>
+                  </a>
+                  <a data-w-tab="Tab 3" data-id="fb1d9f22-7f68-c693-457b-2880656b3e2a"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Global Insights</div>
+                  </a>
+                  <a data-w-tab="Tab 4" data-id="5175a094-f1bf-e5cd-738c-8ebb1f0eb2b5"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Advertise Support</div>
+                  </a>
+                  <a data-w-tab="Tab 5" data-id="b86a86fa-1164-775a-8db7-078e03cdb995"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Merchants Support</div>
+                  </a>
+                  <a data-w-tab="Tab 6" data-id="ccaa2d7c-00f7-5651-33e8-f1ac052f0dd8"
+                     class="tabs w-inline-block w-clearfix w-tab-link">
+                     <div class="activity-icon">
+                        <div class="small-line"></div>
+                        <div class="small-line v2"></div>
+                        <div class="small-line v3"></div>
+                        <div class="small-line v4"></div>
+                     </div>
+                     <div class="tab-text">Partner Integrations</div>
+                  </a>
+               </div>
+               <div class="tabs-content w-tab-content" style="height:620px;">
+                  <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                     <div>
+                        <h2 data-id="992b764d-60da-33d0-e75a-88d7a86b7f83"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Partnerships</h2>
+                        <p data-id="8a5b4391-640a-59d5-4791-7a54d221fa86"
+                           style="color:#e6e6e6;opacity:0;-webkit-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="paragraph-2">Unlock endless possibilities with Partnerships at Metaverse Daily! As the
+                           premier platform for all things Metaverse, we connect innovators, brands, and creators with a
+                           global audience hungry for the future of digital experiences. Partnering with us means
+                           gaining
+                           unparalleled visibility, exclusive features, and collaborations that drive engagement in the
+                           rapidly expanding virtual world. Whether you're launching a new project, hosting an event, or
+                           shaping the next big trend, Metaverse Daily is your gateway to success. Let's build the
+                           future
+                           together—partner with us today!</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 2" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="52df5361-a41e-5a1f-d9f7-62f7a7cf9c78"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Broadcasting</h2>
+                        <p data-id="52df5361-a41e-5a1f-d9f7-62f7a7cf9c7a"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Take your content global by Broadcasting with Metaverse Daily! As the
+                           go-to
+                           platform for Virtual Worlds, we provide the perfect stage for your events, shows, and
+                           experiences to shine in the virtual world. Whether you're hosting a groundbreaking digital
+                           concert, streaming live from virtual conferences, or showcasing immersive experiences,
+                           Metaverse
+                           Daily amplifies your reach to an engaged and tech-forward audience. Ready to make your mark
+                           in
+                           the future of broadcasting? Step into the Metaverse with us and captivate the world!
+                        </p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 3" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="c5f2fa10-6a10-eca6-c3a9-50b9a460e76c"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Global Insights</h2>
+                        <p data-id="c5f2fa10-6a10-eca6-c3a9-50b9a460e76e"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Unlock the future with our global experts and get latest Global Insights
+                           around new worlds. To keep you ahead of the curve,
+                           offering a global lens on the forces driving change. Global Insights is your trusted guide to
+                           understanding the trends that are shaping our collective future. From cutting-edge technology
+                           and global market shifts to cultural transformations and policy breakthroughs, we bring you
+                           the
+                           stories that matter.</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 4" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="823af2c2-08e2-03dd-07d6-774efb34c3d6"
+                           style="opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="heading purple">Advertise Support</h2>
+                        <p data-id="823af2c2-08e2-03dd-07d6-774efb34c3d8"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">Looking to reach a global audience that's always ahead of the curve?
+                           Advertise with Metaverse Daily and position your brand at the forefront of innovation,
+                           culture,
+                           and technology. Our diverse, future-focused readership spans industries and continents,
+                           making
+                           us the perfect platform to elevate your message. With Metaverse Daily, your brand doesn't
+                           just
+                           advertise—it becomes part of the conversation shaping tomorrow.</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 5" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="67fba847-a459-6250-3520-7be17691501b"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Merchants Support</h2>
+                        <p data-id="67fba847-a459-6250-3520-7be17691501d"
+                           style="color:#e6e6e6;opacity:0;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                           class="paragraph-2">At Metaverse Daily, we understand that every merchant needs the right
+                           tools
+                           to thrive in a rapidly evolving digital landscape. That's why Merchant Support is here to
+                           offer
+                           tailored solutions that help you expand your reach, optimize your presence, and grow your
+                           business in the global marketplace. From insightful trend analysis to targeted advertising
+                           options, Merchant Support gives you access to the resources and strategies you need to stay
+                           competitive. With our platform, you can connect with a forward-thinking audience and
+                           transform
+                           today's opportunities into tomorrow's success.</p>
+                     </div>
+                  </div>
+                  <div data-w-tab="Tab 6" class="w-tab-pane">
+                     <div>
+                        <h2 data-id="c870dab1-1fdc-76a4-b86c-8c6e8488919f"
+                           style="-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="heading purple">Partner Integrations</h2>
+                        <p data-id="c870dab1-1fdc-76a4-b86c-8c6e848891a1"
+                           style="color:#e6e6e6;-webkit-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                           class="paragraph-2">At Metaverse Daily, collaboration is at the heart of everything we do.
+                           With
+                           Partner Integration, we create a seamless connection between your brand and our cutting-edge
+                           media platform, amplifying your reach and enhancing your impact on real time. Whether you're
+                           hosting events,
+                           broadcasting new updates, or seeking innovative content strategies, our Partner Integration
+                           solutions are designed to align with your goals. Together, we'll drive engagement, boost
+                           visibility, and create value in an ever-evolving digital world. </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <img src="/Brand/static/resources/More_New.png" data-id="dd6f9761-ad55-7c0f-5af1-032f57f5797a" alt=""
+            class="bg-image" />
+      </div>
+
+      <div class="section overflow-hidden">
+         <div class="container w-container">
+            <p class="paragraph">Dear Explorers,</p>
+            <div class="row w-row">
+               <div class="column w-col w-col-8">
+                  <h1 class="heading-5">Come celebrate the new experiences. Thanks to the amazing community response,
+                     Metaverse
+                     Daily now has evolved avatar. Members have stepped up to lead an initiative to support our
+                     community
+                     so we can
+                     continue our adventures<br />together.</h1>
+               </div>
+               <div class="column-2 w-col w-col-4">
+                  <p class="paragraph-3">This is an adventure for Metaverse Explorers. It's not just about a
+                     platform, it's about our crazy community. It's about the interactions, publishing, explorations,
+                     and
+                     learnings that
+                     happens in between your arrival from start to last. So it's fitting to call our Metaverse Daily
+                     platform the
+                     'Gateway To Metaverse'. We want you to be a huge part of this Adventure.</p>
+               </div>
+            </div>
+            <div class="w-row">
+               <div class="w-col w-col-4">
+                  <h2 class="heading happening">Wow. Yup.<br />It's airing!</h2>
+               </div>
+               <div class="w-col w-col-4">
+                  <div class="div-block"><img src="/Brand/static/resources/metaversedaily.png" width="184"
+                        alt="Dann Petty image" class="image-4" style="border-radius:50%;   z-index: 9999;" />
+                     <img src="/Brand/static/resources/badge5.png" width="487"
+                        data-id="eaf60bd2-f14c-9a3e-df5f-c739f68e4a67" alt="" />
+                  </div>
+               </div>
+               <div class="w-col w-col-4"></div>
+            </div>
+            <a href="/memberships" target="_blank" class="right-side-link hero-link v2 w-inline-block"
+               style="margin-right: 30px;">
+               <div class="text-block-4 taller biggest">*Get Your Membership <span class="text-span">Now.</span></div>
+               <img src="/Brand/static/resources/Help2.png" width="150px" alt="" style="width:100px; max-width:100px;"
+                  class="image-6" />
+            </a>
+            <div data-id="5340b3c5-7297-a3e7-6a74-9ddf780476be" class="yeww">HELLO</div>
+         </div>
+         <img src="/Brand/static/resources/5b6f9fb741c6163e076dbc37_clouds-left.png"
+            data-id="4921c091-e1f5-8d6f-a7ec-d84f70d7a902" alt="" class="image-7" />
+      </div>
+
+      <div data-poster-url="" data-video-urls="/Brand/static/resources/racing_bike.mp4" data-autoplay="true"
+         data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"
+         style="margin-top:100px;">
+         <video autoplay="" loop="" style="" muted="" playsinline="" data-wf-ignore="true">
+            <source src="/Brand/static/resources/racing_bike.mp4" data-wf-ignore="true" />
+         </video>
+         <div class="container mega-padded-copy w-container">
+            <div class="number centered">That's How we do it in a SHORT WHiEEL</div>
+         </div>
+      </div>
+      <div class="section padded" style="margin-top:100px;">
+         <img src="/Brand/static/resources/metaversedaily1.png" width="262"
+            data-id="0a73fde8-f703-9e3a-e9e2-fbfb3a57424e" alt="" class="image-3 v2" style="" />
+         <h3 class="mega-heading" style="margin-top:100px;">HUGE THANKS TO BECOMING PART<br />FOR LEADING<br />THE
+            QUEST.</h3>
+      </div>
+      <div class="section">
+         <div class="container w-container">
+            <div class="row flexed w-row">
+               <div class="column w-col w-col-8">
+                  <h2 class="large-heading">STAY <br />IMMERSED <br />INTO THE WORLD <br /> OF NEW REALITIES.</h2>
+
+               </div>
+               <div class="column-2 w-col w-col-4">
+                  <div class="div-block-3">
+                     <p class="centered-hero-text"><br />Want to get involved</p>
+                     <a href="#" data-id="92a865f9-e4cd-96a8-e9b8-98d89d991a34" class="div-block-4 w-inline-block">
+                        <div class="centered-hero-text">can&#x27;t think?</div>
+                        <div class="link-line"></div>
+                     </a>
+                  </div>
+                  <a href="/partnerwithus" target="_blank" data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dc"
+                     class="button margined w-inline-block">
+                     <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dd" style="display:inline-flex; width:180px;"><span
+                           style="margin-left:-15px;">PARTNER WITH US</span></div>
+                     <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100df"
+                        style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d"
+                        class="text-block-3 absolute v2">PARTNER WITH US</div>
+                     <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100e1"
+                        style="-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                        class="absolute-block"></div>
+                  </a>
+
+                  <a href="/signin" class="button margined w-inline-block"
+                     style="background-color: transparent; color:#ffffff; font-size: 50px;">
+                     <div data-id="a09653ad-89a5-d9b2-9bb7-936a9b1100dd">
+                        <img src="/Brand/static/resources/play.png" width="100px" height="100px" class="play-image"
+                           style="width:100px; height:100px;" /><br /><br />
+                        START
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="container footer w-container" style="margin-left:20px;">
+            <div class="flex-footer">
+               <div class="left-side">
+                  <a href="#" data-id="a94e6ebb-78da-8e9c-c601-d995d2cff111"
+                     class="div-block-4 shortened full w-inline-block" onclick="ShowCodeOfConductDialog();">
+                     <div class="centered-hero-text all-caps full">community Code of Conduct</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="#" data-id="6ad6d24a-2e99-44a4-0846-c5827141b1d7"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">contactus@metaversedaily.world</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="#" data-id="26526cf6-9cfb-2677-bd3d-a3c09df982d6" onclick="ShowSubscribeDialog();"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">subscribe</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="#" data-id="26526cf6-9cfb-2677-bd3d-a3c09df982d6"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">@metaversedaily</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="#" data-id="26526cf6-9cfb-2677-bd3d-a3c09df982d6" onclick="ShowBrandKitDialog();"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">brand kit</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="/pressrelease" data-id="26526cf6-9cfb-2677-bd3d-a3c09df982d6"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">press release</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+                  <a href="/investorrelations" data-id="26526cf6-9cfb-2677-bd3d-a3c09df982d6"
+                     class="div-block-4 shortened full margined w-inline-block">
+                     <div class="centered-hero-text all-caps full">investor relations</div>
+                     <div class="link-line short fullen"></div>
+                  </a>
+               </div>
+
+
+            </div>
+
+         </div>
+         <div style=" width:100%;">
+            <div style="float: right; margin-right: 20px;">
+               <img src="/Brand/static/resources//metaversedaily.png" width="111" alt="" class="image-8"
+                  style="border-radius:50%;" />
+
+               <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; © 2024
+            </div>
+         </div>
+         <div class="container footer w-container"
+            style="margin-left:20px; width:100%; display:inline-flex; margin-top:-50px; margin-bottom:50px;">
+            <h2 class="heading larger" style="font-size: 24px;">Connecting Worlds Together</h2>
+         </div>
+
+         <div>
+            <div id="tripetto-127xlci"></div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner-chat"></script>
+            <script>
+               TripettoStudio.form({
+                  runner: TripettoChat,
+                  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRkJkcFBjM3NvOVdtc2JxdFRDTUZhaUxxUjd5a2tEMWRERHN5SzVNQjNtQT0iLCJkZWZpbml0aW9uIjoiVXlldTAzaGEwZ0dnZzJpUGZnU29yenZ0YWdVdDNLaS94a1dsRWk3c1c0bz0iLCJ0eXBlIjoiY29sbGVjdCJ9.DXKoC6t3xKgOu81rL8hmBbskVZDebYXpyAA-miNRJfc",
+                  element: "tripetto-127xlci"
+               });
+            </script>
+         </div>
+      </div>
+
+
+      <style>
+         dialog::-webkit-scrollbar {
+            display: none;
+         }
+
+         dialog {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+         }
+      </style>
+      <dialog id="CodeofConductDialog">
+         <div style="margin-left:20px;">
+            <h2>Community Code of Conduct</h2>
+            <div>
+               <div class='main-copy' style=" text-align: justify; text-justify: inter-word;width:96%;">
+                  <p>
+                     This Code of Conduct is our way to encourage good behavior and discourage bad behavior in our
+                     platform. We invite participation from many people to bring different perspectives to our platform.
+                     We
+                     will do our part to foster a welcoming and professional environment free of harassment. We expect
+                     participants to communicate professionally and thoughtfully during their involvement with this
+                     platform.
+                  </p>
+                  <p>
+                     Participants may lose their good standing by engaging in misconduct. For example: insulting,
+                     threatening, or conveying unwelcome sexual content. We ask participants who observe conduct issues
+                     to
+                     report the incident directly to the Response Team at support@metaversedaily.world. Metaverse Daily
+                     will assign a respondent to address the issue.
+                  </p>
+                  <p>
+                     This code does not replace the terms of service or acceptable use policies of the websites used to
+                     support this platform. We acknowledge that participants may be subject to additional conduct terms
+                     based on their engagement which may govern their online expressions.
+                     Details
+                  </p>
+                  <p>
+                     This Code of Conduct makes our expectations of participants in this community explicit.
+                     <br />
+
+                     We forbid harassment and abusive speech within this community.
+                     <br />
+                     We request participants to report misconduct to the Response Team.
+                     <br />
+                     We urge participants to refrain from using discussion forums to play out a fight.
+                  </p>
+                  <p><b>Expected Behaviors</b>
+                     <br />
+
+                     We expect participants in this community to conduct themselves professionally. Since our primary
+                     mode
+                     of communication is text on an digital medium (e.g. posts, comments, emails, or chats) devoid of
+                     vocal
+                     tone, gestures, or other context that is often vital to understanding, it is important that
+                     participants are attentive to their interaction style.
+                     <br />
+                     <b>Assume positive intent.</b> We ask community members to assume positive intent on the part of
+                     other
+                     people's communications. We may disagree on details, but we expect all suggestions to be supportive
+                     of
+                     the community goals.
+                     <br />
+                     <b>Respect participants.</b> We expect occasional disagreements. Different mediums on platform are
+                     learning experiences. Ask, explore, challenge, and then respectfully state if you agree or
+                     disagree.
+                     If your idea is rejected, be more persuasive not bitter.
+                     <br />
+                     <b>Welcoming to new members.</b> New members bring new perspectives. Some ask questions that have
+                     been
+                     addressed before. Kindly point to existing discussions. Everyone is new to every platform once.
+                     <br />
+                     <b>Be kind to beginners.</b> Beginners use platform to get experience. They might not be that much
+                     aware, and others should not accept offensive gestures. But we were all beginners once, and we need
+                     to
+                     engage kindly.
+                     <br />
+                     <b>Consider your impact on others.</b> Your work will be used by others, and you depend on the work
+                     of
+                     others. We expect community members to be considerate and establish a balance their self-interest
+                     with
+                     communal interest.
+                     <br />
+                     <b>Use words carefully.</b> We may not understand intent when you say something ironic. Often,
+                     people
+                     will misinterpret sarcasm in online communications. We ask community members to communicate
+                     plainly.
+                  </p>
+
+                  <p><b>Reporting Issues</b>
+                     <br />
+                     If you experience or witness misconduct, or have any other concerns about the conduct of members of
+                     this platform, please report it by contacting our Response Team at support@metaversedaily.world who
+                     will handle your report with discretion. Your report should include:
+                     <br />
+                     Your preferred contact information. We cannot process anonymous reports.
+                     <br />
+                     Names (real or usernames) of those involved in the incident.
+                     <br />
+                     Your account of what occurred, and if the incident is ongoing. Please provide links to or
+                     transcripts
+                     of the publicly available records (e.g. a mailing list archive or a public IRC logger), so that we
+                     can
+                     review it.
+                     <br />
+                     Any additional information that may be helpful to achieve resolution.
+                  </p>
+                  <p>After filing a report, a representative will contact you directly to review the incident and ask
+                     additional questions. If a member of the Metaverse Daily Response Team is named in an incident
+                     report,
+                     that member will be recused from handling your incident. If the complaint originates from a member
+                     of
+                     the Response Team, it will be addressed by a different member of the Response Team. We will
+                     consider
+                     reports to be confidential for the purpose of protecting victims of abuse.
+                     Scope
+                  </p>
+                  <p>Metaverse Daily will assign a Response Team member with admin rights on the platform and legal
+                     rights
+                     on the platform copyright. The Response Team is empowered to restrict some privileges to the
+                     platform
+                     as needed. The Response Team's goal is to preserve the platform if possible.
+                     This code does not replace the terms of service or acceptable use policies that are provided by the
+                     websites used to support this community. Nor does this code apply to communications or actions that
+                     take place outside of the context of this community.
+                     Many participants in this platform are also subject to codes of conduct based on their engagements.
+                     This code is a social-contract that informs participants of our social expectations. It is not a
+                     terms
+                     of service or legal contract.
+                  </p>
+               </div>
+            </div>
+            <button id="CloseCodeOfConductDialog" aria-label="close" class="x" onclick="CloseCodeOfConductDialog();">
+               <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px'
+                  y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                  xml:space='preserve'>
+                  <path
+                     d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+               </svg>
+            </button>
+         </div>
+         <footer class='form-ft'>
+            <div class='button-group'>
+               <a href="#" data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dc" class="button margined w-inline-block"
+                  onclick="CloseCodeOfConductDialog();" style="border:solid 1px black;">
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dd" style="display:inline-flex;">Done</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100df"
+                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d"
+                     class="text-block-3 absolute v2">Done</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100e1"
+                     style="-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                     class="absolute-block"></div>
+               </a>
+            </div>
+         </footer>
+      </dialog>
+
+      <dialog id="BrandKitDialog">
+         <div style="margin-left:0px; width:100%;">
+            <h2>Brand Kit</h2>
+            <div>
+               <hr />
+               <h1> Parent Brand</h1>
+               <div>
+                  <div class="right-side"><img src="/Brand/static/resources/brand/metaversedaily.png" width="111" alt=""
+                        class="image-8" style="border-radius:50%;" />
+                     <br />Metaverse Daily © 2024
+                  </div>
+               </div>
+               <hr />
+            </div>
+            <div>
+               <h1> Associated Brands</h1>
+               <div style="width:100%; display:inline-flex;">
+                  <div style="width:50%; float:left;"><img
+                        src="/Brand/static/resources/brand/metaversedaily-universities.jpg" width="111" alt=""
+                        class="image-8" style="border-radius:10%;" />
+                     <br />Metaverse Daily Digital Universities © 2024
+                  </div>
+                  <div style="width:50%; float:right;"><img
+                        src="/Brand/static/resources/brand/metaversedaily-education.jpg" width="111" alt=""
+                        class="image-8" style="border-radius:10%;" />
+                     <br />Metaverse Daily Education © 2024
+                  </div>
+               </div>
+               <div style="width:100%;display:inline-flex; margin-top:20px;">
+                  <div style="width:50%; float:left;"><img
+                        src="/Brand/static/resources/brand/metaversedaily-marketplace.jpg" width="111" alt=""
+                        class="image-8" style="border-radius:10%;" />
+                     <br />Metaverse Daily Marketplace © 2024
+                  </div>
+                  <div style="width:50%; float:right;"><img
+                        src="/Brand/static/resources/brand/metaversedaily-events.jpg" width="111" alt="" class="image-8"
+                        style="border-radius:10%;" />
+                     <br />Metaverse Daily Events © 2024
+                  </div>
+               </div>
+               <br />
+               <div style="width:100%;display:inline-flex;margin-top:20px; ">
+                  <div style="width:50%; float:left;"><img
+                        src="/Brand/static/resources/brand/metaversedaily-research.jpg" width="111" alt=""
+                        class="image-8" style="border-radius:10%;" />
+                     <br />Metaverse Daily Research © 2024
+                  </div>
+                  <div style="width:50%; float:right;"><img src="/Brand/static/resources/brand/metaversedaily-kids.png"
+                        width="111" alt="" class="image-8" style="border-radius:10%;" />
+                     <br />Metaverse Daily Kids © 2024
+                  </div>
+               </div>
+               <hr />
+            </div>
+            <div>
+               <h1> Badges</h1>
+               <div style="width:100%; display:inline-flex;">
+                  <div style="width:50%; float:left;"><img src="/Brand/static/resources/brand/badge1.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                  </div>
+                  <div style="width:50%; float:right;"><img src="/Brand/static/resources/brand/badge2.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                  </div>
+               </div>
+               <div style="width:100%;display:inline-flex; margin-top:20px;">
+                  <div style="width:50%; float:left;"><img src="/Brand/static/resources/brand/badge3.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                  </div>
+               </div>
+               <br />
+               <hr />
+            </div>
+
+            <div>
+               <h1> Mascots</h1>
+               <div style="width:100%; display:inline-flex;">
+                  <div style="width:50%; float:left;"><img src="/Brand/static/resources/brand/mascot1.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                     <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Noorie
+                  </div>
+                  <div style="width:50%; float:right;"><img src="/Brand/static/resources/brand/mascot2.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                     <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moshe
+                  </div>
+               </div>
+               <div style="width:100%;display:inline-flex; margin-top:20px;">
+                  <div style="width:50%; float:left;"><img src="/Brand/static/resources/brand/mascot3.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                     <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alvin
+                  </div>
+                  <div style="width:50%; float:right;"><img src="/Brand/static/resources/brand/mascot4.png" width="111"
+                        alt="" class="image-8" style="border-radius:10%;" />
+                     <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sammy
+                  </div>
+               </div>
+               <hr />
+            </div>
+            <button id="CloseBrandKitDialog" aria-label="close" class="x" onclick="CloseBrandKitDialog();">
+               <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px'
+                  y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                  xml:space='preserve'>
+                  <path
+                     d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+               </svg>
+            </button>
+         </div>
+         <footer class='form-ft'>
+            <div class='button-group'>
+               <a href="#" data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dc" class="button margined w-inline-block"
+                  onclick="CloseBrandKitDialog();" style="border:solid 1px black;">
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dd" style="display:inline-flex;">Done</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100df"
+                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d"
+                     class="text-block-3 absolute v2">Done</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100e1"
+                     style="-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                     class="absolute-block"></div>
+               </a>
+            </div>
+         </footer>
+      </dialog>
+
+      <dialog id="SubscribeDialog" style="width:100%;">
+
+         <div id="tripetto-13ruk63"></div>
+         <script>
+            TripettoStudio.form({
+               runner: TripettoAutoscroll,
+               token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiRkJkcFBjM3NvOVdtc2JxdFRDTUZhaUxxUjd5a2tEMWRERHN5SzVNQjNtQT0iLCJkZWZpbml0aW9uIjoib29WM0NyYlRtZnNtRnJHbzd0NEN2dEVoYXhGZW5nQVRyelZyQnUzcVZjbz0iLCJ0eXBlIjoiY29sbGVjdCJ9.4Oqd9vRA6wUFCFCfNYwFAISUN9PWShYvb8qUox1r4WM",
+               element: "tripetto-13ruk63"
+            });
+         </script>
+
+
+         <footer class='form-ft'>
+            <div class='button-group'>
+               <a href="#" data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dc" class="button margined w-inline-block"
+                  onclick="CloseSubscribeDialog();" style="border:solid 1px black;">
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100dd" style="display:inline-flex;">Close</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100df"
+                     style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(90DEG) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d"
+                     class="text-block-3 absolute v2">Close</div>
+                  <div data-id="d09653ad-89a5-d9b2-9bb7-936a9b1100e1"
+                     style="-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                     class="absolute-block"></div>
+               </a>
+            </div>
+         </footer>
+      </dialog>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" crossorigin="anonymous"></script>
+      <script src="/Brand/static/resources/js/metaversedaily.media.js" type="text/javascript"></script>
+
+      <script>
+         function ShowCodeOfConductDialog() {
+            document.getElementById("CodeofConductDialog").showModal();
+         }
+         function CloseCodeOfConductDialog() {
+            document.getElementById("CodeofConductDialog").close();
+         }
+         function ShowBrandKitDialog() {
+            document.getElementById("BrandKitDialog").showModal();
+         }
+         function CloseBrandKitDialog() {
+            document.getElementById("BrandKitDialog").close();
+         }
+
+         function ShowSubscribeDialog() {
+            document.getElementById("SubscribeDialog").showModal();
+         }
+
+         function CloseSubscribeDialog() {
+            document.getElementById("SubscribeDialog").close();
+         }
+      </script>
+   </div>
+</body>
+
+</html>

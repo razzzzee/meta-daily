@@ -77,8 +77,21 @@
 
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -125,27 +138,31 @@
 
                     <div class='rail-layout-body'>
                         <div class='stream'>
-                            <header class='auxsection-hd'>
-                                <div style="display:inline-flex;">
-                                    <img src="/static/svgs/broadcast.svg"
-                                        style="width:45px; height:45px; margin-top:0px;" />
-                                    <span class='updates-list' style="margin-left:10px;">Broadcasts</span>
+                            <div style="height:150px;">
+                                <div style="background-color:white; margin-left:0px;">
+                                    <header class='auxsection-hd'>
+                                        <div style="display:inline-flex;margin-left:-15px;">
+                                            <img src="/static/svgs/broadcast.svg"
+                                                style="width:45px; height:45px; margin-top:0px;" />
+                                            <span class='updates-list' style="margin-left:10px;">Broadcasts</span>
+                                        </div>
+                                        <div style="display:block; margin-top:-25px; margin-left:-5px;">
+                                            <a href="javascript:;" style="display:inline-flex;"
+                                                onclick="ShowBroadcastFilterDialog();" class="action-link">
+                                                <img src="/static/svgs/filter.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
+                                            </a>
+                                            <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
+                                                onclick="ShowBroadcastPublishDialog();" class="action-link">
+                                                <img src="/static/svgs/events.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
+                                            </a>
+                                        </div>
+                                    </header>
                                 </div>
-                                <div style="display:block; margin-top:-25px; margin-left:15px;">
-                                    <a href="javascript:;" style="display:inline-flex;"
-                                        onclick="ShowBroadcastFilterDialog();" class="action-link">
-                                        <img src="/static/svgs/filter.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
-                                    </a>
-                                    <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
-                                        onclick="ShowBroadcastPublishDialog();" class="action-link">
-                                        <img src="/static/svgs/circle-green.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
-                                    </a>
-                                </div>
-                            </header>
+                            </div>
                             <style>
                                 audio::-webkit-media-controls-panel {
                                     background-color: #ffffff;
@@ -183,15 +200,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Political" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Finance" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Political</span>
+                            Finance</span>
                     </a>
-                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Currency</span>
+                            Sustainability</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -200,7 +217,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -251,17 +268,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Games" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Games</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            Currency</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -270,7 +287,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -323,15 +340,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Political" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Political</span>
                     </a>
-                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            VirtualReality</span>
+                            AugmentedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -340,7 +357,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -393,15 +410,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Magical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Magical</span>
+                            Creative</span>
                     </a>
-                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            VirtualReality</span>
+                            AugmentedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -410,7 +427,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -461,17 +478,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-girl.png"
+                    <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Sports</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            AugmentedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -480,7 +497,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -531,17 +548,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Political" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Political</span>
+                            Sports</span>
                     </a>
-                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AI</span>
+                            AugmentedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -550,7 +567,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -601,12 +618,12 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-girl.png"
+                    <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Magical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            HealthAndWellness</span>
+                            Magical</span>
                     </a>
                     <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
@@ -620,7 +637,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -673,15 +690,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Narrative</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -690,7 +707,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -743,15 +760,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Finance" style="text-decoration: none;">
+                    <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Finance</span>
+                            HealthAndWellness</span>
                     </a>
-                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            VirtualReality</span>
+                            MixedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -760,7 +777,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -811,17 +828,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Narrative</span>
+                            Creative</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            Currency</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -830,7 +847,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -883,15 +900,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Lifestyle" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Lifestyle</span>
+                            Narrative</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            Sustainability</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -900,7 +917,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -953,15 +970,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            HealthAndWellness</span>
+                            Entertainment</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            AugmentedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -970,7 +987,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -1023,15 +1040,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Entertainment</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1040,7 +1057,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -1091,17 +1108,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-girl.png"
+                    <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
                     <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Entertainment</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Forecast</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1110,7 +1127,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -1161,17 +1178,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Music" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Music</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1180,7 +1197,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
+                        Apr 22, 2025 &middot; in <a href="/NewsandUpdates/Featured">Featured</a>
                     </div>
                 </footer>
             </div>
@@ -1233,15 +1250,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Finance" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Finance</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=VirtualReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            VirtualReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1250,7 +1267,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1301,17 +1318,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Political" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Social" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Political</span>
+                            Social</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            Sustainability</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1320,7 +1337,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1373,15 +1390,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Finance" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Social" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Finance</span>
+                            Social</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1390,7 +1407,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1443,15 +1460,15 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Entertainment" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Entertainment</span>
                     </a>
-                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
+                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Sustainability</span>
+                            MixedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1460,7 +1477,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1511,17 +1528,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-girl.png"
+                    <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Games" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Creative</span>
+                            Games</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sustainability" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Sustainability</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1530,7 +1547,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1581,17 +1598,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Games" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Games</span>
+                            Creative</span>
                     </a>
-                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AI</span>
+                            MixedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1600,7 +1617,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1651,17 +1668,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Creative" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Sports</span>
+                            Creative</span>
                     </a>
-                    <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AugmentedReality</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1670,7 +1687,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1721,17 +1738,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Narrative" style="text-decoration: none;">
+                    <a href="/searchresults/?q=HealthAndWellness" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Narrative</span>
+                            HealthAndWellness</span>
                     </a>
-                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Currency" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            AI</span>
+                            Currency</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1740,7 +1757,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1791,17 +1808,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             NFT</span>
                     </a>
-                    <img src="/static/Image/Emoji/excited-boy.png"
+                    <img src="/static/Image/Emoji/excited-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
                     <a href="/searchresults/?q=Political" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Political</span>
                     </a>
-                    <a href="/searchresults/?q=Forecast" style="text-decoration: none;">
+                    <a href="/searchresults/?q=AI" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Forecast</span>
+                            AI</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1810,7 +1827,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -1863,10 +1880,10 @@
                     </a>
                     <img src="/static/Image/Emoji/excited-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Music" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Sports" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Music</span>
+                            Sports</span>
                     </a>
                     <a href="/searchresults/?q=AugmentedReality" style="text-decoration: none;">
                         <span
@@ -1880,7 +1897,7 @@
                 <h2 class='module-title'>Ethereum Leads NFT Sales as Polygon and Mythos Compete for Market Share</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
+                        Apr 22, 2025 &middot; in <a href="/MetaworldsInsider/Decentraland">Metaworlds Insider</a>
                     </div>
                 </footer>
             </div>
@@ -2259,7 +2276,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div style="padding-top:10px; margin-left:10px;">
+                            <div style="margin-top:15px; margin-left:10px;">
                                 <div class='button-group' style="float:left;">
                                     <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
                                         id="btnBroadcastPublish" onclick="BroadcastPublish(this);">Publish</button>
@@ -2281,14 +2298,14 @@
                         <h2 style="color:green; font-size:25px;">Broadcast Published For
                             Review.</h2>
                         <div
-                            style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; border-radius: 10px; margin-top:0px;  margin-bottom:10px; margin-left:10px;'>
+                            style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; border-radius: 10px; margin-top:0px;  margin-bottom:10px;'>
                         </div>
                         <p style="font-weight: 700; margin-top:10px; text-align: left;">** Partner
                             with Us for Shorter Review Cycle for
                             Broadcast Publishing. **</p>
                         <div class='button-group' style="float:left; margin-top:20px;">
                             <button class='button variant-cta'
-                                style="border-radius:7px; font-size:20px; filter:invert(1);"
+                                style="border-radius:7px; font-size:20px;"
                                 onclick="CloseBroadcastPublishDialog();">Done</button>
                         </div>
                     </div>

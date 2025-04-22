@@ -77,8 +77,21 @@
 </head>
 
 <body class='state-groups-hide-accepting royal_preloader ScrollableBody'>
+    <div id="turn" class="screen-size-loader" style="background-color: black; height:120%;">
+        <div id="ScreenSizeLoader"
+            style="background-image: url('/static/Image/badge.png'); margin:auto;z-index:9999999; height:250px;width:250px; background-size: contain;">
+        </div>
+        <div
+            style="margin:auto; z-index:9999999;background-image: url('/static/Image/metaversedaily.png'); height:150px;width:150px; background-size:contain; background-repeat: no-repeat; margin-top:-200px; border-radius: 50%;">
+        </div>
+        <div style="margin:auto; color:#ffffff; text-align: center; margin-top:70px; font-size:35px; font-weight: 700;">
+            Orientation Matters
+            <br />
+            <span style="font-size:15px;">Please Rotate Your Device</span>
+        </div>
+    </div>
     <div id="royal_preloader"></div>
-    <div class='global-container'>
+    <div class='global-container' id="container">
         <div class='global-container-membrane'>
             <header class='global-header '>
                 <div class='glyph global-header-glyph shim-svgs'>
@@ -125,27 +138,31 @@
 
                     <div class='rail-layout-body'>
                         <div class='stream'>
-                            <header class='auxsection-hd'>
-                                <div style="display:inline-flex;">
-                                    <img src="/static/svgs/offers.svg"
-                                        style="width:45px; height:45px; margin-top:-3px;" />
-                                    <span class='updates-list' style="margin-left:5px;">Offers</span>
+                            <div style="height:150px;">
+                                <div style="background-color:white; margin-left:0px;">
+                                    <header class='auxsection-hd'>
+                                        <div style="display:inline-flex;margin-left:-15px;">
+                                            <img src="static/svgs/offers.svg"
+                                                style="width:45px; height:45px; margin-top:0px;" />
+                                            <span class='updates-list' style="margin-left:10px;">Offers</span>
+                                        </div>
+                                        <div style="display:block; margin-top:-25px; margin-left:-5px;">
+                                            <a href="javascript:;" style="display:inline-flex;"
+                                                onclick="ShowOfferFilterDialog();" class="action-link">
+                                                <img src="/static/svgs/filter.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
+                                            </a>
+                                            <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
+                                                onclick="ShowOfferPublishDialog();" class="action-link">
+                                                <img src="/static/svgs/circle-green.svg"
+                                                    style="width:25px; height:25px; margin-top:15px;" />
+                                                <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
+                                            </a>
+                                        </div>
+                                    </header>
                                 </div>
-                                <div style="display:block; margin-top:-25px; margin-left:15px;">
-                                    <a href="javascript:;" style="display:inline-flex;"
-                                        onclick="ShowOfferFilterDialog();" class="action-link">
-                                        <img src="/static/svgs/filter.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:5px;">Filter</span>
-                                    </a>
-                                    <a href="javascript:;" style="display:inline-flex; margin-left:15px;"
-                                        onclick="ShowOfferPublishDialog();" class="action-link">
-                                        <img src="/static/svgs/circle-green.svg"
-                                            style="width:25px; height:25px; margin-top:15px;" />
-                                        <span style="font-size:20px;margin-top:18px; margin-left:3px;">Publish</span>
-                                    </a>
-                                </div>
-                            </header>
+                            </div>
                             <div class='listing-layout variant-x3 variant-standalone variant-content-type-eyebrows item-container updates-list-container'
                                 style="margin-top:-100px;">
                                 <div class='container-item listing-layout-item ' data-href='/posts/offers/3a9306c5668dab3a9ebe005d15be068ac0819bb7' style="width:110%; margin-left:-5%;">
@@ -158,17 +175,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-boy.png"
+                    <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Business</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
+                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Crypto</span>
+                            NFT</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -177,7 +194,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -224,15 +241,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Metaworld</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -241,7 +258,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -288,15 +305,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Business</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            MixedReality</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -305,7 +322,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -350,17 +367,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-boy.png"
+                    <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Business</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
+                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Web3</span>
+                            NFT</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -369,7 +386,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -416,15 +433,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Business</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            NFT</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -433,7 +450,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -478,17 +495,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-boy.png"
+                    <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Business</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            Web3</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -497,7 +514,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -544,15 +561,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -561,7 +578,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -606,17 +623,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-girl.png"
+                    <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Web3</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -625,7 +642,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -677,10 +694,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Market</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -689,7 +706,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -734,17 +751,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-girl.png"
+                    <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
                     <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Economical</span>
                     </a>
-                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Crypto</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -753,7 +770,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -805,10 +822,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Business</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -817,7 +834,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -869,10 +886,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Economical</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Web3</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -881,7 +898,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -926,7 +943,7 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-girl.png"
+                    <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
                     <a href="/searchresults/?q=Business" style="text-decoration: none;">
                         <span
@@ -945,7 +962,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -997,10 +1014,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Economical</span>
                     </a>
-                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Metaworld</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1009,7 +1026,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1056,15 +1073,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1073,7 +1090,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1120,15 +1137,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Business</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Crypto</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1137,7 +1154,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1184,15 +1201,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1201,7 +1218,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1248,15 +1265,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Market</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Crypto</span>
+                            Web3</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1265,7 +1282,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1310,17 +1327,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-boy.png"
+                    <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1329,7 +1346,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1381,10 +1398,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Business</span>
                     </a>
-                    <a href="/searchresults/?q=MixedReality" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            MixedReality</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1393,7 +1410,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1445,10 +1462,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Market</span>
                     </a>
-                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
+                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Web3</span>
+                            NFT</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1457,7 +1474,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1509,10 +1526,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Business</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1521,7 +1538,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1566,17 +1583,17 @@
                             style="background: rgba(255, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px;  padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);margin: 0;">
                             Offer</span>
                     </a>
-                    <img src="/static/Image/Emoji/cool-boy.png"
+                    <img src="/static/Image/Emoji/cool-girl.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Business" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Business</span>
+                            Economical</span>
                     </a>
-                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Crypto</span>
+                            Web3</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1585,7 +1602,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1637,10 +1654,10 @@
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
                             Market</span>
                     </a>
-                    <a href="/searchresults/?q=Web3" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Crypto" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Web3</span>
+                            Crypto</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1649,7 +1666,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1696,15 +1713,15 @@
                     </a>
                     <img src="/static/Image/Emoji/cool-boy.png"
                         style="height:35px; width:35px; margin-left:10px; margin-right:10px; margin-top:-10px;" />
-                    <a href="/searchresults/?q=Economical" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Market" style="text-decoration: none;">
                         <span
                             style="background: rgba(0, 0, 0, 0.9); color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            Economical</span>
+                            Market</span>
                     </a>
-                    <a href="/searchresults/?q=NFT" style="text-decoration: none;">
+                    <a href="/searchresults/?q=Metaworld" style="text-decoration: none;">
                         <span
                             style="background-color: grey; color:white; font-weight: 700; font-size:14px; margin-right:10px; padding:6px 10px; border-radius:10px; box-shadow: 0 2px 5px rgba(0,0,0,.25);">
-                            NFT</span>
+                            Metaworld</span>
                     </a>
                 </div>
                 <div class='module-eyebrow'>
@@ -1713,7 +1730,7 @@
                 <h2 class='module-title'>First offer title</h2>
                 <footer class='module-meta'>
                     <div>
-                        Apr 18, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
+                        Apr 22, 2025 &middot; in <a href="/startupsandbusiness">Startups + Business</a>
                     </div>
                 </footer>
             </div>
@@ -1940,7 +1957,7 @@
             </div>
         </dialog>
 
-        <dialog id="OfferPublishDialog" style="width:75%; margin-top:50px; max-height: 520px;">
+        <dialog id="OfferPublishDialog" style="width:75%; margin-top:50px; max-height: 550px;">
             <style>
                 #OfferPublishDialog {
                     overflow-y: hidden;
@@ -2011,7 +2028,7 @@
                             <form id="offerPublishForm" name="offerPublishForm"
                                 style="margin-top:0px; padding-top:0px; border-radius:10px; width:110%;"
                                 onsubmit="event.preventDefault();">
-                                <div style="overflow-y: scroll; display:inline-block; width:100%; height:370px;"
+                                <div style="overflow-y: scroll; display:inline-block; width:100%; height:350px;"
                                     class="ScrollableOfferPublishForm">
                                     <div>
                                         <fieldset class='form-bd'>
@@ -2065,7 +2082,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div style="padding-top:10px; margin-left:10px;">
+                            <div style="margin-top:15px; margin-left:10px;">
                                 <div class='button-group' style="float:left;">
                                     <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
                                         id="btnOfferPublish" onclick="OfferPublish(this);">Publish</button>
@@ -2086,7 +2103,7 @@
                     <div style="margin-top:10px;">
                         <h2 style="color:green; font-size:25px;">Offer Published For Review.</h2>
                         <div
-                            style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; border-radius: 10px; margin-top:0px;  margin-bottom:10px; margin-left:10px;'>
+                            style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; border-radius: 10px; margin-top:0px;  margin-bottom:10px;'>
                         </div>
                         <p style="font-weight: 700; margin-top:10px; text-align: left;">** Partner with Us for
                             Shorter
@@ -2094,7 +2111,7 @@
                             Offer Publishing. **</p>
                         <div class='button-group' style="float:left; margin-top:20px;">
                             <button class='button variant-cta'
-                                style="border-radius:7px; font-size:20px; filter:invert(1);"
+                                style="border-radius:7px; font-size:20px;"
                                 onclick="CloseOfferPublishDialog();">Done</button>
                         </div>
                     </div>
