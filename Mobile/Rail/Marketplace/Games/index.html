@@ -105,7 +105,8 @@
             <div class='button-group'>
                 <a href='javascript:;' onclick="ShowWalletConnectDialog();" type='submit' class='button variant-cta'
                     value='Connect Wallet' style="border-radius:7px; font-size:18px; width:100%; filter:invert(1);">
-                    <img src="/static/svgs/wallet.svg" style="height:25px; width:25px; padding-right:5px; margin-bottom:-5px;" />
+                    <img src="/static/svgs/wallet.svg"
+                        style="height:25px; width:25px; padding-right:5px; margin-bottom:-5px;" />
                     <span style="display:inline-flexbox; margin:auto;">
                         Connect Wallet</span>
                 </a>
@@ -123,7 +124,8 @@
     </ul>
 </div>
 
-<dialog id="WalletConnectDialog" style="max-height:650px; background-color: #000000; color:#ffffff; width:75%; margin-top:50px;">
+<dialog id="WalletConnectDialog"
+    style="max-height:650px; background-color: #000000; color:#ffffff; width:70%; margin-top:50px;">
     <style>
         .wallet-connect {
             font-size: 25px;
@@ -167,7 +169,7 @@
     <div style="margin-left:0px; width:100%; height:420px;">
         <h2>Wallet Options</h2>
         <hr />
-        <div>
+        <div style="margin-left:10px;">
             <div style="width:95%; display:inline-flex; margin-top:20px;">
                 <div class="wallet-connect-icon"
                     style="width:50%; float:left; margin:auto; padding:auto; align-items: center; text-align: center; padding-top:5px; padding-bottom:10px;"
@@ -176,7 +178,7 @@
                     <br /><span style="font-weight: 900; font-size: larger;">MetaMask</span>
                 </div>
                 <div class="wallet-connect-icon"
-                    style="width:50%; float:right; margin:auto; padding:auto; align-items: center; text-align: center; padding-top:5px; padding-bottom:10px;"
+                    style="width:50%; float:right; margin:auto; margin-left:30px; padding:auto; align-items: center; text-align: center; padding-top:5px; padding-bottom:10px;"
                     onclick="WalletConnect();"><img src="/static/Image/Wallet/coinbasewallet.png" width="111" alt=""
                         class="image-8" style="border-radius:10%; margin-top:5px;" />
                     <br /><span style="font-weight: 900; font-size: larger;">Coinbase</span>
@@ -191,10 +193,10 @@
                     <br /><span style="font-weight: 900; font-size: larger;">Trust</span>
                 </div>
                 <div class="wallet-connect-icon"
-                    style="width:50%; padding-top:5px; padding-bottom:10px; float:right;align-items: center; margin:auto; padding:auto; align-items: center; text-align: center;"
+                    style="width:50%; padding-top:5px; padding-bottom:10px;  float:right;align-items: center; margin:auto; padding:auto; align-items: center; text-align: center;"
                     onclick="WalletConnect();"><img src="/static/Image/Wallet/cryptowallet.png" width="111" alt=""
-                        class="image-8" style="border-radius:10%; margin-top:5px;" />
-                    <br /><span style="font-weight: 900; font-size: larger;">Crypto</span>
+                        class="image-8" style="border-radius:10%; margin-top:5px; margin-left:20px;" />
+                    <br /><span style="font-weight: 900; font-size: larger; margin-left:30px;">Crypto</span>
                 </div>
             </div>
             <hr />
