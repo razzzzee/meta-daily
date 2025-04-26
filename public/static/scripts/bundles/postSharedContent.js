@@ -29,6 +29,69 @@ function SignOut() {
 }
 
 
+async function RunBindControls() {
+    var arrDownloadLinks = [
+        ['/MetaverseDaily/leftsidefirstcontent', 'LeftSideFirstContent'],
+        ['/MetaverseDaily/leftsidesecondcontent', 'LeftSideSecondContent'],
+        ['/MetaverseDaily/leftsidecontentfirstpromo', 'LeftSideContentPromo_1'],
+        ['/MetaverseDaily/leftsidecontentsecondpromo', 'LeftSideContentPromo_2'],
+        ['/MetaverseDaily/rightsidecontentfirstpromo', 'RightSideContentPromo_1'],
+        ['/MetaverseDaily/rightsidecontentsecondpromo', 'RightSideContentPromo_2'],
+        ['/MetaverseDaily/rightsidefirstcontent', 'RightSideFirstContent'],
+        ['/MetaverseDaily/rightsidesecondcontent', 'RightSideSecondContent'],
+        ['/MetaverseDaily/maincontent', 'MainContentOverflow'],
+        ['/MetaverseDaily/recommendedbits', 'RecommendedBitsContent'],
+        ['/MetaverseDaily/organizational', 'OrganizationalContent'],
+        ['/MetaverseDaily/endpagepromo', 'EndPagePromoContent'],
+        ['/MetaverseDaily/singlenews', 'SingleNewsContent']
+    ];
+
+    await FetchHTML(arrDownloadLinks, 0, arrDownloadLinks.length);
+}
+
+async function FetchHTML(arr, index, maxIndex) {
+    if ($("#" + arr[index][1]).length > 0) {
+        await fetch(arr[index][0], {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer metaversedaily',
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((res) => {
+                return res.text();
+            })
+            .then((data) => {
+                //alert(arr[index][1]);
+                //alert(data);
+                if (data.length > 0) {   
+                    $("#" + arr[index][1]).append(data);
+                    if (index == arr.length -1 ) {
+                        require(['core'], function (core) {
+                            core.init(mlScripts);
+                        });
+                        return;
+                    }
+                    FetchHTML(arr, index + 1, arr.length);
+                }
+                else {
+                    alert("Error.");
+                    return;
+                }
+            });
+    }
+    else{
+        if (index == arr.length - 1) {
+            require(['core'], function (core) {
+                core.init(mlScripts);
+            });
+            return;
+        }
+        FetchHTML(arr, index + 1, arr.length);
+    }
+}
+
+
 async function fetchContent() {
     const requests = [];
     const urls = [
@@ -40,7 +103,11 @@ async function fetchContent() {
         "/MetaverseDaily/rightsidecontentsecondpromo",
         "/MetaverseDaily/rightsidefirstcontent",
         "/MetaverseDaily/rightsidesecondcontent",
-        "/MetaverseDaily/maincontent"
+        "/MetaverseDaily/maincontent",
+        "/MetaverseDaily/recommendedbits",
+        "/MetaverseDaily/organizational",
+        "/MetaverseDaily/endpagepromo",
+        "/MetaverseDaily/singlenews"
     ]
 
     const controls = [
@@ -52,7 +119,11 @@ async function fetchContent() {
         "RightSideContentPromo_2",
         "RightSideFirstContent",
         "RightSideSecondContent",
-        "MainContentOverflow"
+        "MainContentOverflow",
+        "RecommendedBitsContent",
+        "OrganizationalContent",
+        "EndPagePromoContent",
+        "SingleNewsContent"
     ]
 
     // Build out our requests
@@ -65,8 +136,8 @@ async function fetchContent() {
                     fetch(url)
                         .then((response) => response.text())
                         .then((data) => {
-                                $("#" + controls[i]).append(data);
-                                resolve("SUCCESS");
+                            $("#" + controls[i]).append(data);
+                            resolve("SUCCESS");
                         });
                 })
             );
@@ -74,8 +145,7 @@ async function fetchContent() {
     }
 
     const result = await Promise.all(requests);
-    if(result.includes("SUCCESS"))
-    {   
+    if (result.includes("SUCCESS")) {
         InitControls();
     }
 }
@@ -312,12 +382,6 @@ $(document).ready(function () {
         });
     }
 
-    if ($("#RecommendedBitsContent").length > 0) {
-        $.get('/MetaverseDaily/recommendedbits', function (result) {
-            $("#RecommendedBitsContent").append(result);
-        });
-    }
-
     if ($("#MarketBitsContent").length > 0) {
         $.get('/MetaverseDaily/marketbits', function (result) {
             $("#MarketBitsContent").append(result);
@@ -330,27 +394,9 @@ $(document).ready(function () {
         });
     }
 
-    if ($("#OrganizationalContent").length > 0) {
-        $.get('/MetaverseDaily/organizational', function (result) {
-            $("#OrganizationalContent").append(result);
-        });
-    }
-
     if ($("#EndPageRelatedContent").length > 0) {
         $.get('/MetaverseDaily/related?basePage=' + basePageName, function (result) {
             $("#EndPageRelatedContent").append(result);
-        });
-    }
-
-    if ($("#EndPagePromoContent").length > 0) {
-        $.get('/MetaverseDaily/endpagepromo', function (result) {
-            $("#EndPagePromoContent").append(result);
-        });
-    }
-
-    if ($("#SingleNewsContent").length > 0) {
-        $.get('/MetaverseDaily/singlenews', function (result) {
-            $("#SingleNewsContent").append(result);
         });
     }
 
@@ -361,5 +407,5 @@ $(document).ready(function () {
         });
     }
 
-    fetchContent();
+    RunBindControls();
 });

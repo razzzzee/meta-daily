@@ -636,7 +636,7 @@ ul.hero-marquee p.ticker-module-title {
 }
 
 .main-content-scroll::-webkit-scrollbar {
-  width: 5px;
+  width: 1.5px;
 
 }
 
@@ -649,7 +649,7 @@ ul.hero-marquee p.ticker-module-title {
 
 .main-content-scroll::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 255, 0.5);
 
 }
 
@@ -865,4 +865,8 @@ ul.hero-marquee p.ticker-module-title {
 .metaversedaily-mobile-rail-layout .variant-x2 .overlay-emoji {
   height: 25px;
   width: 25px;
+}
+
+#TopPicksSecondContent {
+  margin-left:100%;
 }

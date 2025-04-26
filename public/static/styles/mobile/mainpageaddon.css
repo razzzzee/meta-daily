@@ -896,3 +896,8 @@ ul.hero-marquee p.ticker-module-title {
       visibility: hidden;
   }
 }
+
+
+#TopPicksSecondContent {
+  margin-left:100%;
+}
