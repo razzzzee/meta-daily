@@ -66,8 +66,7 @@ const relatedContentRoutes = [
     'MetaverseResearch',
     'StartupsandBusiness',
     'LinkedTechnology',
-    'Marketplace',
-    'ResearchLabs'
+    'Marketplace'
 ];
 
 const recommendedContentRoutes = [
@@ -76,8 +75,7 @@ const recommendedContentRoutes = [
     'MetaverseResearch',
     'StartupsandBusiness',
     'LinkedTechnology',
-    'Marketplace',
-    'ResearchLabs'
+    'Marketplace'
 ];
 
 const drawerRoutes = [
@@ -406,11 +404,11 @@ app.get('/verifyPartnerWithUsRequest/:partnershipRequestId', function (req, res)
             console.log(err);
             status = "ERROR";
             console.log('Partner With Us Verification Status : ' + status);
-            res.redirect('/?partnershipVerification=error');
+            res.redirect('/home/?partnershipVerification=error');
         }
         else {
             console.log('Partner With Us Verification Status : ' + status);
-            res.redirect('/?partnershipVerification=true');
+            res.redirect('/home/?partnershipVerification=true');
         }
     });
 })
@@ -2950,6 +2948,7 @@ function ValidateUniversityProgramsEnroll(request) {
 }
 
 
+
 app.post("/UniversityProgramsEnroll", async function (req, res, next) {
     console.log("Enroll for University Programs");
     if (ValidateUniversityProgramsEnroll(req)) {
@@ -3004,22 +3003,8 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
                             to: emailId
                         }
                     };
-                    status = "SUCCESS";
-                    fs.appendFile(__dirname + '/Data/EducationPrograms/' + programType + '/data.csv', fullName + ',' + emailId + ',' + linkedInProfile + ',' + otherOwnedProfile + ',' + describeYourself.replaceAll(",", "~") + ',' + programType + ',' + programCode + ',' + programTitle + ',0' + '\n', err => {
-                        if (err) {
-                            console.log(err);
-                            status = "ERROR";
-                            console.log('Program Application Status : ' + status);
-                            console.log("-----------------------------------------");
-                            res.status(200).end(status);
-                        }
-                        else {
-                            console.log('Program Application Status : ' + status);
-                            console.log("-----------------------------------------");
-                            res.status(200).end(status);
-                        }
-                    });
-                    /*transporter.sendMail(mailOptions, function (error, info) {
+                    console.log("mail options set");
+                    transporter.sendMail(mailOptions, function (error, info) {
                         if (error) {
                             console.log(error);
                             status = "ERROR";
@@ -3029,7 +3014,7 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
                         }
                         else {
                             status = "SUCCESS";
-                            fs.appendFile(__dirname + '/Data/EducationPrograms/' + programType + '/data.csv', fullName + ',' + emailId + ',' + linkedInProfile + ',' + otherOwnedProfile  + ',' + describeYourself.replaceAll(",", "~") + ',' + programType + ',' + programCode + ',' + programTitle + ',0' + '\n', err => {
+                            fs.appendFile(__dirname + '/Data/EducationPrograms/' + programType + '/data.csv', fullName + ',' + emailId + ',' + linkedInProfile + ',' + otherOwnedProfile + ',' + describeYourself.replaceAll(",", "~") + ',' + programType + ',' + programCode + ',' + programTitle + ',0' + '\n', err => {
                                 if (err) {
                                     console.log(err);
                                     status = "ERROR";
@@ -3044,7 +3029,7 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
                                 }
                             });
                         }
-                    });*/
+                    });
                 }
             })
             .on("error", function (err) {
@@ -3059,8 +3044,6 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
         res.status(200).end(status);
     }
 });
-
-
 
 
 function ValidateOnboardMetaverseEmailVerificationForm(request) {
@@ -3979,7 +3962,6 @@ app.get('/MetaverseDaily/rightsidecontentsecondpromo', (req, res) => {
 app.get('/MetaverseDaily/maincontent', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-    console.log('Test : '+req.query.basePageKey);
     res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
         if (err) {
             console.error('Error sending file:', err);
@@ -4112,16 +4094,16 @@ app.get('/MetaverseDaily/singlenews', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
     console.log('Single News');
-    res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index1.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });
-    /*res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index' + GetRandomNumberBetween(1, 10).toString() + '.html', { root: __dirname }, function (err) {
+    /*res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index1.html', { root: __dirname }, function (err) {
         if (err) {
             console.error('Error sending file:', err);
         }
     });*/
+    res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index' + GetRandomNumberBetween(1, 10).toString() + '.html', { root: __dirname }, function (err) {
+        if (err) {
+            console.error('Error sending file:', err);
+        }
+    });
 });
 
 app.get('/MetaverseDaily/TrendingTopics', (req, res) => {
@@ -4390,11 +4372,20 @@ app.get('/Ticker', (req, res) => {
 app.get('/', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-    res.sendFile(routePrefix + '/Brand/MediaKit/index.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });
+        if (routePrefix == 'Mobile') {
+        res.sendFile(routePrefix + '/Brand/MediaKit/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
+    else {
+        res.sendFile('/Brand/MediaKit/index.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
 });
 
 app.get('/Profile', (req, res) => {
@@ -5335,11 +5326,20 @@ app.get('/linkedtechnology/distributed', (req, res) => {
 app.get('/Brand/MediaFace', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-    res.sendFile(routePrefix + '/Brand/MediaKit/index.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });
+        if (routePrefix == 'Mobile') {
+        res.sendFile(routePrefix + '/Brand/MediaKit/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
+    else {
+        res.sendFile('/Brand/MediaKit/index.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
 });
 
 app.get('/Brand/ArtOnAir', (req, res) => {
