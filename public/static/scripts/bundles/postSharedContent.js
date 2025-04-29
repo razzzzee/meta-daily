@@ -1,34 +1,3 @@
-var userName;
-var userId;
-var userRole;
-var token;
-var isAuthorized = 0;
-var avatar;
-var isListLayout = 0;
-
-function setSessionStorage() {
-    sessionStorage.setItem('userName', userName);
-    sessionStorage.setItem('userRole', userRole);
-    sessionStorage.setItem('token', token);
-    sessionStorage.setItem('avatar', avatar);
-    sessionStorage.setItem('isAuthorized', isAuthorized);
-}
-
-function clearSessionStorage() {
-    sessionStorage.setItem('userName', '');
-    sessionStorage.setItem('userRole', 'Default');
-    sessionStorage.setItem('token', '');
-    sessionStorage.setItem('isAuthorized', 0);
-}
-
-function SignOut() {
-    sessionStorage.setItem('signout-status', 1);
-    clearSessionStorage();
-    window.history.go(1);
-    window.location.href = '/home';
-}
-
-
 async function RunBindControls() {
     var arrDownloadLinks = [
         ['/MetaverseDaily/leftsidefirstcontent', 'LeftSideFirstContent'],
@@ -62,14 +31,10 @@ async function FetchHTML(arr, index, maxIndex) {
                 return res.text();
             })
             .then((data) => {
-                //alert(arr[index][1]);
-                //alert(data);
                 if (data.length > 0) {   
                     $("#" + arr[index][1]).append(data);
                     if (index == arr.length -1 ) {
-                        require(['core'], function (core) {
-                            core.init(mlScripts);
-                        });
+                        InitControls();
                         return;
                     }
                     FetchHTML(arr, index + 1, arr.length);
@@ -82,129 +47,10 @@ async function FetchHTML(arr, index, maxIndex) {
     }
     else{
         if (index == arr.length - 1) {
-            require(['core'], function (core) {
-                core.init(mlScripts);
-            });
+            InitControls();
             return;
         }
         FetchHTML(arr, index + 1, arr.length);
-    }
-}
-
-
-async function fetchContent() {
-    const requests = [];
-    const urls = [
-        "/MetaverseDaily/leftsidefirstcontent",
-        "/MetaverseDaily/leftsidesecondcontent",
-        "/MetaverseDaily/leftsidecontentfirstpromo",
-        "/MetaverseDaily/leftsidecontentsecondpromo",
-        "/MetaverseDaily/rightsidecontentfirstpromo",
-        "/MetaverseDaily/rightsidecontentsecondpromo",
-        "/MetaverseDaily/rightsidefirstcontent",
-        "/MetaverseDaily/rightsidesecondcontent",
-        "/MetaverseDaily/maincontent",
-        "/MetaverseDaily/recommendedbits",
-        "/MetaverseDaily/organizational",
-        "/MetaverseDaily/endpagepromo",
-        "/MetaverseDaily/singlenews"
-    ]
-
-    const controls = [
-        "LeftSideFirstContent",
-        "LeftSideSecondContent",
-        "LeftSideContentPromo_1",
-        "LeftSideContentPromo_2",
-        "RightSideContentPromo_1",
-        "RightSideContentPromo_2",
-        "RightSideFirstContent",
-        "RightSideSecondContent",
-        "MainContentOverflow",
-        "RecommendedBitsContent",
-        "OrganizationalContent",
-        "EndPagePromoContent",
-        "SingleNewsContent"
-    ]
-
-    // Build out our requests
-    for (let i = 0; i < urls.length; i++) {
-        const url = urls[i];
-
-        if ($("#" + controls[i]).length > 0) {
-            requests.push(
-                new Promise((resolve, reject) => {
-                    fetch(url)
-                        .then((response) => response.text())
-                        .then((data) => {
-                            $("#" + controls[i]).append(data);
-                            resolve("SUCCESS");
-                        });
-                })
-            );
-        }
-    }
-
-    const result = await Promise.all(requests);
-    if (result.includes("SUCCESS")) {
-        InitControls();
-    }
-}
-
-
-function loadRightSideContent() {
-    if ($("#RightSideContentPromo_1").length > 0) {
-        $.get('/MetaverseDaily/rightsidecontentfirstpromo', function (result) {
-            $("#RightSideContentPromo_1").append(result);
-            if ($("#RightSideContentPromo_2").length > 0) {
-                $.get('/MetaverseDaily/rightsidecontentsecondpromo', function (result) {
-                    $("#RightSideContentPromo_2").append(result);
-                    if ($("#RightSideFirstContent").length > 0) {
-                        $.get('/MetaverseDaily/rightsidefirstcontent', function (result) {
-                            $("#RightSideFirstContent").append(result);
-                            if ($("#RightSideSecondContent").length > 0) {
-                                $.get('/MetaverseDaily/rightsidesecondcontent', function (result) {
-                                    $("#RightSideSecondContent").append(result);
-                                });
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-}
-
-function loadMainContent() {
-    if ($("#MainContentOverflow").length > 0) {
-        $.get('/MetaverseDaily/maincontent', function (result) {
-            $("#MainContentOverflow").append(result);
-        });
-    }
-}
-
-async function loadLeftSideContent() {
-    if ($("#LeftSideFirstContent").length > 0) {
-        let response = await fetch('/MetaverseDaily/leftsidefirstcontent');
-        let data = await response.text();
-        $("#LeftSideFirstContent").append(data);
-    }
-
-    if ($("#LeftSideSecondContent").length > 0) {
-        let response = await fetch('/MetaverseDaily/leftsidesecondcontent');
-        let data = await response.text();
-        $("#LeftSideSecondContent").append(data);
-    }
-
-    if ($("#LeftSideContentPromo_1").length > 0) {
-        let response = await fetch('/MetaverseDaily/leftsidecontentfirstpromo');
-        let data = await response.text();
-        $("#LeftSideContentPromo_1").append(data);
-    }
-
-    if ($("#LeftSideContentPromo_2").length > 0) {
-        let response = await fetch('/MetaverseDaily/leftsidecontentsecondpromo');
-        let data = await response.text();
-        $("#LeftSideContentPromo_2").append(data);
     }
 }
 
@@ -370,27 +216,9 @@ $(document).ready(function () {
         });
     }
 
-    if ($("#UpdatesContent").length > 0) {
-        $.get('/MetaverseDaily/updates?basePage=' + basePageName, function (result) {
-            $("#UpdatesContent").append(result);
-        });
-    }
-
     if ($("#RecommendedContent").length > 0) {
         $.get('/MetaverseDaily/recommended?basePage=' + basePageName, function (result) {
             $("#RecommendedContent").append(result);
-        });
-    }
-
-    if ($("#MarketBitsContent").length > 0) {
-        $.get('/MetaverseDaily/marketbits', function (result) {
-            $("#MarketBitsContent").append(result);
-        });
-    }
-
-    if ($("#GlobalLooksContent").length > 0) {
-        $.get('/MetaverseDaily/globallooks', function (result) {
-            $("#GlobalLooksContent").append(result);
         });
     }
 

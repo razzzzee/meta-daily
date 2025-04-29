@@ -30,15 +30,6 @@ function SignOut() {
 
 async function RunBindControls() {
     var arrDownloadLinks = [
-        ['/MetaverseDaily/leftsidefirstcontent', 'LeftSideFirstContent'],
-        ['/MetaverseDaily/leftsidesecondcontent', 'LeftSideSecondContent'],
-        ['/MetaverseDaily/leftsidecontentfirstpromo', 'LeftSideContentPromo_1'],
-        ['/MetaverseDaily/leftsidecontentsecondpromo', 'LeftSideContentPromo_2'],
-        ['/MetaverseDaily/rightsidecontentfirstpromo', 'RightSideContentPromo_1'],
-        ['/MetaverseDaily/rightsidecontentsecondpromo', 'RightSideContentPromo_2'],
-        ['/MetaverseDaily/rightsidefirstcontent', 'RightSideFirstContent'],
-        ['/MetaverseDaily/rightsidesecondcontent', 'RightSideSecondContent'],
-        ['/MetaverseDaily/maincontent', 'MainContentOverflow'],
         ['/MetaverseDaily/recommendedbits', 'RecommendedBitsContent'],
         ['/MetaverseDaily/organizational', 'OrganizationalContent'],
         ['/MetaverseDaily/endpagepromo', 'EndPagePromoContent'],
@@ -61,8 +52,6 @@ async function FetchHTML(arr, index, maxIndex) {
                 return res.text();
             })
             .then((data) => {
-                //alert(arr[index][1]);
-                //alert(data);
                 if (data.length > 0) {   
                     $("#" + arr[index][1]).append(data);
                     if (index == arr.length -1 ) {
@@ -269,28 +258,10 @@ $(document).ready(function () {
         });
     }
 
-    if ($("#MarketBitsContent").length > 0) {
-        $.get('/MetaverseDaily/marketbits', function (result) {
-            $("#MarketBitsContent").append(result);
-        });
-    }
-
-    if ($("#GlobalLooksContent").length > 0) {
-        $.get('/MetaverseDaily/globallooks', function (result) {
-            $("#GlobalLooksContent").append(result);
-        });
-    }
 
     if ($("#EndPageRelatedContent").length > 0) {
         $.get('/MetaverseDaily/related?basePage=' + basePageName, function (result) {
             $("#EndPageRelatedContent").append(result);
-        });
-    }
-
-    if ($("#MetaverseDailyHeroTicker").length > 0) {
-        var datetime = new Date().getTime();
-        $.get('/Ticker?' + datetime, function (result) {
-            $("#MetaverseDailyHeroTicker").append(result);
         });
     }
     

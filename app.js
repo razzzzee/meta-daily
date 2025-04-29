@@ -148,12 +148,29 @@ var webLinkRegExPattern = /^[a-zA-Z0-9_@.:/-]+$/;
 var searchIndex;
 
 var searchContentData;
+var shortURLMap;
 var lockedAccounts = [];
 var signInInitiatedAccounts = [];
+LoadShortURLMap();
 LoadSearchIndexes();
 LoadSearchContentData();
 
-const searchTimeout = setInterval(LoadSearch, 300000);
+const searchTimeout = setInterval(LoadSearch, 900000);
+
+const shortURLMapTimeout = setInterval(LoadShortURLMap, 1800000);
+
+function LoadShortURLMap() {
+    shortURLMap = new Map();
+    var stream = fs.createReadStream(__dirname + '/ShortURL/data.csv')
+        .pipe(fastCSV.parse({ headers: true }))
+        .on('error', error => console.error(error))
+        .on('data', row => {
+            shortURLMap.set(row.ShortURLHash, row.PostPath);
+        })
+        .on('end', rowCount => {
+            console.log('Short URL mapping done');
+        });
+}
 
 function LoadSearch() {
     LoadSearchIndexes();
@@ -3148,6 +3165,21 @@ app.post("/OnboardMetaverseEmailVerification", async function (req, res, next) {
 
 //#endregion
 
+app.get("/LoadSearchIndexesAndShortURLMaps",  (req, res) => {
+    console.log('Loading Search Indexes and Short URL Maps Called');
+    if (req.query.userkey == GetFileDownloadKey(req.query.userid)) {
+        console.log("Loading Search Indexes and Short URL Maps");
+        LoadSearch();
+        LoadShortURLMap();
+        console.log("Loading Search Indexes and Short URL Maps - Done");
+        res.send("SUCCESS");
+    }
+    else{
+        res.send("ERROR");
+        //res.status(404).send('<h1>404! Route not found</h1>');
+    }
+});
+
 app.get("/downloadfile", async function (req, res, next) {
     console.log("In Downloading Files");
     console.log(req.query.userid);
@@ -3962,11 +3994,28 @@ app.get('/MetaverseDaily/rightsidecontentsecondpromo', (req, res) => {
 app.get('/MetaverseDaily/maincontent', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-    res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });
+    console.log('Base Page For Main Content : ' + req.query.basePage);
+    if (req.query.basePage == 'Broadcasts') {
+        res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index2.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
+    else if (req.query.basePage == 'Forecasts' || req.query.basePage == 'Events') {
+        res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index1.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
+    else{
+        res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
+            if (err) {
+                console.error('Error sending file:', err);
+            }
+        });
+    }
 });
 
 app.get('/MetaverseDaily/updates', (req, res) => {
@@ -7153,6 +7202,23 @@ app.use("/", (req, res, next) => {
     console.log('Invalid Route');
     res.status(404).redirect('/home');
 });*/
+
+app.get('/v2/:hash', (req, res) => {
+    console.log('Hash : ' + req.params.hash);
+    var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
+    console.log('Route Prefix : ' + routePrefix);
+    postPath = shortURLMap.get(req.params.hash);
+    res.sendFile(routePrefix + postPath + '.html', { root: __dirname }, function (err) {
+        if (err) {
+            res.sendFile(routePrefix + '/Home/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                    res.status(404).send('<h1>404! Page not found</h1>');
+                }
+            });
+        }
+    });
+});
 
 
 const server = app.listen(port, () => console.log(`Meta Daily listening on port ${port}!`));
