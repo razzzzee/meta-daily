@@ -7885,6 +7885,7 @@ app.get('/v2/:hash', (req, res) => {
     console.log('Post URL : ' + routePrefix + postPath + '.html');
     res.sendFile(routePrefix + postPath + '.html', { root: __dirname }, function (err) {
         if (err) {
+            console.log(err);
             res.sendFile(routePrefix + '/Home/index.html', { root: __dirname }, function (err) {
                 if (err) {
                     console.error('Error sending file:', err);
