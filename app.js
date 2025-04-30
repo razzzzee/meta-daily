@@ -7882,6 +7882,7 @@ app.get('/v2/:hash', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
     postPath = shortURLMap.get(req.params.hash);
+    console.log('Post URL : ' + routePrefix + postPath + '.html');
     res.sendFile(routePrefix + postPath + '.html', { root: __dirname }, function (err) {
         if (err) {
             res.sendFile(routePrefix + '/Home/index.html', { root: __dirname }, function (err) {
