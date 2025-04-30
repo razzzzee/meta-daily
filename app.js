@@ -4717,12 +4717,17 @@ app.get('/curatedgenerations', (req, res) => {
     });
 });
 
+
 app.get('/curatedgenerations/artistplaylist', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/ArtistPlaylist/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/ArtistPlaylist/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4732,7 +4737,11 @@ app.get('/curatedgenerations/creativesense', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/CreativeSense/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/CreativeSense/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4742,7 +4751,11 @@ app.get('/curatedgenerations/entertainmeans', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/EntertainMeans/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/EntertainMeans/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4752,7 +4765,11 @@ app.get('/curatedgenerations/fashionables', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/FashionAbles/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/FashionAbles/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4762,7 +4779,11 @@ app.get('/curatedgenerations/gamersboard', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/GamersBoard/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/GamersBoard/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4772,7 +4793,11 @@ app.get('/curatedgenerations/fitnessdoses', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/FitnessDoses/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/FitnessDoses/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4782,7 +4807,11 @@ app.get('/curatedgenerations/innovateyours', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/InnovateYours/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/InnovateYours/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4792,7 +4821,11 @@ app.get('/curatedgenerations/lifestyleview', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/LifestyleView/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/LifestyleView/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4802,7 +4835,11 @@ app.get('/curatedgenerations/magicalworld', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/MagicalWorld/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/MagicalWorld/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4812,7 +4849,11 @@ app.get('/curatedgenerations/musicalstudio', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/MusicalStudio/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/MusicalStudio/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4822,7 +4863,11 @@ app.get('/curatedgenerations/sociallycurious', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/SociallyCurious/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/SociallyCurious/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4832,7 +4877,11 @@ app.get('/curatedgenerations/sportsfuntastic', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Generated/Curated/SportsFuntastic/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Generated/Curated/SportsFuntastic/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -4994,7 +5043,11 @@ app.get('/podcasts', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Podcasts/Featured/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Podcasts/Featured/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5005,14 +5058,22 @@ app.get('/podcasts/featured', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Podcasts/Featured/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Podcasts/Featured/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5024,14 +5085,22 @@ app.get('/podcasts/satellite', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Podcasts/Satellite/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Satellite/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Podcasts/Satellite/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Satellite/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5043,14 +5112,22 @@ app.get('/podcasts/everything', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Podcasts/Everything/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Podcasts/Everything/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5062,14 +5139,22 @@ app.get('/podcasts/upcoming', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Podcasts/Upcoming/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Podcasts/Upcoming/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Podcasts/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5085,7 +5170,11 @@ app.get('/events', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Events/Satellite/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Events/Satellite/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5096,14 +5185,22 @@ app.get('/events/upcoming', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Events/Upcoming/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Events/Upcoming/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5115,14 +5212,22 @@ app.get('/events/past', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Events/Past/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Past/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Events/Past/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Past/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5134,14 +5239,22 @@ app.get('/events/satellite', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Events/Satellite/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Satellite/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Events/Satellite/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Events/Satellite/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5155,7 +5268,11 @@ app.get('/linkedtechnology', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/LinkedTechnology/NFT/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/LinkedTechnology/NFT/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5166,14 +5283,22 @@ app.get('/linkedtechnology/nft', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/NFT/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/NFT/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/NFT/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/NFT/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5185,14 +5310,22 @@ app.get('/linkedtechnology/web3', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/Web3/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Web3/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/Web3/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Web3/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5204,14 +5337,22 @@ app.get('/linkedtechnology/blockchain', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/Blockchain/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Blockchain/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/Blockchain/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Blockchain/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5223,14 +5364,22 @@ app.get('/linkedtechnology/cryptocurrency', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/Cryptocurrency/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Cryptocurrency/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/Cryptocurrency/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Cryptocurrency/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5242,14 +5391,22 @@ app.get('/linkedtechnology/virtualreality', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/VirtualReality/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/VirtualReality/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/VirtualReality/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/VirtualReality/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5261,14 +5418,22 @@ app.get('/linkedtechnology/mixedreality', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/MixedReality/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/MixedReality/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/MixedReality/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/MixedReality/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5280,14 +5445,22 @@ app.get('/linkedtechnology/artificialintelligence', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/ArtificialIntelligence/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/ArtificialIntelligence/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/ArtificialIntelligence/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/ArtificialIntelligence/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5299,14 +5472,22 @@ app.get('/linkedtechnology/machinelearning', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/MachineLearning/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/MachineLearning/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/MachineLearning/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/MachineLearning/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5318,14 +5499,22 @@ app.get('/linkedtechnology/deeplearning', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/DeepLearning/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/DeepLearning/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/DeepLearning/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/DeepLearning/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5337,14 +5526,22 @@ app.get('/linkedtechnology/decentralization', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/Decentralization/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Decentralization/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/Decentralization/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Decentralization/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5356,14 +5553,22 @@ app.get('/linkedtechnology/distributed', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/LinkedTechnology/Distributed/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Distributed/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/LinkedTechnology/Distributed/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/LinkedTechnology/Distributed/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5375,7 +5580,7 @@ app.get('/linkedtechnology/distributed', (req, res) => {
 app.get('/Brand/MediaFace', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-        if (routePrefix == 'Mobile') {
+    if (routePrefix == 'Mobile') {
         res.sendFile(routePrefix + '/Brand/MediaKit/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
             if (err) {
                 console.error('Error sending file:', err);
@@ -5446,7 +5651,11 @@ app.get('/marketplace', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Marketplace/NFT/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Marketplace/NFT/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5457,14 +5666,22 @@ app.get('/marketplace/nft', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/NFT/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/NFT/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/NFT/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/NFT/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5476,14 +5693,22 @@ app.get('/marketplace/apps', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Apps/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Apps/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Apps/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Apps/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5495,14 +5720,22 @@ app.get('/marketplace/crypto', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Crypto/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Crypto/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Crypto/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Crypto/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5514,14 +5747,22 @@ app.get('/marketplace/games', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Games/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Games/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Games/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Games/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5533,14 +5774,22 @@ app.get('/marketplace/events', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Events/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Events/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Events/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Events/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5552,14 +5801,22 @@ app.get('/marketplace/passes', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Passes/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Passes/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Passes/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Passes/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5571,14 +5828,22 @@ app.get('/marketplace/tickets', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Tickets/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Tickets/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Tickets/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Tickets/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5590,14 +5855,22 @@ app.get('/marketplace/business', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Business/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Business/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Business/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Business/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5609,14 +5882,22 @@ app.get('/marketplace/giftcards', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/GiftCards/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/GiftCards/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/GiftCards/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/GiftCards/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5628,14 +5909,22 @@ app.get('/marketplace/resources', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Resources/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Resources/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Resources/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Resources/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5647,14 +5936,22 @@ app.get('/marketplace/realestate', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/RealEstate/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/RealEstate/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/RealEstate/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/RealEstate/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5666,14 +5963,22 @@ app.get('/marketplace/packagings', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Packagings/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Packagings/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Packagings/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Packagings/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5685,14 +5990,22 @@ app.get('/marketplace/merchandise', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/Merchandise/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Merchandise/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/Merchandise/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/Merchandise/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5704,14 +6017,22 @@ app.get('/marketplace/finproducts', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Marketplace/FinProducts/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/FinProducts/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Marketplace/FinProducts/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Marketplace/FinProducts/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5807,7 +6128,11 @@ app.get('/metaverseresearch', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/MetaverseResearch/Commercial/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/MetaverseResearch/Commercial/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5818,14 +6143,22 @@ app.get('/metaverseresearch/commercial', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/Commercial/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Commercial/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/Commercial/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Commercial/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5837,14 +6170,22 @@ app.get('/metaverseresearch/openpublic', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/OpenPublic/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/OpenPublic/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/OpenPublic/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/OpenPublic/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5856,14 +6197,22 @@ app.get('/metaverseresearch/groups', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/Groups/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Groups/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/Groups/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Groups/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5875,14 +6224,22 @@ app.get('/metaverseresearch/projects', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/Projects/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Projects/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/Projects/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Projects/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5894,14 +6251,22 @@ app.get('/metaverseresearch/centers', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/Centers/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Centers/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/Centers/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Centers/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5913,14 +6278,22 @@ app.get('/metaverseresearch/initiatives', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaverseResearch/Initiatives/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Initiatives/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaverseResearch/Initiatives/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaverseResearch/Initiatives/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5934,7 +6307,11 @@ app.get('/metaworldsinsider', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/MetaworldsInsider/Roblox/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/MetaworldsInsider/Roblox/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -5952,14 +6329,22 @@ app.get('/metaworldsinsider/decentraland', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Decentraland/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Decentraland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Decentraland/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Decentraland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5971,14 +6356,22 @@ app.get('/metaworldsinsider/hyperverse', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Hyperverse/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Hyperverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Hyperverse/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Hyperverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -5990,14 +6383,22 @@ app.get('/metaworldsinsider/matrixworld', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/MatrixWorld/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/MatrixWorld/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/MatrixWorld/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/MatrixWorld/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6009,14 +6410,22 @@ app.get('/metaworldsinsider/mona', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Mona/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Mona/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Mona/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Mona/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6028,14 +6437,22 @@ app.get('/metaworldsinsider/niftyisland', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/NiftyIsland/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/NiftyIsland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/NiftyIsland/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/NiftyIsland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6047,14 +6464,22 @@ app.get('/metaworldsinsider/roblox', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Roblox/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Roblox/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Roblox/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Roblox/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6066,14 +6491,22 @@ app.get('/metaworldsinsider/somniumspace', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/SomniumSpace/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/SomniumSpace/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/SomniumSpace/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/SomniumSpace/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6085,14 +6518,22 @@ app.get('/metaworldsinsider/thesandbox', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/TheSandbox/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/TheSandbox/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/TheSandbox/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/TheSandbox/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6104,14 +6545,22 @@ app.get('/metaworldsinsider/upland', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Upland/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Upland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Upland/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Upland/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6123,14 +6572,22 @@ app.get('/metaworldsinsider/vaulthill', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/VaultHill/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/VaultHill/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/VaultHill/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/VaultHill/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6142,14 +6599,22 @@ app.get('/metaworldsinsider/viverse', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Viverse/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Viverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Viverse/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Viverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6161,14 +6626,22 @@ app.get('/metaworldsinsider/earth2', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Earth2/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Earth2/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Earth2/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Earth2/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6180,14 +6653,22 @@ app.get('/metaworldsinsider/nvidiaomniverse', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/NvidiaOmniverse/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/NvidiaOmniverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/NvidiaOmniverse/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/NvidiaOmniverse/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6199,14 +6680,22 @@ app.get('/metaworldsinsider/secondlife', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/SecondLife/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/SecondLife/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/SecondLife/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/SecondLife/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6218,14 +6707,22 @@ app.get('/metaworldsinsider/metahero', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/MetaHero/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/MetaHero/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/MetaHero/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/MetaHero/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6237,14 +6734,22 @@ app.get('/metaworldsinsider/horizonworld', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/HorizonWorld/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/HorizonWorld/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/HorizonWorld/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/HorizonWorld/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6256,14 +6761,22 @@ app.get('/metaworldsinsider/horizonworkrooms', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/HorizonWorkrooms/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/HorizonWorkrooms/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/HorizonWorkrooms/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/HorizonWorkrooms/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6275,14 +6788,22 @@ app.get('/metaworldsinsider/rooom', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/MetaworldsInsider/Rooom/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Rooom/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/MetaworldsInsider/Rooom/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/MetaworldsInsider/Rooom/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6296,7 +6817,11 @@ app.get('/newsandupdates', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/NewsandUpdates/Featured/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/NewsandUpdates/Featured/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -6317,14 +6842,22 @@ app.get('/newsandupdates/featured', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/NewsandUpdates/Featured/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/NewsandUpdates/Featured/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6336,14 +6869,22 @@ app.get('/newsandupdates/everything', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/NewsandUpdates/Everything/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/NewsandUpdates/Everything/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6355,14 +6896,22 @@ app.get('/newsandupdates/latests', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/NewsandUpdates/Latests/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Latests/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/NewsandUpdates/Latests/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Latests/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6374,14 +6923,22 @@ app.get('/newsandupdates/series', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/NewsandUpdates/Series/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/NewsandUpdates/Series/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6393,14 +6950,22 @@ app.get('/newsandupdates/columns', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/NewsandUpdates/Columns/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Columns/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/NewsandUpdates/Columns/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/NewsandUpdates/Columns/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6601,7 +7166,11 @@ app.get('/startupsandbusiness', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/StartupsandBusiness/Featured/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/StartupsandBusiness/Featured/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -6612,14 +7181,22 @@ app.get('/startupsandbusiness/featured', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/StartupsandBusiness/Featured/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/StartupsandBusiness/Featured/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6631,14 +7208,22 @@ app.get('/startupsandbusiness/recent', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/StartupsandBusiness/Recent/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Recent/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/StartupsandBusiness/Recent/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Recent/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6650,14 +7235,22 @@ app.get('/startupsandbusiness/series', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/StartupsandBusiness/Series/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/StartupsandBusiness/Series/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6669,14 +7262,22 @@ app.get('/startupsandbusiness/sponsored', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/StartupsandBusiness/Sponsored/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Sponsored/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/StartupsandBusiness/Sponsored/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/StartupsandBusiness/Sponsored/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6690,7 +7291,11 @@ app.get('/videos', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Videos/Featured/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Videos/Featured/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -6701,14 +7306,22 @@ app.get('/videos/featured', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Videos/Featured/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Videos/Featured/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6720,14 +7333,22 @@ app.get('/videos/everything', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Videos/Everything/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Videos/Everything/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6739,14 +7360,22 @@ app.get('/videos/series', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Videos/Series/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Videos/Series/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Series/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6758,14 +7387,22 @@ app.get('/videos/research', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Videos/Research/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Research/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Videos/Research/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Videos/Research/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6777,7 +7414,11 @@ app.get('/offers', (req, res) => {
     console.log('Route Prefix : ' + routePrefix);
     res.sendFile(routePrefix + '/Offers/Featured/index.html', { root: __dirname }, function (err) {
         if (err) {
-            console.error('Error sending file:', err);
+            res.sendFile(routePrefix + '/Default/Offers/Featured/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                }
+            });
         }
     });
 });
@@ -6788,14 +7429,22 @@ app.get('/offers/featured', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Offers/Featured/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Offers/Featured/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Featured/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6807,14 +7456,22 @@ app.get('/offers/everything', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Offers/Everything/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Offers/Everything/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Everything/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6826,14 +7483,22 @@ app.get('/offers/upcoming', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Offers/Upcoming/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Offers/Upcoming/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Upcoming/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
@@ -6845,18 +7510,27 @@ app.get('/offers/past', (req, res) => {
     if (req.query.pageIndex && req.query.pageIndex != 0) {
         res.sendFile(routePrefix + '/Offers/Past/index' + req.query.pageIndex + '.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Past/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
     else {
         res.sendFile(routePrefix + '/Offers/Past/index.html', { root: __dirname }, function (err) {
             if (err) {
-                console.error('Error sending file:', err);
+                res.sendFile(routePrefix + '/Default/Offers/Past/index.html', { root: __dirname }, function (err) {
+                    if (err) {
+                        console.error('Error sending file:', err);
+                    }
+                });
             }
         });
     }
 });
+
 
 app.get('/posts/:postHash', (req, res) => {
     console.log(req.params.postHash);
