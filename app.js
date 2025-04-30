@@ -7532,7 +7532,25 @@ app.get('/offers/past', (req, res) => {
 });
 
 
-app.get('/posts/:postHash', (req, res) => {
+app.get('/posts/:hash', (req, res) => {
+    console.log('Hash : ' + req.params.hash);
+    var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
+    console.log('Route Prefix : ' + routePrefix);
+    postPath = shortURLMap.get(req.params.hash);
+    console.log('Post URL : ' + routePrefix + postPath + '.html');
+    res.sendFile(routePrefix + postPath + '.html', { root: __dirname }, function (err) {
+        if (err) {
+            console.log(err);
+            res.sendFile(routePrefix + '/Home/index.html', { root: __dirname }, function (err) {
+                if (err) {
+                    console.error('Error sending file:', err);
+                    res.status(404).send('<h1>404! Page not found</h1>');
+                }
+            });
+        }
+    });
+
+/*
     console.log(req.params.postHash);
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
@@ -7540,7 +7558,7 @@ app.get('/posts/:postHash', (req, res) => {
         if (err) {
             console.error('Error sending file:', err);
         }
-    });
+    });*/
 });
 
 app.get('/posts/search/:postHash', (req, res) => {
