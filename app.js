@@ -160,6 +160,7 @@ const searchTimeout = setInterval(LoadSearch, 900000);
 const shortURLMapTimeout = setInterval(LoadShortURLMap, 1800000);
 
 function LoadShortURLMap() {
+    console.log(process.env.DATABASE_URL);
     shortURLMap = new Map();
     var stream = fs.createReadStream(__dirname + '/ShortURL/data.csv')
         .pipe(fastCSV.parse({ headers: true }))
