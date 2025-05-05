@@ -18,6 +18,7 @@ btnUniversityForumsEnroll.forEach(el => el.addEventListener('click', event => {
     universityForumsEnrollTitle = event.currentTarget.getAttribute("data-attribute-universityforums");
     universityForumsTitle.innerText = universityForumsEnrollTitle;
     divUniversityForumsDesc.innerHTML = document.getElementById(universityForumsEnrollCode + '-desc').innerHTML;
+    universityForumsEnrollDialog.scrollTop = 0;
 }));
 
 // Form cancel button closes the dialog box

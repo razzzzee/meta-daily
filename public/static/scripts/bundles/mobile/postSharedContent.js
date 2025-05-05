@@ -238,7 +238,8 @@ $(document).ready(function () {
                         }
                         if(showAnnouncement == "1")
                         {
-                            announcementDialog.showModal();  
+                            announcementDialog.showModal();
+                            announcementDialog.scrollTop = 0;
                         }
                     });
                 }

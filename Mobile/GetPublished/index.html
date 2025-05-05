@@ -1215,12 +1215,12 @@
                             </style>
 
                             <dialog id="GetPublishishedHowItWorksDialog"
-                                style="max-width:100%; height:550px;overflow-y:hidden; overflow-x: hidden; margin-top:50px;">
-                                <div>
+                                style="max-width:100%; height:550px;overflow-y:hidden; overflow-x: hidden; margin-top:50px; width:70%;">
+                                <div style = "margin-top:20px;">
                                     <h2>How it Works</h2>
                                     <div style="width:110%; margin-top:10px;">
                                         <div style="float:left; width:100%;">
-                                            <div style="height:500px;  overflow-y:scroll; margin-left:-30px;"
+                                            <div style="height:450px;  overflow-y:scroll; margin-left:-30px;"
                                                 class="ScrollableGetPublishedHowItWorksForm"
                                                 id="ScrollableGetPublishedHowItWorksForm">
                                                 <div style="margin-top:0px; padding-right:20px; padding-left:40px;">
@@ -1838,7 +1838,7 @@
     <div class="slider-content" id="MetaverseDailyHeroSliderContent">
     </div>
 
-    <dialog id="MetaverseDailyPublishDialog" style="width:75%; margin-top:50px;">
+    <dialog id="MetaverseDailyPublishDialog" style="width:70%; margin-top:50px;">
         <style>
             #MetaverseDailyPublishDialog {
                 overflow-y: hidden;
@@ -2103,11 +2103,11 @@
         </style>
 
 
-        <div style="margin-left:20px;" style="width:100%;">
-            <h2>Write Publication </h2>
-            <span style="color:red; font-size: 18px;">Get your columnist membership to start writing</span>
-            <div id="publishPage1" style="width:130%; margin-left:-18%;">
-                <div id="multi-step-form-container" style="margin-top:20px;">
+        <div style="margin-left:10px; width:100%; margin-top: 20px;">
+            <h2 style="font-size:26px;">Write Publication </h2>
+            <span style="color:red; font-size: 16px;">Get Columnist Membership to Publish</span>
+            <div id="publishPage1" style="width:130%; height:350px; margin-left:-18%;">
+                <div id="multi-step-form-container" style="margin-top:20px; height:300px;">
                     <!-- Form Steps / Progress Bar -->
                     <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
                         <!-- Step 1 -->
@@ -2144,9 +2144,9 @@
                             id="PublishErrorMessage">**Error**</h2>
                     </div>
                     <!-- Step 1 Content -->
-                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:200px;">
+                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:100px;">
                         <!-- Step 1 input fields -->
-                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:150px;">
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:50px;">
                             <form id="publishStep1Form" name="publishStep1Form">
                                 <fieldset class='form-bd'>
                                     <div class='field-group' style="margin-top:0px; ">
@@ -2163,7 +2163,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-3" style="margin-top:0px; margin-bottom:-30px;">
                             <button class="button variant-cta btn-navigate-form-step" type='button' step_number="2"
                                 style="border-radius:7px; font-size:20px;" form_to_validate="publishStep1Form"
                                 disabled>Next</button>
@@ -2171,7 +2171,7 @@
                     </section>
                     <!-- Step 2 Content, default hidden on page load. -->
                     <section id="step-2" class="form-step d-none"
-                        style="margin-top:0px; padding-top:0px; min-height:300px; ">
+                        style="margin-top:0px; padding-top:0px; min-height:100px; ">
                         <!-- Step 3 input fields -->
                         <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
                             <form id="publishStep2Form" name="publishStep2Form">
@@ -2180,37 +2180,20 @@
                             </form>
                         </div>
                         <div class="mt-3">
-                            <button class="button variant-cta btn-navigate-form-step" type="button" step_number="1"
-                                style="border-radius:7px; font-size:20px;">Prev</button>
-                            <button class="button variant-cta btn-navigate-form-step" type="button" step_number="3"
-                                style="border-radius:7px; font-size:20px;"
-                                form_to_validate="publishStep2Form">Next</button>
                         </div>
                     </section>
                     <!-- Step 3 Content, default hidden on page load. -->
                     <section id="step-3" class="form-step d-none"
-                        style="margin-top:0px; padding-top:0px; min-height:300px; ">
+                        style="margin-top:0px; padding-top:0px; min-height:100px; ">
                         <!-- Step 3 input fields -->
                         <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
                             <form id="publishStep3Form" name="publishStep3Form">
                                 <fieldset class='form-bd'>
                                 </fieldset>
                             </form>
-                            <div>
-                                <p>* By submitting for publish request, you agree to the <a href="/termsandconditions"
-                                        target="_black" style="color:blue;"> Terms & Conditions</a> and <a
-                                        href="/codeofconduct" target="_black" style="color:blue;">Code of Conduct</a>
-                                    for safeguard ecosystem. </p>
-                            </div>
+                           
                         </div>
                         <div class="mt-3">
-                            <div style="float:left;">
-                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="2"
-                                    style="border-radius:7px; font-size:20px;">Prev</button>
-                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="3"
-                                    style="border-radius:7px; font-size:20px;" form_to_validate="publishStep3Form"
-                                    onclick="Publish(this);">Submit</button>
-                            </div>
                             <div style="float:left;margin-left:5px;">
                                 <svg id="PublishLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 512 512">
@@ -2806,12 +2789,15 @@
         });
 
         function ShowKnowMoreDialog() {
+            $("#ScrollableGetPublishedKnowMoreForm").animate({ scrollTop: 0 }, "slow");
             var knowMoreDialog = document.getElementById("AnnouncementDialog");
             knowMoreDialog.showModal();
         }
 
         function ShowGetPublishedHowItWorksDialog() {
+            $("#ScrollableGetPublishedHowItWorksForm").animate({ scrollTop: 0 }, "slow");
             getPublishedHowItWorksDialog.showModal();
+            getPublishedHowItWorksDialog.scrollTop = 0;
         }
 
         function CloseGetPublishedHowItWorksDialog() {

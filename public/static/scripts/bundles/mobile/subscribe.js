@@ -8,7 +8,7 @@ openSubscribeNewsletterDialogButton.addEventListener("click", () => {
     form.reset();
     var datetime=new Date().getTime();
     subscribeNewsletterPage1.style.display = 'block';
-    subscribeNewsletterDialog.style.height = "300px";
+    subscribeNewsletterDialog.style.height = "320px";
     subscribeNewsletterDialog.showModal();
 });
 
@@ -20,6 +20,15 @@ closeSubscribeNewsletterDialogButton.addEventListener("click", () => {
 function CloseSubscribeNewsletterDialog() {
     subscribeNewsletterPage2.classList.remove('show');
     subscribeNewsletterDialog.close();
+}
+
+function ShowSubscribeNewsletterDialog() {
+    var form = subscribeNewsletterDialog.querySelector('#subscribeNewsletterForm');
+    form.reset();
+    var datetime=new Date().getTime();
+    subscribeNewsletterPage1.style.display = 'block';
+    subscribeNewsletterDialog.style.height = "320px";
+    subscribeNewsletterDialog.showModal();
 }
 
 var subscribeNewsletterFullName;

@@ -11,6 +11,7 @@ openResearchLabsApplyNowDialogButton.addEventListener("click", () => {
     researchLabsApplyNowErrorMessage.style.display = 'none';
     researchLabsApplyNowPage1.style.display = 'block';
     researchLabsApplyNowDialog.style.height = "550px";
+    $("#ScrollableResearchLabsApplyNowForm").animate({ scrollTop: 0 }, "slow");
     researchLabsApplyNowDialog.showModal();
 });
 

@@ -40,11 +40,19 @@ if ("signout-status" in sessionStorage) {
 
 var urlString = window.location.href;
 var url = new URL(urlString);
+var actionValue = url.searchParams.get("action");
 var subscriptionActivationValue = url.searchParams.get("subscription");
 var partnershipVerificationValue = url.searchParams.get("partnershipVerification");
 var merchantRequestVerificationValue = url.searchParams.get("merchantRequestVerification");
 var councilRequestVerificationValue = url.searchParams.get("councilRequestVerification");
 var studentRequestVerificationValue = url.searchParams.get("studentRequestVerification");
+
+window.onload = function () {
+  if (actionValue == 'subscribe') {
+    ShowSubscribeNewsletterDialog();
+  }
+}
+
 
 if (subscriptionActivationValue == 'true') {
   butterup.toast({

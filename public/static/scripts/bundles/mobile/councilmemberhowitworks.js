@@ -10,6 +10,6 @@ function CloseCouncilMemberHowItWorksDialog() {
 }
 
 function ShowCouncilMemberHowItWorksDialog() {
-    $("#ScrollableCouncilMemberHowItWorksForm").animate({ scrollTop: 0 }, "slow");
+    $("#ScrollableCouncilMemberHowItWorks").animate({ scrollTop: 0 }, "slow");
     councilMemberHowItWorksDialog.showModal();
 }

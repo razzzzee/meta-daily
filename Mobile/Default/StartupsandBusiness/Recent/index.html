@@ -527,422 +527,402 @@
             }
         </style>
 
-        <dialog id="MetaverseDailyPublishDialog" style="width:75%; margin-top:50px;">
-            <style>
-                #MetaverseDailyPublishDialog {
-                    overflow-y: hidden;
-                    overflow-x: hidden;
-                    max-height: 550px;
+         <dialog id="MetaverseDailyPublishDialog" style="width:70%; margin-top:50px;">
+        <style>
+            #MetaverseDailyPublishDialog {
+                overflow-y: hidden;
+                overflow-x: hidden;
+                max-height: 550px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar {
+                width: 1px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+            }
+
+            .ScrollableTextArea::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar {
+                width: 1px;
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+            }
+
+            .ScrollablePublishForm::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .becomepublish-dialog-box {
+                transition: opacity 1s ease, visibility 1s ease;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .becomepublish-dialog-box.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .becomepublish-dialog-box.hidden {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            #PublishLoader {
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
                 }
 
-                .ScrollableTextArea::-webkit-scrollbar {
-                    width: 1px;
+                100% {
+                    transform: rotate(360deg);
                 }
+            }
 
-                .ScrollableTextArea::-webkit-scrollbar-track {
-                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-                    border-radius: 10px;
-                }
+            #multi-step-form-container {
+                margin-top: 5rem;
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+            }
 
-                .ScrollableTextArea::-webkit-scrollbar-thumb {
-                    border-radius: 10px;
-                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-                }
+            .text-center {
+                text-align: center;
+            }
 
-                .ScrollablePublishForm::-webkit-scrollbar {
-                    width: 1px;
-                }
+            .mx-auto {
+                margin-left: auto;
+                margin-right: auto;
 
-                .ScrollablePublishForm::-webkit-scrollbar-track {
-                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-                    border-radius: 10px;
-                }
+            }
 
-                .ScrollablePublishForm::-webkit-scrollbar-thumb {
-                    border-radius: 10px;
-                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-                }
+            .pl-0 {
+                padding-left: 0;
+            }
 
-                .becomepublish-dialog-box {
-                    transition: opacity 1s ease, visibility 1s ease;
-                    opacity: 0;
-                    visibility: hidden;
-                }
+            .button-dialog {
+                padding: 0.7rem 1.5rem;
+                border: 1px solid #4361ee;
+                background-color: #4361ee;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-                .becomepublish-dialog-box.show {
-                    opacity: 1;
-                    visibility: visible;
-                }
+            .submit-btn {
+                border: 1px solid #0e9594;
+                background-color: #0e9594;
+            }
 
-                .becomepublish-dialog-box.hidden {
-                    opacity: 0;
-                    visibility: hidden;
-                }
+            .mt-3 {
+                margin-top: 2rem;
+            }
 
-                #PublishLoader {
-                    animation: spin 1s linear infinite;
-                }
+            .d-none {
+                display: none;
+            }
 
-                @keyframes spin {
-                    0% {
-                        transform: rotate(0deg);
-                    }
+            .form-step {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                padding: 3rem;
+            }
 
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
+            .font-normal {
+                font-weight: normal;
+            }
 
-                #multi-step-form-container {
-                    margin-top: 5rem;
-                    width: 100%;
-                    margin-right: auto;
-                    margin-left: auto;
-                }
+            ul.form-stepper {
+                counter-reset: section;
+                margin-bottom: 1rem;
+            }
 
-                .text-center {
-                    text-align: center;
-                }
+            ul.form-stepper .form-stepper-circle {
+                position: relative;
+            }
 
-                .mx-auto {
-                    margin-left: auto;
-                    margin-right: auto;
+            ul.form-stepper .form-stepper-circle span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
 
-                }
+            .form-stepper-horizontal {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
 
-                .pl-0 {
-                    padding-left: 0;
-                }
+            ul.form-stepper>li:not(:last-of-type) {
+                margin-bottom: 0.625rem;
+                -webkit-transition: margin-bottom 0.4s;
+                -o-transition: margin-bottom 0.4s;
+                transition: margin-bottom 0.4s;
+            }
 
-                .button-dialog {
-                    padding: 0.7rem 1.5rem;
-                    border: 1px solid #4361ee;
-                    background-color: #4361ee;
-                    color: #fff;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
+            .form-stepper-horizontal>li:not(:last-of-type) {
+                margin-bottom: 0 !important;
+            }
 
-                .submit-btn {
-                    border: 1px solid #0e9594;
-                    background-color: #0e9594;
-                }
+            .form-stepper-horizontal li {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                -webkit-box-align: start;
+                -ms-flex-align: start;
+                align-items: start;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+            }
 
-                .mt-3 {
-                    margin-top: 2rem;
-                }
+            .form-stepper-horizontal li:not(:last-child):after {
+                position: relative;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                height: 1px;
+                content: "";
+                top: 32%;
+            }
 
-                .d-none {
-                    display: none;
-                }
+            .form-stepper-horizontal li:after {
+                background-color: #dee2e6;
+            }
 
-                .form-step {
-                    border: 1px solid rgba(0, 0, 0, 0.1);
-                    border-radius: 20px;
-                    padding: 3rem;
-                }
+            .form-stepper-horizontal li.form-stepper-completed:after {
+                background-color: #00c46f;
+            }
 
-                .font-normal {
-                    font-weight: normal;
-                }
+            .form-stepper-horizontal li:last-child {
+                flex: unset;
+            }
 
-                ul.form-stepper {
-                    counter-reset: section;
-                    margin-bottom: 1rem;
-                }
+            ul.form-stepper li a .form-stepper-circle {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                margin-right: 0;
+                line-height: 1.7rem;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.38);
+                border-radius: 50%;
+            }
 
-                ul.form-stepper .form-stepper-circle {
-                    position: relative;
-                }
+            .form-stepper .form-stepper-active .form-stepper-circle {
+                background-color: #4361ee !important;
+                color: #fff;
+            }
 
-                ul.form-stepper .form-stepper-circle span {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translateY(-50%) translateX(-50%);
-                }
+            .form-stepper .form-stepper-active .label {
+                color: #4361ee !important;
+            }
 
-                .form-stepper-horizontal {
-                    position: relative;
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    -webkit-box-pack: justify;
-                    -ms-flex-pack: justify;
-                    justify-content: space-between;
-                }
+            .form-stepper .form-stepper-active .form-stepper-circle:hover {
+                background-color: #4361ee !important;
+                color: #fff !important;
+            }
 
-                ul.form-stepper>li:not(:last-of-type) {
-                    margin-bottom: 0.625rem;
-                    -webkit-transition: margin-bottom 0.4s;
-                    -o-transition: margin-bottom 0.4s;
-                    transition: margin-bottom 0.4s;
-                }
+            .form-stepper .form-stepper-unfinished .form-stepper-circle {
+                background-color: darkgray;
+            }
 
-                .form-stepper-horizontal>li:not(:last-of-type) {
-                    margin-bottom: 0 !important;
-                }
+            .form-stepper .form-stepper-completed .form-stepper-circle {
+                background-color: #00c46f !important;
+                color: #fff;
+            }
 
-                .form-stepper-horizontal li {
-                    position: relative;
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    -webkit-box-flex: 1;
-                    -ms-flex: 1;
-                    flex: 1;
-                    -webkit-box-align: start;
-                    -ms-flex-align: start;
-                    align-items: start;
-                    -webkit-transition: 0.5s;
-                    transition: 0.5s;
-                }
+            .form-stepper .form-stepper-completed .label {
+                color: #0e9594 !important;
+            }
 
-                .form-stepper-horizontal li:not(:last-child):after {
-                    position: relative;
-                    -webkit-box-flex: 1;
-                    -ms-flex: 1;
-                    flex: 1;
-                    height: 1px;
-                    content: "";
-                    top: 32%;
-                }
+            .form-stepper .form-stepper-completed .form-stepper-circle:hover {
+                background-color: #0e9594 !important;
+                color: #fff !important;
+            }
 
-                .form-stepper-horizontal li:after {
-                    background-color: #dee2e6;
-                }
+            .form-stepper .form-stepper-active span.text-muted {
+                color: #fff !important;
+            }
 
-                .form-stepper-horizontal li.form-stepper-completed:after {
-                    background-color: #00c46f;
-                }
+            .form-stepper .form-stepper-completed span.text-muted {
+                color: #fff !important;
+            }
 
-                .form-stepper-horizontal li:last-child {
-                    flex: unset;
-                }
+            .form-stepper .label {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
 
-                ul.form-stepper li a .form-stepper-circle {
-                    display: inline-block;
-                    width: 30px;
-                    height: 30px;
-                    margin-right: 0;
-                    line-height: 1.7rem;
-                    text-align: center;
-                    background: rgba(0, 0, 0, 0.38);
-                    border-radius: 50%;
-                }
+            .form-stepper a {
+                cursor: default;
+            }
 
-                .form-stepper .form-stepper-active .form-stepper-circle {
-                    background-color: #4361ee !important;
-                    color: #fff;
-                }
+            ::-webkit-calendar-picker-indicator {
+                width: 30px;
+                height: 30px;
+                background-image: url('/static/svgs/datepicker.svg');
+            }
 
-                .form-stepper .form-stepper-active .label {
-                    color: #4361ee !important;
-                }
-
-                .form-stepper .form-stepper-active .form-stepper-circle:hover {
-                    background-color: #4361ee !important;
-                    color: #fff !important;
-                }
-
-                .form-stepper .form-stepper-unfinished .form-stepper-circle {
-                    background-color: darkgray;
-                }
-
-                .form-stepper .form-stepper-completed .form-stepper-circle {
-                    background-color: #00c46f !important;
-                    color: #fff;
-                }
-
-                .form-stepper .form-stepper-completed .label {
-                    color: #0e9594 !important;
-                }
-
-                .form-stepper .form-stepper-completed .form-stepper-circle:hover {
-                    background-color: #0e9594 !important;
-                    color: #fff !important;
-                }
-
-                .form-stepper .form-stepper-active span.text-muted {
-                    color: #fff !important;
-                }
-
-                .form-stepper .form-stepper-completed span.text-muted {
-                    color: #fff !important;
-                }
-
-                .form-stepper .label {
-                    font-size: 1rem;
-                    margin-top: 0.5rem;
-                }
-
-                .form-stepper a {
-                    cursor: default;
-                }
-
-                ::-webkit-calendar-picker-indicator {
-                    width: 30px;
-                    height: 30px;
-                    background-image: url('/static/svgs/datepicker.svg');
-                }
-
-                .field {
-                    margin-bottom: 20px;
-                }
-            </style>
+            .field {
+                margin-bottom: 20px;
+            }
+        </style>
 
 
-            <div style="margin-left:20px;" style="width:100%;">
-                <h2>Write Publication </h2>
-                <span style="color:red; font-size: 18px;">Get your columnist membership to start writing</span>
-                <div id="publishPage1" style="width:130%; margin-left:-18%;">
-                    <div id="multi-step-form-container" style="margin-top:20px;">
-                        <!-- Form Steps / Progress Bar -->
-                        <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
-                            <!-- Step 1 -->
-                            <li class="form-stepper-active text-center form-stepper-list" step="1">
-                                <a class="mx-2">
-                                    <span class="form-stepper-circle">
-                                        <span></span>
-                                    </span>
-                                    <h2 style="font-size:25px; color:#4d4c4d;">Content</h2>
-                                </a>
-                            </li>
-                            <!-- Step 2 -->
-                            <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
-                                <a class="mx-2">
-                                    <span class="form-stepper-circle text-muted">
-                                        <span></span>
-                                    </span>
-                                    <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Details</h2>
-                                </a>
-                            </li>
-                            <!-- Step 3 -->
-                            <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
-                                <a class="mx-2">
-                                    <span class="form-stepper-circle text-muted">
-                                        <span></span>
-                                    </span>
-                                    <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Finals</h2>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- Step Wise Form Content -->
-                        <div>
-                            <h2 style="color:red; font-weight: 500; display:none; width:95%; font-size:15px;"
-                                id="PublishErrorMessage">**Error**</h2>
-                        </div>
-                        <!-- Step 1 Content -->
-                        <section id="step-1" class="form-step"
-                            style="margin-top:0px; padding-top:0px; min-height:200px;">
-                            <!-- Step 1 input fields -->
-                            <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:150px;">
-                                <form id="publishStep1Form" name="publishStep1Form">
-                                    <fieldset class='form-bd'>
-                                        <div class='field-group' style="margin-top:0px; ">
-                                            <div class='field custom-input'>
-                                                <input id='txtPublishFullName' type='text' name='PublishFullName'
-                                                    placeholder="Full Name" required minlength="3" maxlength="100"
-                                                    pattern="^[a-zA-Z ]+$" style="font-size: larger; width:90%;"
-                                                    disabled>
-                                            </div>
-                                            <div class='field custom-input'>
-                                                <textarea id="area_editor" disabled></textarea>
-                                            </div>
-
+        <div style="margin-left:10px; width:100%; margin-top: 20px;">
+            <h2 style="font-size:26px;">Write Publication </h2>
+            <span style="color:red; font-size: 16px;">Get Columnist Membership to Publish</span>
+            <div id="publishPage1" style="width:130%; height:350px; margin-left:-18%;">
+                <div id="multi-step-form-container" style="margin-top:20px; height:300px;">
+                    <!-- Form Steps / Progress Bar -->
+                    <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                        <!-- Step 1 -->
+                        <li class="form-stepper-active text-center form-stepper-list" step="1">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle">
+                                    <span></span>
+                                </span>
+                                <h2 style="font-size:25px; color:#4d4c4d;">Content</h2>
+                            </a>
+                        </li>
+                        <!-- Step 2 -->
+                        <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle text-muted">
+                                    <span></span>
+                                </span>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Details</h2>
+                            </a>
+                        </li>
+                        <!-- Step 3 -->
+                        <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                            <a class="mx-2">
+                                <span class="form-stepper-circle text-muted">
+                                    <span></span>
+                                </span>
+                                <h2 class="text-muted" style="font-size:25px; color:#4d4c4d;">Finals</h2>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Step Wise Form Content -->
+                    <div>
+                        <h2 style="color:red; font-weight: 500; display:none; width:95%; font-size:15px;"
+                            id="PublishErrorMessage">**Error**</h2>
+                    </div>
+                    <!-- Step 1 Content -->
+                    <section id="step-1" class="form-step" style="margin-top:0px; padding-top:0px; min-height:100px;">
+                        <!-- Step 1 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:50px;">
+                            <form id="publishStep1Form" name="publishStep1Form">
+                                <fieldset class='form-bd'>
+                                    <div class='field-group' style="margin-top:0px; ">
+                                        <div class='field custom-input'>
+                                            <input id='txtPublishFullName' type='text' name='PublishFullName'
+                                                placeholder="Full Name" required minlength="3" maxlength="100"
+                                                pattern="^[a-zA-Z ]+$" style="font-size: larger; width:90%;" disabled>
                                         </div>
-                                    </fieldset>
-                                </form>
+                                        <div class='field custom-input'>
+                                            <textarea id="area_editor" disabled></textarea>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="mt-3" style="margin-top:0px; margin-bottom:-30px;">
+                            <button class="button variant-cta btn-navigate-form-step" type='button' step_number="2"
+                                style="border-radius:7px; font-size:20px;" form_to_validate="publishStep1Form"
+                                disabled>Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 2 Content, default hidden on page load. -->
+                    <section id="step-2" class="form-step d-none"
+                        style="margin-top:0px; padding-top:0px; min-height:100px; ">
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                            <form id="publishStep2Form" name="publishStep2Form">
+                                <fieldset class='form-bd'>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="mt-3">
+                        </div>
+                    </section>
+                    <!-- Step 3 Content, default hidden on page load. -->
+                    <section id="step-3" class="form-step d-none"
+                        style="margin-top:0px; padding-top:0px; min-height:100px; ">
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
+                            <form id="publishStep3Form" name="publishStep3Form">
+                                <fieldset class='form-bd'>
+                                </fieldset>
+                            </form>
+                           
+                        </div>
+                        <div class="mt-3">
+                            <div style="float:left;margin-left:5px;">
+                                <svg id="PublishLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                    viewBox="0 0 512 512">
+                                    <path fill="#000000"
+                                        d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+                                </svg>
                             </div>
-                            <div class="mt-3">
-                                <button class="button variant-cta btn-navigate-form-step" type='button' step_number="2"
-                                    style="border-radius:7px; font-size:20px;" form_to_validate="publishStep1Form"
-                                    disabled>Next</button>
-                            </div>
-                        </section>
-                        <!-- Step 2 Content, default hidden on page load. -->
-                        <section id="step-2" class="form-step d-none"
-                            style="margin-top:0px; padding-top:0px; min-height:300px; ">
-                            <!-- Step 3 input fields -->
-                            <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
-                                <form id="publishStep2Form" name="publishStep2Form">
-                                    <fieldset class='form-bd'>
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <div class="mt-3">
-                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="1"
-                                    style="border-radius:7px; font-size:20px;">Prev</button>
-                                <button class="button variant-cta btn-navigate-form-step" type="button" step_number="3"
-                                    style="border-radius:7px; font-size:20px;"
-                                    form_to_validate="publishStep2Form">Next</button>
-                            </div>
-                        </section>
-                        <!-- Step 3 Content, default hidden on page load. -->
-                        <section id="step-3" class="form-step d-none"
-                            style="margin-top:0px; padding-top:0px; min-height:300px; ">
-                            <!-- Step 3 input fields -->
-                            <div class="mt-3" style="margin-top:0px; padding-top:0px; min-height:250px;">
-                                <form id="publishStep3Form" name="publishStep3Form">
-                                    <fieldset class='form-bd'>
-                                    </fieldset>
-                                </form>
-                                <div>
-                                    <p>* By submitting for publish request, you agree to the <a
-                                            href="/termsandconditions" target="_black" style="color:blue;"> Terms &
-                                            Conditions</a> and <a href="/codeofconduct" target="_black"
-                                            style="color:blue;">Code of Conduct</a>
-                                        for safeguard ecosystem. </p>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <div style="float:left;">
-                                    <button class="button variant-cta btn-navigate-form-step" type="button"
-                                        step_number="2" style="border-radius:7px; font-size:20px;">Prev</button>
-                                    <button class="button variant-cta btn-navigate-form-step" type="button"
-                                        step_number="3" style="border-radius:7px; font-size:20px;"
-                                        form_to_validate="publishStep3Form" onclick="Publish(this);">Submit</button>
-                                </div>
-                                <div style="float:left;margin-left:5px;">
-                                    <svg id="PublishLoader" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                                        viewBox="0 0 512 512">
-                                        <path fill="#000000"
-                                            d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                 </div>
-                <div id="publishPage2" class="becomepublish-dialog-box" style="width:100%;">
-                    <div style="margin-top:20px;">
-                        <div style="text-align: center;">
-                            <h2 style="color:green; font-size:25px;">🎉🎉🎉 Hurray 🎉🎉🎉</h2>
-                        </div>
-                        <div style="margin:auto; text-align:center;">
-                            <span style="font-size:20px; color:#201f20;">Verification link mailed to you. Our team will
-                                connect you
-                                for further process.</span>
-                        </div>
-                        <div
-                            style='background-image: url("/static/gifs/mail.gif"); height:350px; width:350px; background-size: contain; margin-top:-20px;'>
-                        </div>
-                        <div class='button-group' style="float:left; margin-top:-50px;">
-                            <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
-                                onclick="ClosePublishDialog();">Done</button>
-                        </div>
-                    </div>
-                </div>
-                <button id="ClosePublishDialogButton" onclick="ClosePublishDialog();" aria-label="close" class="x">
-                    <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
-                        x='0px' y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
-                        xml:space='preserve'>
-                        <path
-                            d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
-                    </svg>
-                </button>
             </div>
-        </dialog>
+            <div id="publishPage2" class="becomepublish-dialog-box" style="width:100%;">
+                <div style="margin-top:20px;">
+                    <div style="text-align: center;">
+                        <h2 style="color:green; font-size:25px;">🎉🎉🎉 Hurray 🎉🎉🎉</h2>
+                    </div>
+                    <div style="margin:auto; text-align:center;">
+                        <span style="font-size:20px; color:#201f20;">Verification link mailed to you. Our team will
+                            connect you
+                            for further process.</span>
+                    </div>
+                    <div
+                        style='background-image: url("/static/gifs/mail.gif"); height:350px; width:350px; background-size: contain; margin-top:-20px;'>
+                    </div>
+                    <div class='button-group' style="float:left; margin-top:-50px;">
+                        <button class='button variant-cta' style="border-radius:7px; font-size:20px;"
+                            onclick="ClosePublishDialog();">Done</button>
+                    </div>
+                </div>
+            </div>
+            <button id="ClosePublishDialogButton" onclick="ClosePublishDialog();" aria-label="close" class="x">
+                <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px'
+                    y='0px' width='25' height='25' viewBox='0 0 25 25' enable-background='new 0 0 25 25'
+                    xml:space='preserve'>
+                    <path
+                        d='M20.394,17.374c0,0.104-0.042,0.188-0.104,0.271l-2.646,2.645c-0.083,0.062-0.166,0.104-0.271,0.104 s-0.188-0.042-0.271-0.104L12.5,15.687L7.896,20.29c-0.082,0.062-0.166,0.104-0.27,0.104c-0.104,0-0.188-0.042-0.271-0.104 L4.71,17.645c-0.062-0.083-0.104-0.167-0.104-0.271s0.042-0.188,0.104-0.271L9.313,12.5L4.71,7.897 C4.648,7.814,4.606,7.73,4.606,7.626S4.648,7.439,4.71,7.355L7.355,4.71c0.084-0.062,0.167-0.104,0.271-0.104 c0.104,0,0.188,0.042,0.27,0.104L12.5,9.313l4.604-4.603c0.083-0.062,0.166-0.104,0.271-0.104s0.188,0.042,0.271,0.104l2.646,2.645 c0.062,0.083,0.104,0.167,0.104,0.271s-0.042,0.188-0.104,0.271L15.687,12.5l4.603,4.604C20.352,17.186,20.394,17.27,20.394,17.374z ' />
+                </svg>
+            </button>
+        </div>
+    </dialog>
 
         <script>
             $(document).ready(function () {

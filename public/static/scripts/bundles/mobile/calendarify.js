@@ -3380,8 +3380,8 @@ Arguments: ` +
               (this._date = (yt = this.options.startDate) != null ? yt : this.startDate),
               (this._months = []);
           for (let Ws = 0; Ws < 12; Ws++) this._months.push(String(Ws + 1));
-          (this._nowMonth = l(this._date).format("YYYY-MM")),
-              (this._nowDay = l(this._date).format("D")),
+          (this._nowMonth = l(this._date).format("MM")),
+              (this._nowDay = l(this._date).format("DD")),
               (this._nowYear = l(this._date).format("YYYY")),
               (this._outputDate = l(this._date).format(this.locale.format)),
               (this._dates = []),
@@ -3418,7 +3418,8 @@ Arguments: ` +
       init() {
           (l.suppressDeprecationWarnings = !0),
               this.showValue(),
-              this._datepickerInput.value = "";
+              this._date = "2007-10-01";
+              //this._datepickerInput.value = "2007-10-01";
               this.changeState(),
               (this._datepickerInput.spellcheck = !1),
               (this._datepickerInput.autocomplete = "off"),
@@ -3504,10 +3505,15 @@ Arguments: ` +
       }
       changeMonth(t, s) {
           this._wrapperEls.forEach((o) => o.classList.remove("d-none")), s.forEach((o) => o.classList.remove("active"));
+          var formattedMonth = t.target.getAttribute("data-date");
+          if(parseInt(formattedMonth)<10)
+          {
+            formattedMonth = "0"+String(formattedMonth);
+          }
           const n = t.target,
-              r = n.getAttribute("data-date"),
+              r = formattedMonth,
               a = l(this._date).format("YYYY"),
-              i = l(new Date(`${a} ${r} ${this._nowDay}`));
+              i = a+"-"+r+"-"+this._nowDay;
           (this._date = l(i).format(this._systemFormat)), n.classList.add("active"), (this._isExpanded = !1), (this._expandedMode = "months"), this.changeState(), this.resetUI();
       }
       doneState() {
@@ -3536,8 +3542,8 @@ Arguments: ` +
       }
       changeState() {
           var n, r;
-          (this._dates = []), (this._nowMonth = l(this._date).format("YYYY-MM")), (this._nowDay = l(this._date).format("D")), this.loopDaysMonths();
-          const t = l(this._nowMonth).format("M"),
+          (this._dates = []), (this._nowMonth = l(this._date).format("YYYY-MM")), (this._nowDay = l(this._date).format("DD")), this.loopDaysMonths();
+          const t = l(this._nowMonth).format("MM"),
               s = l(this._nowMonth).format("YYYY");
           switch (((this._expandButton.textContent = `${(n = this.locale.lang) == null ? void 0 : n.months[+t - 1]} ${s}`), this._expandedMode)) {
               case "years":
@@ -3575,8 +3581,13 @@ Arguments: ` +
       setDate(t) {
           this._isSetted = !0;
           const s = t.target;
+          var formattedDay = String(s.textContent);
+          if(parseInt(s.textContent)<10)
+          {
+            formattedDay = '0'+String(s.textContent);
+          }
           this._dateButtons.forEach((n) => n.classList.remove("active")),
-              (this._nowDay = String(s.textContent)),
+              (this._nowDay = formattedDay),
               (this._date = `${l(`${this._nowMonth}-${this._nowDay}`).format(this._systemFormat)}`),
               this.showValue(),
               s.classList.add("active");

@@ -44,8 +44,10 @@ function ShowMarketplaceAnnouncementDialog() {
     marketplaceJoinWaitlistErrorMessage.style.display = 'none';
     marketplaceAnnouncementPage1.style.display = 'block';
     marketplaceAnnouncementPage2.style.display = 'none';
+    //marketplaceAnnouncementDialog.scrollTop(-100);// = -100;
     hideMarketplaceJoinWaitlistLoader();
     marketplaceAnnouncementDialog.showModal();
+    marketplaceAnnouncementDialog.scrollTop = 0;
 }
 
 function CloseMarketplaceAnnouncementDialog() {

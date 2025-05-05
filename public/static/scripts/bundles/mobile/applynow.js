@@ -18,6 +18,7 @@ btnKnowMoreAndApply.forEach(el => el.addEventListener('click', event => {
     applyNowOpportunityTitle = event.currentTarget.getAttribute("data-attribute-opportunity");
     opportunityTitle.innerText = applyNowOpportunityTitle;
     divOpportunityDesc.innerHTML = document.getElementById(applyNowRequisitionCode + '-desc').innerHTML;
+    knowMoreAndApplyDialog.scrollTop = 0;
 }));
 
 // Form cancel button closes the dialog box

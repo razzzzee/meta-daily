@@ -18,6 +18,7 @@ btnUniversityCertsEnroll.forEach(el => el.addEventListener('click', event => {
     universityCertsEnrollTitle = event.currentTarget.getAttribute("data-attribute-universitycerts");
     universityCertsTitle.innerText = universityCertsEnrollTitle;
     divUniversityCertsDesc.innerHTML = document.getElementById(universityCertsEnrollCode + '-desc').innerHTML;
+    universityCertsEnrollDialog.scrollTop = 0;
 }));
 
 // Form cancel button closes the dialog box

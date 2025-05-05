@@ -18,6 +18,7 @@ btnUniversityParticipationsEnroll.forEach(el => el.addEventListener('click', eve
     universityParticipationsEnrollTitle = event.currentTarget.getAttribute("data-attribute-universityparticipations");
     universityParticipationsTitle.innerText = universityParticipationsEnrollTitle;
     divUniversityParticipationsDesc.innerHTML = document.getElementById(universityParticipationsEnrollCode + '-desc').innerHTML;
+    universityParticipationsEnrollDialog.scrollTop = 0;
 }));
 
 // Form cancel button closes the dialog box

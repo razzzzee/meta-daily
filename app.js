@@ -5,7 +5,6 @@ const expressUserAgent = require('express-useragent');
 var fs = require("fs");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
-//const textToImage = require("text-to-image");
 const stringify = require('csv-stringify');
 const converterJson2Csv = require('json-2-csv');
 const jwt = require('jsonwebtoken');
@@ -20,32 +19,63 @@ const { randomBytes } = require('node:crypto');
 const { readFile } = require('fs/promises');
 const { appendFile } = require('fs/promises');
 const { join } = require('path');
+const { MongoClient, ServerApiVersion } = require("mongodb");
 
 
 const app = express();
 app.use(expressUserAgent.express());
 const port = process.env.PORT || 3001;
 
+///environment variables
+const MONGO_DATABSE_URI = process.env.DATABASE_URI;
+const COOKIE_PARSER_SECRET = process.env.COOKIE_PARSER_SECRET;
+const SESSION_SECRET = process.env.SESSION_SECRET;
+const DOWNLOAD_FILE_USERNAME = process.env.DOWNLOAD_FILE_USERNAME;
+const DOWNLOAD_FILE_KEY = process.env.DOWNLOAD_FILE_KEY;
+const APPLICATION_URL = process.env.APPLICATION_URL;
+const APPLICATION_NAME = process.env.APPLICATION_NAME;
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+const SMTP_HOST = process.env.SMTP_HOST;
+const SMTP_HOST_USERNAME = process.env.SMTP_HOST_USERNAME;
+const SMTP_HOST_PASS = process.env.SMTP_HOST_PASS;
+const HMAC_SECRET = process.env.HMAC_SECRET;
+const FROM_SUPPORT_EMAIL = process.env.FROM_SUPPORT_EMAIL;
+const FROM_CONTACT_EMAIL = process.env.FROM_CONTACT_EMAIL;
+const FROM_MEMBERSHIP_EMAIL = process.env.FROM_MEMBERSHIP_EMAIL;
+const BCC_EMAIL = process.env.BCC_EMAIL;
+const MONGO_DATABASE_NAME = process.env.MONGO_DATABASE_NAME;
+///
+
+
+
 app.use(express.static('public'))
 app.use("/brand", express.static(__dirname + "/Brand"));
 app.use(express.json());
-app.use(cookieParser("MetaverseDaily"));
+app.use(cookieParser(COOKIE_PARSER_SECRET));
 app.use(session({
-    secret: 'MetaverseDailyWorld',
+    secret: SESSION_SECRET,
     cookie: { maxAge: 60000 * 4 }, // value of maxAge is defined in milliseconds. 
     resave: false,
     rolling: false,
     saveUninitialized: true
 }));
 
+const mongo_client = new MongoClient(MONGO_DATABSE_URI, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    }
+});
+
 const dictFileDownloadKey = {
-    'rahulyadav': 'test'
+    'rahulyadav': DOWNLOAD_FILE_KEY
 }
 
 const contentImageExtension = '.jpg';
 const dateFormat = 'month dd, yyyy';
 const timeFormat = 'AM PM';
-const applicationURL = 'https://meta-daily.onrender.com/';
+const applicationURL = APPLICATION_URL;
 
 const hello = [
     'Hello',
@@ -150,7 +180,6 @@ var searchIndex;
 var searchContentData;
 var shortURLMap;
 var lockedAccounts = [];
-var signInInitiatedAccounts = [];
 LoadShortURLMap();
 LoadSearchIndexes();
 LoadSearchContentData();
@@ -160,7 +189,6 @@ const searchTimeout = setInterval(LoadSearch, 900000);
 const shortURLMapTimeout = setInterval(LoadShortURLMap, 1800000);
 
 function LoadShortURLMap() {
-    console.log(process.env.DATABASE_URL);
     shortURLMap = new Map();
     var stream = fs.createReadStream(__dirname + '/ShortURL/data.csv')
         .pipe(fastCSV.parse({ headers: true }))
@@ -187,7 +215,6 @@ function LoadSearchIndexes() {
         .pipe(fastCSV.parse({ headers: true }))
         .on('error', error => console.error(error))
         .on('data', row => {
-            // console.log(row);
             searchIndex.add(row.ContentId, row.Content);
         })
         .on('end', rowCount => {
@@ -208,15 +235,6 @@ function LoadSearchContentData() {
         .on("error", function (err) {
             console.log(err);
         });
-}
-
-function AddSignInInitiatedAccounts(accountEmailId) {
-    const account = {
-        EmailId: accountEmailId,
-        OTPResendCount: 0,
-        OTP: '000000'
-    }
-    signInInitiatedAccounts.push(account);
 }
 
 function AddLockedAccount(accountEmailId) {
@@ -250,16 +268,6 @@ function CheckAndRemoveLockedAccount(accountEmailId) {
     return response;
 }
 
-function GenerateResponse(item) {
-    searchContentData.forEach(contentItem => {
-        if (contentItem.ContentId == item) {
-            return contentItem;
-            //console.log(item+ " : Found");
-        }
-    })
-}
-
-
 function GetFileDownloadKey(adminUser) {
     return fileDownloadKey = dictFileDownloadKey[adminUser];
 }
@@ -268,32 +276,16 @@ function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function EmailExistenceForSubscription(email) {
-    //var content = fs.readFile( __dirname+'/Data/Subscription/email.txt');
-}
-
-function verifyToken(req) {
-    const token = req.header('Authorization');
-    if (!token) return res.status(401).json({ error: 'Access denied' });
-    try {
-        const decoded = jwt.verify(token, 'your-secret-key');
-        req.userId = decoded.userId;
-        next();
-    } catch (error) {
-        res.status(401).json({ error: 'Invalid token' });
-    }
-};
-
 const readFileSync = (path) => {
     return fs.readFileSync(__dirname + path, { encoding: 'utf-8' });
 };
 
 const transporter = createTransport({
-    host: "smtp.privateemail.com",
+    host: SMTP_HOST,
     port: 587,
     auth: {
-        user: "contactus@metaversedaily.world",
-        pass: "Rahul12345$",
+        user: SMTP_HOST_USERNAME,
+        pass: SMTP_HOST_PASS,
     },
 });
 
@@ -316,8 +308,6 @@ function GetRandomNumberBetween(min, max) {
 //#endregion
 
 
-
-
 //#region Post Routes
 function ValidateSubscribeNewsletterForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
@@ -335,8 +325,7 @@ app.post("/SubscribeNewsletter", async function (req, res, next) {
         var status;
         var emailId = req.body.EmailId;
         var fullName = req.body.FullName;
-        const secret = 'metaversedaily';
-        const subscriptionId = createHmac('sha256', secret)
+        const subscriptionId = createHmac('sha256', HMAC_SECRET)
             .update(emailId)
             .digest('hex');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/SubscribeNewsletterConfirmation.html'));
@@ -346,15 +335,15 @@ app.post("/SubscribeNewsletter", async function (req, res, next) {
                 var helloElement = getRandomHello();
                 var greetings = helloElement;
                 var pageTitle = 'Welcome to Metaverse Daily';
-                var activationLink = applicationURL + 'activateSubscription/' + subscriptionId;
+                var activationLink = APPLICATION_URL + 'activateSubscription/' + subscriptionId;
                 const mailOptions = {
-                    from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                    from: FROM_SUPPORT_EMAIL,
                     to: emailId,
                     subject: 'Newsletter Subscription Confirmation @ Metaverse Daily',
                     html: template({ greetings: greetings, name: fullName, title: pageTitle, activationLink: activationLink }),
                     priority: 'medium',
                     envelope: {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: emailId
                     }
                 };
@@ -382,8 +371,7 @@ app.post("/SubscribeNewsletter", async function (req, res, next) {
                     }
                 });
             }
-            else
-            {
+            else {
                 status = "EMAIL-SUBSCRIBED";
                 console.log('Subscribe Newsletter Status : ' + status);
                 res.status(200).send(status);
@@ -449,8 +437,6 @@ app.get('/verifyBecomeMerchantRequest/:merchantRequestId', function (req, res) {
     });
 });
 
-
-
 app.get('/verifyBecomeCouncilRequest/:councilRequestId', function (req, res) {
     var councilRequestId = req.params.councilRequestId;
     var status = "SUCCESS";
@@ -491,8 +477,7 @@ app.get('/MemberLogin/:email/:password', async (req, res) => {
     var status;
     var email = req.params.email;
     var pass = req.params.password;
-    const secret = 'metaversedaily';
-    const passHash = createHmac('sha256', secret)
+    const passHash = createHmac('sha256', HMAC_SECRET)
         .update(pass)
         .digest('hex');
     fs.readFile(__dirname + '/Data/Members/data.txt', 'utf8', function (err, data) {
@@ -510,8 +495,6 @@ app.get('/MemberLogin/:email/:password', async (req, res) => {
 })
 
 
-
-
 function ValidateSignUpData(request) {
     if (request.body.FullName.length > 50 || request.body.FullName.length < 3) {
         return false;
@@ -519,9 +502,6 @@ function ValidateSignUpData(request) {
     else if (request.body.Email.length > 50 || request.body.Email.length < 10) {
         return false;
     }
-    // else if (request.body.DOB.length != 10) {
-    //    return false;
-    //}
     return true;
 }
 
@@ -533,7 +513,7 @@ function VerifyUserToken(req) {
     }
     else {
         try {
-            const decoded = jwt.verify(token, 'metaversedaily');
+            const decoded = jwt.verify(token, JWT_SECRET_KEY);
             return true;
         }
         catch (error) {
@@ -546,8 +526,8 @@ function VerifyUserToken(req) {
 app.post("/Authorize", async function (req, res, next) {
     if (VerifyUserToken(req)) {
         const token = req.header('Authorization');
-        const decoded = jwt.verify(token, 'metaversedaily');
-        var newtoken = jwt.sign({ userId: decoded.userId, userEmail: decoded.email, role: 'User' }, 'metaversedaily', {
+        const decoded = jwt.verify(token, JWT_SECRET_KEY);
+        var newtoken = jwt.sign({ userId: decoded.userId, userEmail: decoded.email, role: 'User' }, JWT_SECRET_KEY, {
             expiresIn: '1h',
         });
         const result = {
@@ -565,37 +545,40 @@ app.post("/Authorize", async function (req, res, next) {
     }
 });
 
-
 app.post("/UserProfile", async function (req, res, next) {
     if (VerifyUserToken(req)) {
         try {
             console.log('token : ' + req.body.token);
-            const decoded = jwt.verify(req.body.token, 'metaversedaily');
+            const decoded = jwt.verify(req.body.token, JWT_SECRET_KEY);
             var status = "SUCCESS";
-            fs.readFile(__dirname + '/Data/Users/' + decoded.userId + '/profile.json', function (err, data) {
-                if (err) {
-                    console.log(err);
-                    status = "ERROR";
-                    console.log('Error Reading User Profile : ' + status);
-                    console.log("-----------------------------------------");
-                    res.status(200).end(status);
-                }
-                else {
+            await mongo_client.connect();
+            const collectionName = "Users";
+            const database = mongo_client.db(MONGO_DATABASE_NAME);
+            const collection = database.collection(collectionName);
+            const findUserQuery = { UserId: decoded.userId };
+            try {
+                const findOneResult = await collection.findOne(findUserQuery);
+                if (findOneResult != null) {
                     console.log('User Profile Reading : ' + status);
                     console.log("-----------------------------------------");
-                    finalData = JSON.parse(data);
                     const result = {
                         Status: status,
                         Token: req.body.token,
-                        UserId: finalData.UserId,
-                        FullName: finalData.FullName,
-                        Email: finalData.Email,
-                        DOB: finalData.DOB,
-                        Avatar: finalData.ProfileImage
+                        UserId: findOneResult.UserId,
+                        FullName: findOneResult.FullName,
+                        Email: findOneResult.Email,
+                        DOB: findOneResult.DOB,
+                        Avatar: findOneResult.ProfileImage
                     }
                     res.status(200).end(JSON.stringify(result));
                 }
-            });
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+                console.log('Error Reading User Profile : ' + status);
+                console.log("-----------------------------------------");
+                res.status(200).end(status);
+            }
         }
         catch (error) {
             console.log(error);
@@ -606,51 +589,52 @@ app.post("/UserProfile", async function (req, res, next) {
     }
 });
 
-
 app.post("/SaveUserProfile", async function (req, res, next) {
     if (VerifyUserToken(req)) {
         try {
             console.log('token : ' + req.body.token);
-            const decoded = jwt.verify(req.body.token, 'metaversedaily');
+            const decoded = jwt.verify(req.body.token, JWT_SECRET_KEY);
             var status = "SUCCESS";
-            fs.readFile(__dirname + '/Data/Users/' + decoded.userId + '/profile.json', function (err, data) {
-                if (err) {
+            await mongo_client.connect();
+            const collectionName = "Users";
+            const database = mongo_client.db(MONGO_DATABASE_NAME);
+            const collection = database.collection(collectionName);
+            const findUserQuery = { UserId: decoded.userId };
+            const updateDoc = { $set: { FullName: req.body.fullName, ProfileImage: req.body.avatar } };
+            const updateOptions = { returnOriginal: false };
+            try {
+                const updateResult = await collection.findOneAndUpdate(
+                    findUserQuery,
+                    updateDoc,
+                    updateOptions,
+                );
+                if (updateResult != null) {
+                    console.log('User Profile saved successfully!');
+                    const result = {
+                        Status: status,
+                        Token: req.body.token,
+                        FullName: updateResult.FullName,
+                        Avatar: updateResult.ProfileImage
+                    }
+                    res.status(200).end(JSON.stringify(result));
+                }
+                else {
                     console.log(err);
                     status = "ERROR";
                     console.log('Error Reading User Profile : ' + status);
                     console.log("-----------------------------------------");
                     res.status(200).end(status);
                 }
-                else {
-                    console.log('User Profile Reading : ' + status);
-                    console.log("-----------------------------------------");
-                    finalData = JSON.parse(data);
-                    finalData.FullName = req.body.fullName;
-                    finalData.ProfileImage = req.body.avatar;
-
-                    fs.writeFile(__dirname + '/Data/Users/' + decoded.userId + '/profile.json', JSON.stringify(finalData), err => {
-                        if (err) {
-                            console.log(err);
-                            status = "ERROR";
-                            const result = {
-                                Status: status,
-                                Token: req.body.token
-                            }
-                            console.error(err);
-                            res.status(200).end(JSON.stringify(result));
-                        }
-                        console.log('User Profile saved successfully!');
-                    });
-                    const result = {
-                        Status: status,
-                        Token: req.body.token,
-                        FullName: finalData.FullName,
-                        Avatar: finalData.ProfileImage
-                    }
-                    res.status(200).end(JSON.stringify(result));
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+                const result = {
+                    Status: status,
+                    Token: req.body.token
                 }
-            });
-
+                console.error(err);
+                res.status(200).end(JSON.stringify(result));
+            }
         }
         catch (error) {
             console.log(error);
@@ -666,81 +650,74 @@ app.post("/SaveUserProfile", async function (req, res, next) {
     }
 });
 
-
 app.post("/SignUpVerification", async function (req, res, next) {
     console.log("Sign Up Verification");
     if (ValidateSignUpData(req)) {
         if (CheckAndRemoveLockedAccount(req.body.Email)) {
             console.log("Sign Up Verification for " + req.body.Email + " : Not Locked");
             var status;
-            var userFoundResult;
             var email = req.body.Email;
             var fullName = req.body.FullName;
             console.log(req.body.Email);
-            var stream = fs.createReadStream(__dirname + '/Data/Users/data.csv');
+            const findUserQuery = { Email: email.toLowerCase() };
             const template = Handlebars.compile(readFileSync('/EmailTemplates/SignUpVerification.html'));
-            fastCSV.parseStream(stream, { headers: true })
-                .on("data", function (data) {
-                    console.log('I am Here' + data.EmailId);
-                    userFoundResult = data.EmailId.toLowerCase() == email.toLowerCase() ? true : false;
-                    if (userFoundResult) {
-                        console.log('user found');
-                        status = "USER-EXISTS";
-                        console.log('Sign Up Verfication Status : ' + status);
-                        console.log("-----------------------------------------");
-                        res.status(200).end(status);
-                        stream.destroy();
+            try {
+                await mongo_client.connect();
+                const collectionName = "Users";
+                const database = mongo_client.db(MONGO_DATABASE_NAME);
+                const collection = database.collection(collectionName);
+                const findOneResult = await collection.findOne(findUserQuery);
+                if (findOneResult === null) {
+                    if (req.body.Email != req.session.email) {
+                        req.session.signUpAttempt = 0;
+                        req.session.ResendOTPAttempt = 0;
                     }
-                })
-                .on("end", function () {
-                    console.log("User File Reading Done.");
-                    console.log(userFoundResult);
-                    if (!userFoundResult) {
-                        if (req.body.Email != req.session.email) {
-                            req.session.signUpAttempt = 0;
-                            req.session.ResendOTPAttempt = 0;
+                    req.session.email = req.body.Email;
+                    req.session.fullName = fullName;
+                    req.session.otp = GetRandomNumberBetween(100000, 999999);
+                    var helloElement = getRandomHello();
+                    var greetings = helloElement;
+                    var pageTitle = 'Welcome to Metaverse Daily';
+                    const mailOptions = {
+                        from: FROM_SUPPORT_EMAIL,
+                        to: email,
+                        subject: 'Sign Up Verification to Metaverse Daily',
+                        html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
+                        priority: 'high',
+                        envelope: {
+                            from: FROM_SUPPORT_EMAIL,
+                            to: email
                         }
-                        req.session.email = req.body.Email;
-                        req.session.fullName = fullName;
-                        req.session.otp = GetRandomNumberBetween(100000, 999999);
-                        var helloElement = getRandomHello();
-                        var greetings = helloElement;
-                        var pageTitle = 'Welcome to Metaverse Daily';
-                        const mailOptions = {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: email,
-                            subject: 'Sign Up Verification to Metaverse Daily',
-                            html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
-                            priority: 'high',
-                            envelope: {
-                                from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                                to: email
-                            }
-                        };
-                        transporter.sendMail(mailOptions, function (error, info) {
-                            if (error) {
-                                console.log(error);
-                                status = "ERROR";
-                                console.log('Sign Up Verfication Status : ' + status);
-                                console.log(req.session.email + ' : ' + req.session.otp);
-                                console.log("-----------------------------------------");
-                                res.status(200).end(status);
-                            }
-                            else {
-                                status = "SUCCESS";
-                                console.log('Sign Up Verfication Status : ' + status);
-                                console.log(req.session.email + ' : ' + req.session.otp);
-                                console.log("-----------------------------------------");
-                                res.status(200).end(status);
-                            }
-                        });
-                    }
-                })
-                .on("error", function (err) {
-                    console.log(err);
-                    status = "ERROR";
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                            status = "ERROR";
+                            console.log('Sign Up Verfication Status : ' + status);
+                            console.log(req.session.email + ' : ' + req.session.otp);
+                            console.log("-----------------------------------------");
+                            res.status(200).end(status);
+                        }
+                        else {
+                            status = "SUCCESS";
+                            console.log('Sign Up Verfication Status : ' + status);
+                            console.log(req.session.email + ' : ' + req.session.otp);
+                            console.log("-----------------------------------------");
+                            res.status(200).end(status);
+                        }
+                    });
+                } else {
+                    console.log('user found');
+                    status = "USER-EXISTS";
+                    console.log('Sign Up Verfication Status : ' + status);
+                    console.log("-----------------------------------------");
                     res.status(200).end(status);
-                });
+                }
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+                res.status(200).end(status);
+            }
         }
         else {
             console.log("Sign Up Verification : LOCKED for " + req.session.email);
@@ -771,90 +748,19 @@ app.post("/SignInVerification", async function (req, res, next) {
             var fullName;
             var userRole;
             var userId;
-            var userFoundResult;
             console.log(req.body.Email);
-            var stream = fs.createReadStream(__dirname + '/Data/Users/data.csv');
+            await mongo_client.connect();
+            const collectionName = "Users";
+            const database = mongo_client.db(MONGO_DATABASE_NAME);
+            const collection = database.collection(collectionName);
+            const findUserQuery = { Email: email.toLowerCase() };
             const template = Handlebars.compile(readFileSync('/EmailTemplates/SignInVerification.html'));
-            fastCSV.parseStream(stream, { headers: true })
-                .on("data", function (data) {
-                    userFoundResult = data.EmailId.toLowerCase() == email.toLowerCase() ? true : false;
-                    if (userFoundResult) {
-                        if (req.body.Email != req.session.email) {
-                            req.session.loginAttempt = 0;
-                            req.session.ResendOTPAttempt = 0;
-                        }
-                        req.session.email = req.body.Email;
-                        fullName = data.FullName;
-                        userRole = data.Role;
-                        userId = data.UserId;
-                        req.session.otp = GetRandomNumberBetween(100000, 999999);
-                        var helloElement = getRandomHello();
-                        var greetings = helloElement;
-                        var pageTitle = 'Welcome to Metaverse Daily';
-                        const mailOptions = {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: email,
-                            subject: 'Sign In Verification to Metaverse Daily',
-                            html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
-                            priority: 'high',
-                            envelope: {
-                                from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                                to: email
-                            }
-                        };
-                        transporter.sendMail(mailOptions, function (error, info) {
-                            if (error) {
-                                console.log(error);
-                                status = "ERROR";
-                                console.log('Sign In Verfication Status : ' + status);
-                                console.log("-----------------------------------------");
-                                const result = {
-                                    Status: status,
-                                    UserId: userId,
-                                    FullName: fullName,
-                                    Email: email,
-                                    Role: userRole
-                                }
-                                res.status(200).end(JSON.stringify(result));
-                            }
-                            else {
-                                status = "SUCCESS";
-                                console.log('Sign In Verfication Status : ' + status);
-                                console.log(req.session.email + ' : ' + req.session.otp);
-                                console.log("-----------------------------------------");
-                                const result = {
-                                    Status: status,
-                                    UserId: userId,
-                                    FullName: fullName,
-                                    Email: email,
-                                    Role: userRole
-                                }
-                                res.status(200).end(JSON.stringify(result));
-                            }
-                        });
-                        stream.destroy();
-                    }
-                })
-                .on("end", function () {
-                    console.log("User File Reading Done.");
-                    console.log(userFoundResult);
-                    if (!userFoundResult) {
-                        status = "USER-NOT-EXISTS";
-                        console.log('Sign In Verfication Status : ' + status);
-                        console.log("-----------------------------------------");
-                        const result = {
-                            Status: status,
-                            UserId: userId,
-                            FullName: fullName,
-                            Email: email,
-                            Role: userRole
-                        }
-                        res.status(200).end(JSON.stringify(result));
-                    }
-                })
-                .on("error", function (err) {
-                    console.log(err);
-                    status = "ERROR";
+            try {
+                const findOneResult = await collection.findOne(findUserQuery);
+                if (findOneResult === null) {
+                    status = "USER-NOT-EXISTS";
+                    console.log('Sign In Verfication Status : ' + status);
+                    console.log("-----------------------------------------");
                     const result = {
                         Status: status,
                         UserId: userId,
@@ -863,7 +769,73 @@ app.post("/SignInVerification", async function (req, res, next) {
                         Role: userRole
                     }
                     res.status(200).end(JSON.stringify(result));
-                });
+                } else {
+                    if (req.body.Email != req.session.email) {
+                        req.session.loginAttempt = 0;
+                        req.session.ResendOTPAttempt = 0;
+                    }
+                    req.session.email = req.body.Email;
+                    fullName = findOneResult.FullName;
+                    userRole = findOneResult.Role;
+                    userId = findOneResult.UserId;
+                    req.session.otp = GetRandomNumberBetween(100000, 999999);
+                    var helloElement = getRandomHello();
+                    var greetings = helloElement;
+                    var pageTitle = 'Welcome to Metaverse Daily';
+                    const mailOptions = {
+                        from: FROM_SUPPORT_EMAIL,
+                        to: email,
+                        subject: 'Sign In Verification to Metaverse Daily',
+                        html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
+                        priority: 'high',
+                        envelope: {
+                            from: FROM_SUPPORT_EMAIL,
+                            to: email
+                        }
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                            status = "ERROR";
+                            console.log('Sign In Verfication Status : ' + status);
+                            console.log("-----------------------------------------");
+                            const result = {
+                                Status: status,
+                                UserId: userId,
+                                FullName: fullName,
+                                Email: email,
+                                Role: userRole
+                            }
+                            res.status(200).end(JSON.stringify(result));
+                        }
+                        else {
+                            status = "SUCCESS";
+                            console.log('Sign In Verfication Status : ' + status);
+                            console.log(req.session.email + ' : ' + req.session.otp);
+                            console.log("-----------------------------------------");
+                            const result = {
+                                Status: status,
+                                UserId: userId,
+                                FullName: fullName,
+                                Email: email,
+                                Role: userRole
+                            }
+                            res.status(200).end(JSON.stringify(result));
+                        }
+                    });
+                }
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+                const result = {
+                    Status: status,
+                    UserId: userId,
+                    FullName: fullName,
+                    Email: email,
+                    Role: userRole
+                }
+                res.status(200).end(JSON.stringify(result));
+            }
         }
         else {
             console.log("Sign In Verification : LOCKED for " + req.session.email);
@@ -895,67 +867,65 @@ app.post("/ResendCode", async function (req, res, next) {
         if (req.session.ResendOTPAttempt >= 3) {
             AddLockedAccount(req.session.email);
         }
-        var stream = fs.createReadStream(__dirname + '/Data/Users/data.csv');
+        await mongo_client.connect();
+        const collectionName = "Users";
+        const database = mongo_client.db(MONGO_DATABASE_NAME);
+        const collection = database.collection(collectionName);
+        const findUserQuery = { Email: email.toLowerCase() };
         const template = Handlebars.compile(readFileSync('/EmailTemplates/SignInVerification.html'));
-        fastCSV.parseStream(stream, { headers: true })
-            .on("data", function (data) {
-                userFoundResult = data.EmailId.toLowerCase() == email.toLowerCase() ? true : false;
-                if (userFoundResult) {
-                    req.session.email = req.body.Email;
-                    fullName = data.FullName;
-                    userRole = data.Role;
-                    userId = data.UserId;
-                    req.session.otp = GetRandomNumberBetween(100000, 999999);
-                    var helloElement = getRandomHello();
-                    var greetings = helloElement;
-                    var pageTitle = 'Welcome to Metaverse Daily';
-                    const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                        to: email,
-                        subject: 'Resend Code - Sign In Verification to Metaverse Daily',
-                        html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
-                        priority: 'high',
-                        envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: email
-                        }
-                    };
-                    transporter.sendMail(mailOptions, function (error, info) {
-                        if (error) {
-                            console.log(error);
-                            status = "ERROR";
-                            console.log('Sign In Resend Code Status : ' + status);
-                            console.log(req.session.email + ' : ' + req.session.otp);
-                            console.log("-----------------------------------------");
-                            res.status(200).end(status);
-                        }
-                        else {
-                            status = "SUCCESS";
-                            console.log('sign In Resend Code Status : ' + status);
-                            console.log(req.session.email + ' : ' + req.session.otp);
-                            console.log("-----------------------------------------");
-                            res.status(200).end(status);
-                        }
-                    });
-                    stream.destroy();
-                }
-            })
-            .on("end", function () {
-                console.log("User File Reading Done.");
-                console.log(userFoundResult);
-                if (!userFoundResult) {
-                    status = "USER-NOT-EXISTS";
-                    console.log('Sign In - Resend Verfication Status : ' + status);
-                    console.log("-----------------------------------------");
-                    res.status(200).end(status);
-                }
-            })
-            .on("error", function (err) {
-                console.log(err);
-                status = "ERROR";
+        try {
+            const findOneResult = await collection.findOne(findUserQuery);
+            if (findOneResult != null) {
+                req.session.email = req.body.Email;
+                fullName = data.FullName;
+                userRole = data.Role;
+                userId = data.UserId;
+                req.session.otp = GetRandomNumberBetween(100000, 999999);
+                var helloElement = getRandomHello();
+                var greetings = helloElement;
+                var pageTitle = 'Welcome to Metaverse Daily';
+                const mailOptions = {
+                    from: FROM_SUPPORT_EMAIL,
+                    to: email,
+                    subject: 'Resend Code - Sign In Verification to Metaverse Daily',
+                    html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
+                    priority: 'high',
+                    envelope: {
+                        from: FROM_SUPPORT_EMAIL,
+                        to: email
+                    }
+                };
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                        status = "ERROR";
+                        console.log('Sign In Resend Code Status : ' + status);
+                        console.log(req.session.email + ' : ' + req.session.otp);
+                        console.log("-----------------------------------------");
+                        res.status(200).end(status);
+                    }
+                    else {
+                        status = "SUCCESS";
+                        console.log('sign In Resend Code Status : ' + status);
+                        console.log(req.session.email + ' : ' + req.session.otp);
+                        console.log("-----------------------------------------");
+                        res.status(200).end(status);
+                    }
+                });
+            }
+            else {
+                console.log("User Profile Reading Done - Not Found.");
+                status = "USER-NOT-EXISTS";
                 console.log('Sign In - Resend Verfication Status : ' + status);
+                console.log("-----------------------------------------");
                 res.status(200).end(status);
-            });
+            }
+        } catch (err) {
+            console.log(err);
+            status = "ERROR";
+            console.log('Sign In - Resend Verfication Status : ' + status);
+            res.status(200).end(status);
+        }
     }
     else {
         console.log("Resend Code status : LOCKED for " + req.session.email);
@@ -976,23 +946,21 @@ app.post("/ResendCodeForSignUp", async function (req, res, next) {
         if (req.session.ResendOTPAttempt >= 3) {
             AddLockedAccount(req.session.email);
         }
-
         req.session.email = req.body.Email;
         req.session.otp = GetRandomNumberBetween(100000, 999999);
         fullName = req.session.fullName;
         var helloElement = getRandomHello();
         var greetings = helloElement;
         var pageTitle = 'Welcome to Metaverse Daily';
-
         const template = Handlebars.compile(readFileSync('/EmailTemplates/SignUpVerification.html'));
         const mailOptions = {
-            from: 'Metaverse Daily <contactus@metaversedaily.world>',
+            from: FROM_SUPPORT_EMAIL,
             to: email,
             subject: 'Resend Code - Sign Up Verification to Metaverse Daily',
             html: template({ greetings: greetings, name: fullName, title: pageTitle, verificationCode: req.session.otp }),
             priority: 'high',
             envelope: {
-                from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                from: FROM_SUPPORT_EMAIL,
                 to: email
             }
         };
@@ -1034,48 +1002,34 @@ app.post("/OTPVerification", async function (req, res, next) {
         console.log('sign up attempt : ' + req.session.signUpAttempt);
         if (req.session.email == email && req.session.otp == otp) {
             status = "SUCCESS";
-            const secret = 'metaversedaily';
-            const userId = createHmac('sha256', secret)
+            const userId = createHmac('sha256', HMAC_SECRET)
                 .update(email)
                 .digest('hex');
-
-            fs.appendFile(__dirname + '/Data/Users/data.csv', email + ',' + userId + ',' + fullName + ',User' + '\n', err => {
-                if (err) {
-                    console.log(err);
-                    status = "ERROR";
-                }
-                else {
-                    console.log(path.join(__dirname + '/Data/Users'));
-                    fs.mkdir(path.join(__dirname + '/Data/Users', userId),
-                        (err) => {
-                            if (err) {
-                                return console.error(err);
-                            }
-                            const userProfile = {
-                                UserId: userId,
-                                Email: email,
-                                FullName: fullName,
-                                DOB: dob,
-                                IsAcive: 0,
-                                ProfileImage: 'default'
-                            }
-                            fs.appendFile(__dirname + '/Data/Users/' + userId + '/profile.json', JSON.stringify(userProfile), err => {
-                                if (err) {
-                                    console.log(err);
-                                    status = "ERROR";
-                                    return console.error(err);
-                                }
-                                console.log('User Profile created successfully!');
-                            });
-                            console.log('User Directory created successfully!');
-                        });
-                }
-            });
-
-            token = jwt.sign({ userId: userId, userEmail: email, role: 'User' }, 'metaversedaily', {
+            await mongo_client.connect();
+            const collectionName = "Users";
+            const database = mongo_client.db(MONGO_DATABASE_NAME);
+            const collection = database.collection(collectionName);
+            const userRecord =
+            {
+                UserId: userId,
+                Email: email.toLowerCase(),
+                FullName: fullName,
+                Role: "User",
+                DOB: dob,
+                IsActive: 0,
+                ProfileImage: "default"
+            };
+            try {
+                const insertResult = await collection.insert(userRecord);
+                console.log('User Profile created successfully!');
+                console.log(`${insertResult.insertedCount} - User Profile created successfully!`);
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+            }
+            token = jwt.sign({ userId: userId, userEmail: email, role: 'User' }, JWT_SECRET_KEY, {
                 expiresIn: '1h',
             });
-
             const result = {
                 Status: status,
                 Token: token,
@@ -1120,11 +1074,9 @@ app.post("/EmailLinkVerification", async function (req, res, next) {
     console.log("Email Link Verification");
     if (req.session.email == email && req.session.otp == otp) {
         status = "SUCCESS";
-        const secret = 'metaversedaily';
-        const userId = createHmac('sha256', secret)
+        const userId = createHmac('sha256', HMAC_SECRET)
             .update(email)
             .digest('hex');
-
         fs.appendFile(__dirname + '/Data/Users/data.csv', email + ',' + userId + ',' + fullName + ',User' + '\n', err => {
             if (err) {
                 console.log(err);
@@ -1141,7 +1093,7 @@ app.post("/EmailLinkVerification", async function (req, res, next) {
                             UserId: userId,
                             FullName: fullName,
                             DOB: dob,
-                            IsAcive: 0
+                            IsActive: 0
                         }
                         fs.appendFile(__dirname + '/Data/Users/' + userId + '/profile.json', JSON.stringify(userProfile), err => {
                             if (err) {
@@ -1156,10 +1108,9 @@ app.post("/EmailLinkVerification", async function (req, res, next) {
             }
         });
 
-        token = jwt.sign({ userId: userId, userEmail: email, role: 'User' }, 'metaversedaily', {
+        token = jwt.sign({ userId: userId, userEmail: email, role: 'User' }, JWT_SECRET_KEY, {
             expiresIn: '1h',
         });
-
         const result = {
             Status: status,
             Token: token,
@@ -1197,42 +1148,43 @@ app.post("/SignInOTPVerification", async function (req, res, next) {
         var otp = req.body.OTP;
         var status;
         var token;
-
         console.log('login attempt : ' + req.session.loginAttempt);
         if (req.session.email == email && req.session.otp == otp) {
             status = "SUCCESS";
             console.log('sign in otp verification : ' + status);
             console.log("-----------------------------------------");
-            token = jwt.sign({ userId: userId, userEmail: email, role: userRole }, 'metaversedaily', {
+            token = jwt.sign({ userId: userId, userEmail: email, role: userRole }, JWT_SECRET_KEY, {
                 expiresIn: '1h',
             });
-
-            fs.readFile(__dirname + '/Data/Users/' + userId + '/profile.json', function (err, data) {
-                if (err) {
-                    console.log(err);
-                    status = "ERROR";
-                    console.log('Error Reading User Profile : ' + status);
-                    console.log("-----------------------------------------");
-                    res.status(200).end(status);
-                }
-                else {
+            await mongo_client.connect();
+            const collectionName = "Users";
+            const database = mongo_client.db(MONGO_DATABASE_NAME);
+            const collection = database.collection(collectionName);
+            const findUserQuery = { UserId: userId };
+            try {
+                const findOneResult = await collection.findOne(findUserQuery);
+                if (findOneResult != null) {
                     console.log('User Profile Reading : ' + status);
                     console.log("-----------------------------------------");
-                    console.log(data);
-                    finalData = JSON.parse(data);
-                    console.log(JSON.parse(data).Email);
+                    console.log(findOneResult.Email);
                     const result = {
                         Status: status,
                         Token: token,
-                        UserId: finalData.UserId,
-                        FullName: finalData.FullName,
-                        Email: finalData.Email,
+                        UserId: findOneResult.UserId,
+                        FullName: findOneResult.FullName,
+                        Email: findOneResult.Email,
                         Role: userRole,
-                        Avatar: finalData.ProfileImage
+                        Avatar: findOneResult.ProfileImage
                     }
                     res.status(200).end(JSON.stringify(result));
                 }
-            });
+            } catch (err) {
+                console.log(err);
+                status = "ERROR";
+                console.log('Error Reading User Profile : ' + status);
+                console.log("-----------------------------------------");
+                res.status(200).end(status);
+            }
         }
         else {
             status = "INVALID-OTP";
@@ -1262,7 +1214,6 @@ app.post("/SignInOTPVerification", async function (req, res, next) {
     }
 });
 
-
 function ValidateMessageUsForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
         return false;
@@ -1283,21 +1234,22 @@ app.post("/MessageUs", async function (req, res, next) {
         var emailId = req.body.EmailId;
         var fullName = req.body.FullName;
         var message = req.body.Message;
-
         console.log(req.body.EmailId);
         const template = Handlebars.compile(readFileSync('/EmailTemplates/MessageUsConfirmation.html'));
         var helloElement = getRandomHello();
         var greetings = helloElement;
         var pageTitle = 'Welcome to Metaverse Daily';
         const mailOptions = {
-            from: 'Metaverse Daily <contactus@metaversedaily.world>',
+            from: FROM_SUPPORT_EMAIL,
             to: emailId,
+            bcc: BCC_EMAIL,
             subject: 'Message Receiving Confirmation @ Metaverse Daily',
             html: template({ greetings: greetings, name: fullName, title: pageTitle, message: message }),
             priority: 'medium',
             envelope: {
-                from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                to: emailId
+                from: FROM_SUPPORT_EMAIL,
+                to: emailId,
+                bcc: BCC_EMAIL
             }
         };
         transporter.sendMail(mailOptions, function (error, info) {
@@ -1334,7 +1286,6 @@ app.post("/MessageUs", async function (req, res, next) {
     }
 });
 
-
 function ValidateContactUsForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
         return false;
@@ -1355,21 +1306,22 @@ app.post("/ContactUs", async function (req, res, next) {
         var emailId = req.body.EmailId;
         var fullName = req.body.FullName;
         var message = req.body.Message;
-
         console.log(req.body.EmailId);
         const template = Handlebars.compile(readFileSync('/EmailTemplates/ContactUsConfirmation.html'));
         var helloElement = getRandomHello();
         var greetings = helloElement;
         var pageTitle = 'Welcome to Metaverse Daily';
         const mailOptions = {
-            from: 'Metaverse Daily <contactus@metaversedaily.world>',
+            from: FROM_CONTACT_EMAIL,
             to: emailId,
+            bcc: BCC_EMAIL,
             subject: 'Message Receiving Confirmation @ Metaverse Daily',
             html: template({ greetings: greetings, name: fullName, title: pageTitle, message: message }),
             priority: 'medium',
             envelope: {
-                from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                to: emailId
+                from: FROM_CONTACT_EMAIL,
+                to: emailId,
+                bcc: BCC_EMAIL
             }
         };
         transporter.sendMail(mailOptions, function (error, info) {
@@ -1406,7 +1358,6 @@ app.post("/ContactUs", async function (req, res, next) {
     }
 });
 
-
 function ValidatePartnerWithUsForm(request) {
     if (request.body.PartnerFullName.length > 100 && !request.body.PartnerFullName.match(nameRegExPattern)) {
         return false;
@@ -1436,7 +1387,6 @@ app.post("/PartnerWithUs", async function (req, res, next) {
         var partnerOrganizationalTitle = req.body.PartnerOrganizationalTitle;
         var partnerLinkedInProfile = req.body.PartnerLinkedInProfile;
         var partnerOtherSocialProfile = req.body.PartnerOtherSocialProfile;
-
         console.log(req.body.PartnerEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/Partnerships/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/PartnerWithUsRequestConfirmation.html'));
@@ -1463,8 +1413,7 @@ app.post("/PartnerWithUs", async function (req, res, next) {
                 console.log("Partnership Request File Reading Done.");
                 console.log(partnerWithUsFoundResult);
                 if (!partnerWithUsFoundResult) {
-                    const secret = 'metaversedaily';
-                    const partnershipRequestId = createHmac('sha256', secret)
+                    const partnershipRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(partnerEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
@@ -1472,14 +1421,16 @@ app.post("/PartnerWithUs", async function (req, res, next) {
                     var pageTitle = 'Welcome to Metaverse Daily';
                     var verificationLink = applicationURL + 'verifyPartnerWithUsRequest/' + partnershipRequestId;
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: partnerEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Partnership Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: partnerFullName, title: pageTitle, verificationLink: verificationLink }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: partnerEmailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: partnerEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -1524,7 +1475,6 @@ app.post("/PartnerWithUs", async function (req, res, next) {
     }
 });
 
-
 function ValidateBecomeMerchantForm(request) {
     if (request.body.MerchantFullName.length > 100 && !request.body.MerchantFullName.match(nameRegExPattern)) {
         return false;
@@ -1552,7 +1502,6 @@ app.post("/BecomeMerchant", async function (req, res, next) {
         var merchantOrganizationalTitle = req.body.MerchantOrganizationalTitle;
         var merchantLinkedInProfile = req.body.MerchantLinkedInProfile;
         var merchantOtherSocialProfile = req.body.MerchantOtherSocialProfile;
-
         console.log(req.body.MerchantEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/Merchants/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/MerchantRequestConfirmation.html'));
@@ -1579,8 +1528,7 @@ app.post("/BecomeMerchant", async function (req, res, next) {
                 console.log("Merchant Request File Reading Done.");
                 console.log(merchantRequestFoundResult);
                 if (!merchantRequestFoundResult) {
-                    const secret = 'metaversedaily';
-                    const merchantRequestId = createHmac('sha256', secret)
+                    const merchantRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(merchantEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
@@ -1588,14 +1536,16 @@ app.post("/BecomeMerchant", async function (req, res, next) {
                     var pageTitle = 'Welcome to Metaverse Daily';
                     var verificationLink = applicationURL + 'verifyBecomeMerchantRequest/' + merchantRequestId;
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: merchantEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Merchant Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: merchantFullName, title: pageTitle, verificationLink: verificationLink }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: merchantEmailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: merchantEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -1640,8 +1590,6 @@ app.post("/BecomeMerchant", async function (req, res, next) {
     }
 });
 
-
-
 function ValidateBecomeCouncilForm(request) {
     if (request.body.CouncilFullName.length > 100 && !request.body.CouncilFullName.match(nameRegExPattern)) {
         return false;
@@ -1669,7 +1617,6 @@ app.post("/BecomeCouncil", async function (req, res, next) {
         var councilOrganizationalTitle = req.body.CouncilOrganizationalTitle;
         var councilLinkedInProfile = req.body.CouncilLinkedInProfile;
         var councilOtherSocialProfile = req.body.CouncilOtherSocialProfile;
-
         console.log(req.body.CouncilEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/Councils/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/CouncilRequestConfirmation.html'));
@@ -1696,8 +1643,7 @@ app.post("/BecomeCouncil", async function (req, res, next) {
                 console.log("Council Request File Reading Done.");
                 console.log(councilRequestFoundResult);
                 if (!councilRequestFoundResult) {
-                    const secret = 'metaversedaily';
-                    const councilRequestId = createHmac('sha256', secret)
+                    const councilRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(councilEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
@@ -1705,14 +1651,16 @@ app.post("/BecomeCouncil", async function (req, res, next) {
                     var pageTitle = 'Welcome to Metaverse Daily';
                     var verificationLink = applicationURL + 'verifyBecomeCouncilRequest/' + councilRequestId;
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: councilEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Council Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: councilFullName, title: pageTitle, verificationLink: verificationLink }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: councilEmailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: councilEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -1757,9 +1705,6 @@ app.post("/BecomeCouncil", async function (req, res, next) {
     }
 });
 
-
-
-
 function ValidateBecomeStudentForm(request) {
     if (request.body.StudentFullName.length > 100 && !request.body.StudentFullName.match(nameRegExPattern)) {
         return false;
@@ -1783,7 +1728,6 @@ app.post("/BecomeStudent", async function (req, res, next) {
         var studentInterestOptions = req.body.StudentInterestOptions;
         var studentLinkedInProfile = req.body.StudentLinkedInProfile;
         var studentOtherSocialProfile = req.body.StudentOtherSocialProfile;
-
         console.log(req.body.StudentEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/Students/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/StudentRequestConfirmation.html'));
@@ -1810,8 +1754,7 @@ app.post("/BecomeStudent", async function (req, res, next) {
                 console.log("Student Request File Reading Done.");
                 console.log(studentRequestFoundResult);
                 if (!studentRequestFoundResult) {
-                    const secret = 'metaversedaily';
-                    const studentRequestId = createHmac('sha256', secret)
+                    const studentRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(studentEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
@@ -1819,14 +1762,16 @@ app.post("/BecomeStudent", async function (req, res, next) {
                     var pageTitle = 'Welcome to Metaverse Daily';
                     var verificationLink = applicationURL + 'verifyBecomeStudentRequest/' + studentRequestId;
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: studentEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Student Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: studentFullName, title: pageTitle, verificationLink: verificationLink }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: studentEmailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: studentEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -1871,8 +1816,6 @@ app.post("/BecomeStudent", async function (req, res, next) {
     }
 });
 
-
-
 function ValidateInsightsExclusiveMembershipForm(request) {
     if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
         return false;
@@ -1890,7 +1833,6 @@ app.post("/InsightsExclusiveMembership", async function (req, res, next) {
         var insightsExclusiveMembershipFullName = req.body.InsightsExclusiveMembershipFullName;
         var insightsExclusiveMembershipEmailId = req.body.InsightsExclusiveMembershipEmailId;
         var insightsExclusiveMembershipType = req.body.InsightsExclusiveMembershipType;
-
         console.log(req.body.InsightsExclusiveMembershipEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/ExclusiveMembership/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/InsightsExclusiveMembershipConfirmation.html'));
@@ -1917,22 +1859,23 @@ app.post("/InsightsExclusiveMembership", async function (req, res, next) {
                 console.log("Insights Exclusive Membership Reading Done.");
                 console.log(insightsExclusiveMembershipFoundResult);
                 if (!insightsExclusiveMembershipFoundResult) {
-                    const secret = 'metaversedaily';
-                    const insightsExclusiveMembershipRequestId = createHmac('sha256', secret)
+                    const insightsExclusiveMembershipRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(insightsExclusiveMembershipEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_MEMBERSHIP_EMAIL,
                         to: insightsExclusiveMembershipEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Insights Exclusive Membership - Metaverse Daily',
                         html: template({ greetings: greetings, name: insightsExclusiveMembershipFullName, title: pageTitle }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: insightsExclusiveMembershipEmailId
+                            from: FROM_MEMBERSHIP_EMAIL,
+                            to: insightsExclusiveMembershipEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -1977,19 +1920,12 @@ app.post("/InsightsExclusiveMembership", async function (req, res, next) {
     }
 });
 
-
-
-
 function ValidateBroadcastPublishForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
 app.post("/BroadcastPublish", async function (req, res, next) {
     console.log("Broadcast Publish");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.BroadcastPublishBroadcasterName);
     console.log(req.body.BroadcastPublishBroadcasterEmail);
     console.log(req.body.BroadcastPublishBroadcastDate);
@@ -2004,7 +1940,6 @@ app.post("/BroadcastPublish", async function (req, res, next) {
         var broadcastPublishBroadcastTitle = req.body.BroadcastPublishBroadcastTitle;
         var broadcastPublishBroadcastSummary = req.body.BroadcastPublishBroadcastSummary;
         var broadcastPublishReferenceLink = req.body.BroadcastPublishReferenceLink;
-
         var stream = fs.createReadStream(__dirname + '/Data/BroadcastPublish/data.csv');
         var broadcastPublishFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2058,21 +1993,12 @@ app.post("/BroadcastPublish", async function (req, res, next) {
     }
 });
 
-
-
-
-
 function ValidateEventPublishForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
 app.post("/EventPublish", async function (req, res, next) {
-
     console.log("Event Publish");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.EventPublishName);
     console.log(req.body.EventPublishEmail);
     console.log(req.body.EventPublishEventDate);
@@ -2089,7 +2015,6 @@ app.post("/EventPublish", async function (req, res, next) {
         var eventPublishReferenceLink = req.body.EventPublishReferenceLink;
         var eventPublishEmbeddLink = req.body.EventPublishEmbeddLink;
         var eventPublishBookingLink = req.body.EventPublishBookingLink;
-
         var stream = fs.createReadStream(__dirname + '/Data/EventPublish/data.csv');
         var eventPublishFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2143,17 +2068,12 @@ app.post("/EventPublish", async function (req, res, next) {
     }
 });
 
-
 function ValidateVideoPublishForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
 app.post("/VideoPublish", async function (req, res, next) {
     console.log("Video Publish");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.VideoPublishName);
     console.log(req.body.VideoPublishEmail);
     console.log(req.body.VideoPublishVideoTitle);
@@ -2168,7 +2088,6 @@ app.post("/VideoPublish", async function (req, res, next) {
         var videoPublishReferenceLink = req.body.VideoPublishReferenceLink;
         var videoPublishEmbeddLink = req.body.VideoPublishEmbeddLink;
         var videoPublishEmbeddCode = req.body.VideoPublishEmbeddCode;
-
         var stream = fs.createReadStream(__dirname + '/Data/VideoPublish/data.csv');
         var videoPublishFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2222,19 +2141,12 @@ app.post("/VideoPublish", async function (req, res, next) {
     }
 });
 
-
-
-
 function ValidateOfferPublishForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
 app.post("/OfferPublish", async function (req, res, next) {
     console.log("Offer Publish");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.OfferPublishName);
     console.log(req.body.OfferPublishEmail);
     console.log(req.body.OfferPublishOfferStartDate);
@@ -2251,7 +2163,6 @@ app.post("/OfferPublish", async function (req, res, next) {
         var offerPublishOfferTitle = req.body.OfferPublishOfferTitle;
         var offerPublishReferenceLink = req.body.OfferPublishReferenceLink;
         var offerPublishEmbeddLink = req.body.OfferPublishEmbeddLink;
-
         var stream = fs.createReadStream(__dirname + '/Data/OfferPublish/data.csv');
         var offerPublishFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2305,20 +2216,12 @@ app.post("/OfferPublish", async function (req, res, next) {
     }
 });
 
-
-
-
 function ValidatePodcastPublishForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
-
 app.post("/PodcastPublish", async function (req, res, next) {
     console.log("Podcast Publish");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.PodcastPublishName);
     console.log(req.body.PodcastPublishEmail);
     console.log(req.body.PodcastPublishPodcastDate);
@@ -2335,7 +2238,6 @@ app.post("/PodcastPublish", async function (req, res, next) {
         var podcastPublishReferenceLink = req.body.PodcastPublishReferenceLink;
         var podcastPublishEmbeddLink = req.body.PodcastPublishEmbeddLink;
         var podcastPublishEmbeddCode = req.body.PodcastPublishEmbeddCode;
-
         var stream = fs.createReadStream(__dirname + '/Data/PodcastPublish/data.csv');
         var podcastPublishFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2389,27 +2291,18 @@ app.post("/PodcastPublish", async function (req, res, next) {
     }
 });
 
-
-
 function ValidateEducatorVideoForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
-
 app.post("/EducatorVideo", async function (req, res, next) {
     console.log("Educator Video");
-    // res.status(200).end("SUCCESS");
     console.log(req.body.EducatorVideoEmail);
     console.log(req.body.EducatorVideoVideoLink);
     if (ValidateEducatorVideoForm(req)) {
         var status;
-
         var educatorVideoEmail = req.body.EducatorVideoEmail;
         var educatorVideoVideoLink = req.body.EducatorVideoVideoLink;
-
         var stream = fs.createReadStream(__dirname + '/Data/EducatorVideo/data.csv');
         var educatorVideoFoundResult = false;
         fastCSV.parseStream(stream, { headers: true })
@@ -2463,10 +2356,6 @@ app.post("/EducatorVideo", async function (req, res, next) {
     }
 });
 
-
-
-
-
 function ValidateMarketplaceJoinWaitlistForm(request) {
     if (request.body.MarketplaceWaitlistFullName.length > 100 && !request.body.MarketplaceWaitlistFullName.match(nameRegExPattern)) {
         return false;
@@ -2482,7 +2371,6 @@ app.post("/MarketplaceJoinWaitlist", async function (req, res, next) {
         var status;
         var marketplaceWaitlistFullName = req.body.MarketplaceWaitlistFullName;
         var marketplaceWaitlistEmailId = req.body.MarketplaceWaitlistEmailId;
-
         console.log(req.body.MarketplaceWaitlistEmailId);
         var stream = fs.createReadStream(__dirname + '/Data/MarketplaceWaitlist/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/MarketplaceWaitlistConfirmation.html'));
@@ -2509,22 +2397,23 @@ app.post("/MarketplaceJoinWaitlist", async function (req, res, next) {
                 console.log("Marketplace Waitlist Reading Done.");
                 console.log(marketplaceWaitlistFoundResult);
                 if (!marketplaceWaitlistFoundResult) {
-                    const secret = 'metaversedaily';
-                    const marketplaceWaitlistRequestId = createHmac('sha256', secret)
+                    const marketplaceWaitlistRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(marketplaceWaitlistEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: marketplaceWaitlistEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Marketplace Waitlist Joiners - Metaverse Daily',
                         html: template({ greetings: greetings, name: marketplaceWaitlistFullName, title: pageTitle }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: marketplaceWaitlistEmailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: marketplaceWaitlistEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -2569,7 +2458,6 @@ app.post("/MarketplaceJoinWaitlist", async function (req, res, next) {
     }
 });
 
-
 function ValidateMembershipForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
         return false;
@@ -2602,7 +2490,6 @@ app.post("/ApplyMembership", async function (req, res, next) {
         var membership = req.body.Membership;
         var referralCode = req.body.ReferralCode;
         var statementOfObjectives = req.body.statementOfObjectives;
-
         console.log(req.body.EmailId);
         var stream = fs.createReadStream(__dirname + '/Data/Memberships/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/ApplyMembershipConfirmation.html'));
@@ -2633,14 +2520,16 @@ app.post("/ApplyMembership", async function (req, res, next) {
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_MEMBERSHIP_EMAIL,
                         to: emailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Membership Access Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: fullName, title: pageTitle, membership: membership }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: emailId
+                            from: FROM_MEMBERSHIP_EMAIL,
+                            to: emailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     transporter.sendMail(mailOptions, function (error, info) {
@@ -2653,7 +2542,6 @@ app.post("/ApplyMembership", async function (req, res, next) {
                         }
                         else {
                             status = "SUCCESS";
-
                             fs.appendFile(__dirname + '/Data/Memberships/data.csv', fullName + ',' + emailId + ',' + socialProfile + ',' + membership + ',' + referralCode + ',' + statementOfObjectives.replaceAll(',', '~') + ',0' + '\n', err => {
                                 if (err) {
                                     console.log(err);
@@ -2684,8 +2572,6 @@ app.post("/ApplyMembership", async function (req, res, next) {
         res.status(200).end(status);
     }
 });
-
-
 
 function ValidateResearchLabsApplyNowForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
@@ -2719,7 +2605,6 @@ app.post("/ApplyForResearchLab", async function (req, res, next) {
         var researchLab = req.body.ResearchLab;
         var referralCode = req.body.ReferralCode;
         var statementOfObjectives = req.body.statementOfObjectives;
-
         console.log(req.body.EmailId);
         var stream = fs.createReadStream(__dirname + '/Data/ResearchLabsApplication/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/ResearchLabApplicationConfirmation.html'));
@@ -2746,22 +2631,23 @@ app.post("/ApplyForResearchLab", async function (req, res, next) {
                 console.log("Research Lab Application File Reading Done.");
                 console.log(researchLabApplicationFoundResult);
                 if (!researchLabApplicationFoundResult) {
-                    const secret = 'metaversedaily';
-                    const researchLabApplicationRequestId = createHmac('sha256', secret)
+                    const researchLabApplicationRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(emailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: emailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Research Lab Application Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: fullName, title: pageTitle, reserachLab: researchLab }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: emailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: emailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     transporter.sendMail(mailOptions, function (error, info) {
@@ -2774,7 +2660,6 @@ app.post("/ApplyForResearchLab", async function (req, res, next) {
                         }
                         else {
                             status = "SUCCESS";
-
                             fs.appendFile(__dirname + '/Data/ResearchLabsApplication/data.csv', fullName + ',' + emailId + ',' + socialProfile + ',' + researchLab + ',' + referralCode + ',' + statementOfObjectives.replaceAll(',', '~') + ',' + researchLabApplicationRequestId + '\n', err => {
                                 if (err) {
                                     console.log(err);
@@ -2805,8 +2690,6 @@ app.post("/ApplyForResearchLab", async function (req, res, next) {
         res.status(200).end(status);
     }
 });
-
-
 
 function ValidateApplyNowForOpportunityForm(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
@@ -2852,7 +2735,6 @@ app.post("/ApplyNowForOpportunity", async function (req, res, next) {
         var describeYourself = req.body.DescribeYourself;
         var requisitionCode = req.body.RequisitionCode;
         var opportunity = req.body.Opportunity;
-
         console.log(req.body.EmailId);
         var stream = fs.createReadStream(__dirname + '/Data/JobApplications/data.csv');
         const template = Handlebars.compile(readFileSync('/EmailTemplates/JobApplicationConfirmation.html'));
@@ -2883,14 +2765,16 @@ app.post("/ApplyNowForOpportunity", async function (req, res, next) {
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: emailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Application Confirmation for Opportunity : ' + opportunity + ' @ Metaverse Daily',
                         html: template({ greetings: greetings, name: fullName, title: pageTitle, opportunity: opportunity }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: emailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: emailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     transporter.sendMail(mailOptions, function (error, info) {
@@ -2903,7 +2787,6 @@ app.post("/ApplyNowForOpportunity", async function (req, res, next) {
                         }
                         else {
                             status = "SUCCESS";
-
                             fs.appendFile(__dirname + '/Data/JobApplications/data.csv', fullName + ',' + emailId + ',' + linkedInProfile + ',' + twitterProfile + ',' + mastodonProfile + ',' + referralCode + ',' + describeYourself.replaceAll(",", "~") + ',' + requisitionCode + ',' + opportunity + ',0' + '\n', err => {
                                 if (err) {
                                     console.log(err);
@@ -2935,8 +2818,6 @@ app.post("/ApplyNowForOpportunity", async function (req, res, next) {
     }
 });
 
-
-
 function ValidateUniversityProgramsEnroll(request) {
     if (request.body.FullName.length > 100 && !request.body.FullName.match(nameRegExPattern)) {
         return false;
@@ -2965,8 +2846,6 @@ function ValidateUniversityProgramsEnroll(request) {
     return true;
 }
 
-
-
 app.post("/UniversityProgramsEnroll", async function (req, res, next) {
     console.log("Enroll for University Programs");
     if (ValidateUniversityProgramsEnroll(req)) {
@@ -2979,7 +2858,6 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
         var programType = req.body.ProgramType;
         var programCode = req.body.ProgramCode;
         var programTitle = req.body.ProgramTitle;
-
         console.log(req.body.EmailId);
         console.log(req.body.ProgramType);
         var stream = fs.createReadStream(__dirname + '/Data/EducationPrograms/' + programType + '/data.csv');
@@ -3011,14 +2889,16 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
                     var greetings = helloElement;
                     var pageTitle = 'Welcome to Metaverse Daily';
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_SUPPORT_EMAIL,
                         to: emailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Application Confirmation for Enrollment to ' + programType + ' : ' + programTitle + ' @ Metaverse Daily',
                         html: template({ greetings: greetings, name: fullName, title: pageTitle, programType: programType, programTitle: programTitle }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: emailId
+                            from: FROM_SUPPORT_EMAIL,
+                            to: emailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -3063,11 +2943,7 @@ app.post("/UniversityProgramsEnroll", async function (req, res, next) {
     }
 });
 
-
 function ValidateOnboardMetaverseEmailVerificationForm(request) {
-    /*if (request.body.InsightsExclusiveMembershipFullName.length > 100 && !request.body.InsightsExclusiveMembershipFullName.match(nameRegExPattern)) {
-        return false;
-    }*/
     return true;
 }
 
@@ -3102,8 +2978,7 @@ app.post("/OnboardMetaverseEmailVerification", async function (req, res, next) {
                 console.log("Partnership Request File Reading Done.");
                 console.log(partnerWithUsFoundResult);
                 if (!partnerWithUsFoundResult) {
-                    const secret = 'metaversedaily';
-                    const partnershipRequestId = createHmac('sha256', secret)
+                    const partnershipRequestId = createHmac('sha256', HMAC_SECRET)
                         .update(partnerEmailId)
                         .digest('hex');
                     var helloElement = getRandomHello();
@@ -3111,14 +2986,16 @@ app.post("/OnboardMetaverseEmailVerification", async function (req, res, next) {
                     var pageTitle = 'Welcome to Metaverse Daily';
                     var verificationLink = applicationURL + 'verifyPartnerWithUsRequest/' + partnershipRequestId;
                     const mailOptions = {
-                        from: 'Metaverse Daily <contactus@metaversedaily.world>',
+                        from: FROM_MEMBERSHIP_EMAIL,
                         to: partnerEmailId,
+                        bcc: BCC_EMAIL,
                         subject: 'Partnership Request Submission - Metaverse Daily',
                         html: template({ greetings: greetings, name: partnerFullName, title: pageTitle, verificationLink: verificationLink }),
                         priority: 'medium',
                         envelope: {
-                            from: 'Metaverse Daily <contactus@metaversedaily.world>',
-                            to: partnerEmailId
+                            from: FROM_MEMBERSHIP_EMAIL,
+                            to: partnerEmailId,
+                            bcc: BCC_EMAIL
                         }
                     };
                     console.log("mail options set");
@@ -3166,7 +3043,7 @@ app.post("/OnboardMetaverseEmailVerification", async function (req, res, next) {
 
 //#endregion
 
-app.get("/LoadSearchIndexesAndShortURLMaps",  (req, res) => {
+app.get("/LoadSearchIndexesAndShortURLMaps", (req, res) => {
     console.log('Loading Search Indexes and Short URL Maps Called');
     if (req.query.userkey == GetFileDownloadKey(req.query.userid)) {
         console.log("Loading Search Indexes and Short URL Maps");
@@ -3175,9 +3052,8 @@ app.get("/LoadSearchIndexesAndShortURLMaps",  (req, res) => {
         console.log("Loading Search Indexes and Short URL Maps - Done");
         res.send("SUCCESS");
     }
-    else{
+    else {
         res.send("ERROR");
-        //res.status(404).send('<h1>404! Route not found</h1>');
     }
 });
 
@@ -3297,51 +3173,10 @@ app.get("/downloadfile", async function (req, res, next) {
     }
 });
 
-
-app.get("/getdownloadfilestructure", async function (req, res, next) {
-    console.log(req.params.userid);
-    console.log(req.params.userkey);
-    console.log(req.params.downloadoption);
-
-    console.log("Downloading Files");
-    var downloadOption = req.params.downloadoption;
-    if (downloadOption == 'ContactUs') {
-        /* const fileStructure = {
-             : userId,
-             FullName: fullName,
-             DOB: dob,
-             IsAcive: 0
-         }*/
-
-    }
-    const baseDataFilePath = __dirname + "/Data";
-    const filePath = "/Members/data.txt";
-    //const file = `${__dirname}/upload-folder/dramaticpenguin.MOV`;
-    //res.download(baseDataFilePath+filePath); // Set disposition and send it.
-    /*const writeStream = fs.createWriteStream(baseDataFilePath+filePath);
-    console.log(writeStream);
-    res.pipe(writeStream);
-    writeStream.on("finish", () => {
-    writeStream.close();
-        console.log("Download Completed!");
-    })*/
-});
-
-
-
 app.get("/generate/captcha.png", async function (req, res, next) {
     console.log('captcha')
     var captcha = RANDOMWORDS(6)
     req.session.captcha = captcha;
-    /*const dataUri = await textToImage.generate(`  ${captcha}  `, {
-        maxWidth: 200,
-    });
-    const im = dataUri.split(",")[1];
-    const img = Buffer.from(im, "base64");
-    res.writeHead(200, {
-        "Content-Type": "image/png",
-        "Content-Length": img.length,
-    });*/
     res.end();
 });
 
@@ -3352,7 +3187,6 @@ app.get("/validateCaptcha", async function (req, res, next) {
     }
     if (captcha != req.session.captcha) return res.send("invalid");
 });
-
 
 app.get("/searchresultdata", async function (req, res, next) {
     console.log(req.query.searchParam);
@@ -3378,17 +3212,6 @@ app.get('/searchresults', (req, res) => {
             console.error('Error sending file:', err);
         }
     });
-    /* if(pageNumber == 5){
-         pageNumber = 0;
-     }
-     pageNumber++;
-     res.sendFile('/Search/index'+pageNumber.toString()+'.html', {root: __dirname});*/
-});
-
-app.get('/searchresults1', (req, res) => {
-    res.statusCode = 302;
-    res.setHeader("Location", "https://metaversedaily.github.io/index.html");
-    res.end();
 });
 
 app.get('/onair', (req, res) => {
@@ -3433,7 +3256,6 @@ app.get('/trendings', (req, res) => {
         }
     });
 });
-
 
 app.get('/trendings/trendings', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -3501,7 +3323,6 @@ app.get('/global', (req, res) => {
     });
 });
 
-
 app.get('/global/global', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
@@ -3534,7 +3355,6 @@ app.get('/marketbits', (req, res) => {
         }
     });
 });
-
 
 app.get('/marketbits/marketbits', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -3569,7 +3389,6 @@ app.get('/worldsaround', (req, res) => {
     });
 });
 
-
 app.get('/worldsaround/worldsaround', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
@@ -3593,7 +3412,6 @@ app.get('/worldsaround/worldsaround', (req, res) => {
     }
 });
 
-
 app.get('/technology', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
@@ -3603,7 +3421,6 @@ app.get('/technology', (req, res) => {
         }
     });
 });
-
 
 app.get('/technology/technology', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -3637,7 +3454,6 @@ app.get('/businessdaily', (req, res) => {
         }
     });
 });
-
 
 app.get('/businessdaily/businessdaily', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -3680,12 +3496,6 @@ app.get('/glossary', (req, res) => {
             console.error('Error sending file:', err);
         }
     });
-});
-
-app.get('/metaversedailyresearch', (req, res) => {
-    console.log(req.query.code);
-    console.log('Metaverse Daily Research Endpoint hit')
-    res.end();
 });
 
 app.get('/broadcasts/relatedcontent', (req, res) => {
@@ -4010,7 +3820,7 @@ app.get('/MetaverseDaily/maincontent', (req, res) => {
             }
         });
     }
-    else{
+    else {
         res.sendFile(routePrefix + '/SharedPostPageContent/MainContent/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
             if (err) {
                 console.error('Error sending file:', err);
@@ -4144,11 +3954,6 @@ app.get('/MetaverseDaily/singlenews', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
     console.log('Single News');
-    /*res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index1.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });*/
     res.sendFile(routePrefix + '/SharedPostPageContent/SingleNews/index' + GetRandomNumberBetween(1, 10).toString() + '.html', { root: __dirname }, function (err) {
         if (err) {
             console.error('Error sending file:', err);
@@ -4422,7 +4227,7 @@ app.get('/Ticker', (req, res) => {
 app.get('/', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
-        if (routePrefix == 'Mobile') {
+    if (routePrefix == 'Mobile') {
         res.sendFile(routePrefix + '/Brand/MediaKit/index' + GetRandomNumberBetween(1, 3).toString() + '.html', { root: __dirname }, function (err) {
             if (err) {
                 console.error('Error sending file:', err);
@@ -4639,16 +4444,6 @@ app.get('/becomestudent', (req, res) => {
     });
 });
 
-/*
-app.get('/videoplayer', (req, res) => {
-    res.sendFile('videoplayer.html', { root: __dirname });
-});
-
-app.get('/eventdetails', (req, res) => {
-    res.sendFile('eventdetails.html', { root: __dirname });
-});
-*/
-
 app.get('/home', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
     console.log('Route Prefix : ' + routePrefix);
@@ -4659,11 +4454,15 @@ app.get('/home', (req, res) => {
     });
 });
 
-/*
-app.get('/homecontent', (req, res) => {
-    res.sendFile('/home/content.json', { root: __dirname });
+app.get('/insta', (req, res) => {
+    var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
+    console.log('Route Prefix : ' + routePrefix);
+    res.sendFile(routePrefix + '/Insta/index.html', { root: __dirname }, function (err) {
+        if (err) {
+            console.error('Error sending file:', err);
+        }
+    });
 });
-*/
 
 app.get('/broadcasts', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -4717,7 +4516,6 @@ app.get('/curatedgenerations', (req, res) => {
         }
     });
 });
-
 
 app.get('/curatedgenerations/artistplaylist', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -4886,8 +4684,6 @@ app.get('/curatedgenerations/sportsfuntastic', (req, res) => {
         }
     });
 });
-
-
 
 ///Start - About menu options*****************************************************
 app.get('/about', (req, res) => {
@@ -6052,11 +5848,6 @@ app.get('/memberaccess', (req, res) => {
     });
 });
 
-/*
-app.get('/memberaccesscontent', (req, res) => {
-    res.sendFile('/MemberAccess/railcontent.html', { root: __dirname });
-});
-*/
 ///End - Member Access menu options*****************************************************
 
 
@@ -6317,12 +6108,6 @@ app.get('/metaworldsinsider', (req, res) => {
     });
 });
 
-/*
-app.get('/moduleContent/:pageNumber', (req, res) => {
-    console.log(req.params.pageNumber);
-    res.sendFile('/MetaworldsInsider/Decentraland/index11.html', { root: __dirname });
-});
-*/
 
 app.get('/metaworldsinsider/decentraland', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -6826,16 +6611,6 @@ app.get('/newsandupdates', (req, res) => {
         }
     });
 });
-
-/*
-app.get('/newsandupdates/featured/2', (req, res) => {
-    res.sendFile('/NewsandUpdates/Featured/index2.html', { root: __dirname });
-});
-
-app.get('/featuredContent/:pageNumber', (req, res) => {
-    console.log(req.params.pageNumber);
-    res.sendFile('/NewsandUpdates/Featured/featuredContent' + req.params.pageNumber + '.html', { root: __dirname });
-});*/
 
 app.get('/newsandupdates/featured', (req, res) => {
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -7532,7 +7307,6 @@ app.get('/offers/past', (req, res) => {
     }
 });
 
-
 app.get('/posts/:hash', (req, res) => {
     console.log('Hash : ' + req.params.hash);
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -7550,16 +7324,6 @@ app.get('/posts/:hash', (req, res) => {
             });
         }
     });
-
-/*
-    console.log(req.params.postHash);
-    var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
-    console.log('Route Prefix : ' + routePrefix);
-    res.sendFile(routePrefix + '/Posts/' + req.params.postHash + '.html', { root: __dirname }, function (err) {
-        if (err) {
-            console.error('Error sending file:', err);
-        }
-    });*/
 });
 
 app.get('/posts/search/:postHash', (req, res) => {
@@ -7738,7 +7502,6 @@ app.get('/posts/partnerships/:postHash', (req, res) => {
     });
 });
 
-
 app.get('/posts/organizational/:postHash', (req, res) => {
     console.log(req.params.postHash);
     var routePrefix = req.useragent.isMobile == true ? 'Mobile' : '';
@@ -7866,14 +7629,6 @@ app.get('/digitaluniversity/spaceinstituteofmetaverseresearch', (req, res) => {
 ///End - Virtual Universities options*****************************************************
 
 //#endregion
-/*
-app.all('*', (req, res) => {
-    console.log('route not found')
-    res.status(404).send('<h1>404! Page not found</h1>');
-});*/
-
-
-
 
 process.on('uncaughtException', function (err) {
     // handle the error safely
@@ -7885,16 +7640,6 @@ app.use(function (error, request, response, next) {
     console.log(error);
     response.status(500).redirect('/signin?status=error');
 });
-
-/*app.use("/static/", (req, res, next) => {
-    console.log('Invalid Static Content');
-    res.end('File Not Found');
-});
-
-app.use("/", (req, res, next) => {
-    console.log('Invalid Route');
-    res.status(404).redirect('/home');
-});*/
 
 app.get('/v2/:hash', (req, res) => {
     console.log('Hash : ' + req.params.hash);
@@ -7916,7 +7661,7 @@ app.get('/v2/:hash', (req, res) => {
 });
 
 
-const server = app.listen(port, () => console.log(`Meta Daily listening on port ${port}!`));
+const server = app.listen(port, () => console.log(`Metaverse Daily listening on port ${port}!`));
 
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;

@@ -233,13 +233,13 @@
                             </style>
 
                             <dialog id="MemberAccessDialog"
-                                style="overflow-y:hidden; overflow-x: hidden; height:550px; margin-top:50px;">
-                                <div>
-                                    <h2>Apply for Membership</h2>
+                                style="overflow-y:hidden; overflow-x: hidden; height:550px; margin-top:50px; width:70%;">
+                                <div style="margin-top:20px;">
+                                    <h2 style="font-size: 26px;">Apply for Membership</h2>
                                     <div id="memberAccessPage1">
                                         <form id="memberAccessForm" name="memberAccessForm"
                                             style="margin-top:0px; padding-top:0px;" onsubmit="event.preventDefault();">
-                                            <div style="height:400px; overflow-y: scroll; width:110%;"
+                                            <div style="height:400px; overflow-y: scroll; width:115%;"
                                                 class="ScrollableMemberAccessForm">
                                                 <fieldset class='form-bd'>
                                                     <div class='field-group' style="margin-top:0px; padding-top:20px;">
@@ -291,9 +291,9 @@
                                                             <textarea id="txtStatementOfObjective"
                                                                 name='StatementOfObjectives'
                                                                 placeholder="Write Statement Of Objectives (Max 2000 words)"
-                                                                rows="10" cols="50" required maxlength="2000"
+                                                                rows="10" cols="40" required maxlength="2000"
                                                                 pattern="^[a-zA-Z0-9_@.:/\&,]+$"
-                                                                style="height:250px; font-size: larger; border-radius:7px;"
+                                                                style="height:250px; font-size: larger; border-radius:7px; width:90%;"
                                                                 class="ScrollableTextArea"></textarea>
                                                         </div>
                                                     </div>
@@ -323,7 +323,7 @@
                                                     confirmation.</span>
                                             </div>
                                             <div
-                                                style='background-image: url("/static/gifs/done.gif"); height:300px; width:100%; background-size: cover; margin-top:10px;'>
+                                                style='background-image: url("/static/gifs/done.gif"); height:280px; width:100%; background-size: cover; margin-top:10px; border-radius: 10px;'>
                                             </div>
                                             <div class='button-group' style="float:left; margin-top:0px;">
                                                 <button class='button variant-cta' style="border-radius:7px; font-size:20px;"

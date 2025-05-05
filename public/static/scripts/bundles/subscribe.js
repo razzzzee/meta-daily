@@ -22,6 +22,15 @@ function CloseSubscribeNewsletterDialog() {
     subscribeNewsletterDialog.close();
 }
 
+function ShowSubscribeNewsletterDialog() {
+    var form = subscribeNewsletterDialog.querySelector('#subscribeNewsletterForm');
+    form.reset();
+    var datetime=new Date().getTime();
+    subscribeNewsletterPage1.style.display = 'block';
+    subscribeNewsletterDialog.style.height = "320px";
+    subscribeNewsletterDialog.showModal();
+}
+
 var subscribeNewsletterFullName;
 var subscribeNewsletterEmailId;
 

@@ -558,13 +558,29 @@
                 isDark: true,
                 quickActions: false,
                 locale: { // You can set locale for calendar
-                    format: "YYYY-MM-DD"
+                    format: "DD-MM-YYYY"
                 }
             });
             calendarify.init();
-
+        
             var txtDateDOB = document.getElementById("dateDOB");
             txtDateDOB.value = "";
+           /* var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear() - 18;
+
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = dd + '-' + mm + '-' + yyyy;
+
+            var txtDateDOB = document.getElementById("dateDOB");
+            txtDateDOB.value = today;*/
         });
     </script>
 </body>

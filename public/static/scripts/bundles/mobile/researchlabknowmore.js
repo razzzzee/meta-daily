@@ -13,7 +13,7 @@ closeResearchLabKnowMoreDialogButton.addEventListener("click", () => {
     researchLabKnowMoreDialog.close();
 });
 
-function CloseApplyNowDialog() {
+function CloseResearchLabKnowMoreDialog() {
     researchLabKnowMoreDialog.close();
 }
 
