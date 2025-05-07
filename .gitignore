@@ -1,2 +1,5 @@
 node_modules
 .DS_Store
+package.json
+prodenvcleanup.ps1
+mobileprodenvcleanup.ps1
